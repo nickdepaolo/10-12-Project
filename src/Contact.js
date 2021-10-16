@@ -4,19 +4,24 @@ import React, {useState} from 'react';
 const Contact = (props) => {
 
     const APIURL = 'https://rickandmortyapi.com/api/';
-    const [character, setCharacter] = useState('Rick');
+    const [character, setCharacter] = useState('');
     const [location, setLocation] = useState('Earth (C-137)');
-    const [episode, setEpisode] = useState('The Ricklantis Mixup');
+    const [episode, setEpisode] = useState('Acid');
 
-    const submitCharacter = (event) => {
+    const submitCharacter = () => {
         fetch(APIURL+`character/?name=`+character)
             .then((res) => res.json())
             .then((props) =>{
-                console.log(props)
+                console.log(props.results[0].name
+                
+                    )
+                    setCharacter(props.results[0].name);
+                    
             })
+            .then(console.log(character+" 1"))
     }
 
-    const submitLocation = (event) => {
+    const submitLocation = () => {
         fetch(APIURL+`location/?name=`+location)
             .then((res) => res.json())
             .then((props) =>{
@@ -24,8 +29,8 @@ const Contact = (props) => {
             })
     }
 
-    const submitEpisode = (event) => {
-        fetch(APIURL+`episode/?name=`+character)
+    const submitEpisode = () => {
+        fetch(APIURL+`episode/?name=`+episode)
             .then((res) => res.json())
             .then((props) =>{
                 console.log(props)
@@ -50,7 +55,8 @@ const Contact = (props) => {
             <input onChange={(e) => setEpisode(e.target.value)} name="Episode" />
             <br/>
             <button type="button" onClick={submitEpisode}>Search</button>
-            {console.log(character, location, episode)}
+            {character.length>0?<h1>{character}</h1>:null}
+            
         </div>
     )
 }
