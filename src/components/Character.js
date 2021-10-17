@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import CharacterMap from './CharacterMap';
+import portal from '../Assets/portal.gif'
+
 
 const Character = () => {
     const APIURL = 'https://rickandmortyapi.com/api/';
@@ -27,11 +29,11 @@ const Character = () => {
     return(
         <div>
             <input onChange={(e) => setUserInput(e.target.value)} name="UserInput" />
-            <button type="button" onClick={submitCharacter} >Search</button>
+            <button type="button" onClick={submitCharacter} className={'portalButton'} >Search</button>
            <br/>
            <br/>
+            <img src={portal} width='200em' />
             <CharacterMap infoContain={infoContain} />
-            
 
         </div>
     )
