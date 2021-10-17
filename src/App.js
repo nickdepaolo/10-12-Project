@@ -1,17 +1,17 @@
 import './App.css';
-import Contact from './Contact';
-import Character from './Character';
+import Contact from './components/Contact';
+import Character from './components/Character';
 // import {useEffect} from 'react';
 
-function App(props) {
+function App() {
 
 
   return (
     <div className="App">
       <p>10-12 Project</p>
-      <Contact/>
+      {/* <Contact/> */}
       <Character/>
-      {console.log(props)}
+      {console.log('App page console log')}
     </div>
   );
 }
