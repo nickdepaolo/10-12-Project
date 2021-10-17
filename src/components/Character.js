@@ -13,6 +13,7 @@ const Character = () => {
             .then(res => res.json())
             .then(json =>{
                setInfoContain(json.results);
+               
                setInfo()
             })
            
@@ -27,8 +28,10 @@ const Character = () => {
         <div>
             <input onChange={(e) => setUserInput(e.target.value)} name="UserInput" />
             <button type="button" onClick={submitCharacter} >Search</button>
+           <br/>
+           <br/>
             <CharacterMap infoContain={infoContain} />
-            <h1>{displayName}</h1>
+            
 
         </div>
     )
