@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import React from 'react';
+import './Components.css'
 
 
 const CharacterMap = (props) => {
@@ -34,8 +35,8 @@ const CharacterMap = (props) => {
                 <div key={card.id}>
                     <img width='150em' src={card.image}/>
                     <h3>{card.name}</h3>
-                    <p>{card.status}</p>
                     <p>{card.location.name}</p>
+                    <p>{card.status}</p>
                     <h1>________________</h1>
                     <br/>
                 </div>

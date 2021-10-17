@@ -1,0 +1,7 @@
+.portalButton {
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-image: url(../Assets/magGlass.png);
+    border: none;
+    padding: 1.2em;
+}
