@@ -23,6 +23,7 @@ const CharacterMap = (props) => {
                     <p>Species : {spot.species}</p>
                     <p>Origin : {spot.origin.name}</p>
                     <p>Last Location : {spot.location.name}</p>
+                    <p>{spot.type}</p>
                     <p>{spot.status}</p>
                     <h1>________________</h1>
                    

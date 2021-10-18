@@ -6,23 +6,22 @@ import './Components.css'
 
 
 const Character = () => {
-    const [modalIsOpen, setIsOpen] = useState(false);
     const APIURL = 'https://rickandmortyapi.com/api/';
     const [userInput, setUserInput] = useState('');
     const [infoContain, setInfoContain] = useState([])
+    const [modalIsOpenAdv, setIsOpenAdv] = useState(false);
     const [displayName, setDisplayName] = useState('')
+    const [inputSelect, setInputSelect] = useState(false)
+    const [statusSelect, setStatusSelect] = useState(false)
+    const [speciesSelect, setSpeciesSelect] = useState(false)
+    const [genderSelect, setGenderSelect] = useState(false)
 
-    function openModal() {
-        setIsOpen(true);
+    function openModalAdv() {
+        setIsOpenAdv(true);
     }
 
-    // function afterOpenModal() {
-    //     // references are now sync'd and can be accessed.
-        
-    //   }
-
-      function closeModal() {
-        setIsOpen(false);
+      function closeModalAdv() {
+        setIsOpenAdv(false);
       }
     
 
@@ -31,7 +30,7 @@ const Character = () => {
             .then(res => res.json())
             .then(json =>{
                setInfoContain(json.results);
-               console.log(json)
+               console.log(json.results)
             })
     }
     
@@ -42,48 +41,77 @@ const Character = () => {
             <input onChange={(e) => setUserInput(e.target.value)} name="UserInput" />
             <button type="button" onClick={submitCharacter} className={'portalButton'} ></button>
             <br/>
-            <button onClick={openModal} >{modalIsOpen?'WubbaLubbaDubDub':'Advanced Search'}</button>
+            <button onClick={openModalAdv} >{modalIsOpenAdv?'WubbaLubbaDubDub':'Advanced Search'}</button>
             <br/>
+            
             <Modal
                 closeTimeoutMS={500}
                 style={{
+                   
                     overlay: {
-                      position: 'fixed',
-                      top: 50,
-                      left: 250,
-                      right: 250,
-                      bottom: 100,
-                      backgroundColor: 'rgba(255, 255, 255, 0.75)'
+                    //   alignSelf: 'center',
+                    //THIS IS NOT WORKING WILL NOT CENT THE MODAL IN PAGE
+                      maxWidth: 800
                     },
                     content: {
                       position: 'absolute',
-                      top: '40px',
-                      left: '40px',
-                      right: '40px',
-                      bottom: '40px',
-                      border: '3px solid #ccc',
+                      top: '4em',
+                      left: '4em',
+                      right: '4em',
+                      bottom: '4em',
+                      border: '.28em solid #ccc',
                       background: '#fff',
                       overflow: 'auto',
                       WebkitOverflowScrolling: 'touch',
                       borderRadius: '70px',
-                      padding: '3em'
+                      padding: 30,
+                      textAlign: 'center',
+                      
+                      
                     }
                   }}
-                isOpen={modalIsOpen}
-                onRequestClose={closeModal}>
+                isOpen={modalIsOpenAdv}
+                onRequestClose={closeModalAdv}>
+
                 <h2>Advanced Search</h2>
                 <input/>
+
                 <br/>
+                <br/>
+
                 <select>
                     <option>Status</option>
                     <option>Alive</option>
                     <option>Dead</option>
                     <option>Unknown</option>
                 </select>
+
+                <select>
+                    <option>Species</option>
+                    <option>Human</option>
+                    <option>Alien</option>
+                </select>
+
+                <select>
+                    <option>Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Genderless</option>
+                    <option>Unknown</option>
+                </select>
+
                 <br/>
                 <br/>
-                <button onClick={closeModal} >Close</button>
+
+                <button>Search</button>
+
+                <br/>
+                <br/>
+
+                <button onClick={closeModalAdv} >Close</button>
+
             </Modal>
+
             <CharacterMap infoContain={infoContain} />
 
         </div>
