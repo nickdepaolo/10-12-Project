@@ -42,18 +42,45 @@ const Character = () => {
             <input onChange={(e) => setUserInput(e.target.value)} name="UserInput" />
             <button type="button" onClick={submitCharacter} className={'portalButton'} ></button>
             <br/>
-            <button onClick={openModal} >{modalIsOpen?'Close':'Advanced Search'}</button>
+            <button onClick={openModal} >{modalIsOpen?'WubbaLubbaDubDub':'Advanced Search'}</button>
             <br/>
             <Modal
+                closeTimeoutMS={500}
+                style={{
+                    overlay: {
+                      position: 'fixed',
+                      top: 50,
+                      left: 250,
+                      right: 250,
+                      bottom: 100,
+                      backgroundColor: 'rgba(255, 255, 255, 0.75)'
+                    },
+                    content: {
+                      position: 'absolute',
+                      top: '40px',
+                      left: '40px',
+                      right: '40px',
+                      bottom: '40px',
+                      border: '3px solid #ccc',
+                      background: '#fff',
+                      overflow: 'auto',
+                      WebkitOverflowScrolling: 'touch',
+                      borderRadius: '70px',
+                      padding: '3em'
+                    }
+                  }}
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}>
-                <h2>Advanced Search Modal</h2>
+                <h2>Advanced Search</h2>
+                <input/>
+                <br/>
                 <select>
                     <option>Status</option>
                     <option>Alive</option>
                     <option>Dead</option>
                     <option>Unknown</option>
                 </select>
+                <br/>
                 <br/>
                 <button onClick={closeModal} >Close</button>
             </Modal>
