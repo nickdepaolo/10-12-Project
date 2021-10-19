@@ -36,16 +36,25 @@ const Character = () => {
   }
 
   function buildADVURL() {
-    inputSelect===true? setADVAPIURL(APIURL+`character/?name=`+userInput) : setADVAPIURL(APIURL+`character/?`);
+    inputSelect===true? 
+      setADVAPIURL(`https://rickandmortyapi.com/api/character/?name=`+userInput) : 
+      setADVAPIURL(`https://rickandmortyapi.com/api/character/?`);
 
-    statusSelect===true? ADVAPIURL.endsWith('?')===true? setADVAPIURL(ADVAPIURL+`&status=`+statusValue) : setADVAPIURL(ADVAPIURL+`status=`+statusValue) : setADVAPIURL(ADVAPIURL);
+    console.log(ADVAPIURL)
+    // advStatus()
+  }
 
+  function advStatus() {
+    ADVAPIURL.endsWith('?')===true? 
+    setADVAPIURL(ADVAPIURL+`&status=`) : setADVAPIURL(ADVAPIURL+`status=`);
     console.log(ADVAPIURL)
   }
 
   function advUserInput() {
-    userInput.length > 0? setInputSelect(true) : setInputSelect(false);
-    console.log(inputSelect)
+    userInput.length > 0? 
+      setInputSelect(true) : 
+      setInputSelect(false);
+    console.log('Input Select '+inputSelect)
     buildADVURL()
   }
 
