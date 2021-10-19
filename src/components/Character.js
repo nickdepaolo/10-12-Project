@@ -19,7 +19,7 @@ const Character = () => {
     const [genderSelect, setGenderSelect] = useState(false)
 
     const submitCharacter = () => {
-        fetch(APIURL+`character/?name=`+userInput)
+        fetch(APIURL+`character/?&name=`+userInput)
             .then(res => res.json())
             .then(json =>{
                setInfoContain(json.results);
