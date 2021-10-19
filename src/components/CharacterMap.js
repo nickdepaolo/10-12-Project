@@ -26,7 +26,7 @@ const CharacterMap = (props) => {
                     <p>{spot.type}</p>
                     <p>{spot.status}</p>
                     <h1>________________</h1>
-                   
+                    
                 </div>
             ))}
            

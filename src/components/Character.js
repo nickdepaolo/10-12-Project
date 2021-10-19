@@ -9,21 +9,14 @@ const Character = () => {
     const APIURL = 'https://rickandmortyapi.com/api/';
     const [userInput, setUserInput] = useState('');
     const [infoContain, setInfoContain] = useState([])
-    const [modalIsOpenAdv, setIsOpenAdv] = useState(false);
+    const [modalIsOpenAdv, setIsOpenAdv] = useState(false)
+    const [ADVAPIURL, setADVAPIURL]= useState('')
     const [displayName, setDisplayName] = useState('')
     const [inputSelect, setInputSelect] = useState(false)
     const [statusSelect, setStatusSelect] = useState(false)
+    const [statusValue, setStatusValue] = useState('')
     const [speciesSelect, setSpeciesSelect] = useState(false)
     const [genderSelect, setGenderSelect] = useState(false)
-
-    function openModalAdv() {
-        setIsOpenAdv(true);
-    }
-
-      function closeModalAdv() {
-        setIsOpenAdv(false);
-      }
-    
 
     const submitCharacter = () => {
         fetch(APIURL+`character/?name=`+userInput)
@@ -34,7 +27,27 @@ const Character = () => {
             })
     }
     
-   
+    function openModalAdv() {
+      setIsOpenAdv(true);
+  }
+
+  function closeModalAdv() {
+      setIsOpenAdv(false);
+  }
+
+  function buildADVURL() {
+    inputSelect===true? setADVAPIURL(APIURL+`character/?name=`+userInput) : setADVAPIURL(APIURL+`character/?`);
+
+    statusSelect===true? ADVAPIURL.endsWith('?')===true? setADVAPIURL(ADVAPIURL+`&status=`+statusValue) : setADVAPIURL(ADVAPIURL+`status=`+statusValue) : setADVAPIURL(ADVAPIURL);
+
+    console.log(ADVAPIURL)
+  }
+
+  function advUserInput() {
+    userInput.length > 0? setInputSelect(true) : setInputSelect(false);
+    console.log(inputSelect)
+    buildADVURL()
+  }
 
     return(
         <div>
@@ -45,12 +58,13 @@ const Character = () => {
             <br/>
             
             <Modal
+            
                 closeTimeoutMS={500}
                 style={{
                    
                     overlay: {
                     //   alignSelf: 'center',
-                    //THIS IS NOT WORKING WILL NOT CENT THE MODAL IN PAGE
+                    //THIS IS NOT WORKING WILL NOT CENTER THE MODAL IN PAGE
                       maxWidth: 800
                     },
                     content: {
@@ -74,7 +88,8 @@ const Character = () => {
                 onRequestClose={closeModalAdv}>
 
                 <h2>Advanced Search</h2>
-                <input/>
+                <h5>Name</h5>
+                <input onKeyUp={advUserInput} onChange={(e) => setUserInput(e.target.value)} />
 
                 <br/>
                 <br/>
