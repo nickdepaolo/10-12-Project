@@ -6,20 +6,34 @@ import './Components.css'
 
 
 const Character = () => {
-    const APIURL = 'https://rickandmortyapi.com/api/';
+    const APIURL = 'https://rickandmortyapi.com/api/character/?';
     const [userInput, setUserInput] = useState('');
     const [infoContain, setInfoContain] = useState([])
     const [modalIsOpenAdv, setIsOpenAdv] = useState(false)
-    const [ADVAPIURL, setADVAPIURL]= useState('')
+    // const [ADVAPIURL, setADVAPIURL]= useState('')
     const [displayName, setDisplayName] = useState('')
     const [inputSelect, setInputSelect] = useState(false)
+    const [inputValue, setInputValue] = useState('')
+    const [ADVinput, setADVinput] = useState('')
     const [statusSelect, setStatusSelect] = useState(false)
     const [statusValue, setStatusValue] = useState('')
+    const [ADVstatus, setADVstatus] = useState('')
     const [speciesSelect, setSpeciesSelect] = useState(false)
+    const [speciesValue, setSpeciesValue] = useState('')
+    const [ADVspecies, setADVspecies] = useState('')
     const [genderSelect, setGenderSelect] = useState(false)
+    const [genderValue, setGenderValue] = useState('')
+    const [ADVgender, setADVgender] = useState('')
+    const [URL, setURL] = useState('')
+
+    
+
+    useEffect(() => {
+      console.log('useEffect ' + ADVAPIURL)
+    }, [])
 
     const submitCharacter = () => {
-        fetch(APIURL+`character/?&name=`+userInput)
+        fetch(APIURL+`&name=`+userInput)
             .then(res => res.json())
             .then(json =>{
                setInfoContain(json.results);
@@ -27,36 +41,63 @@ const Character = () => {
             })
     }
     
-    function openModalAdv() {
+  function openModalAdv() {
       setIsOpenAdv(true);
   }
 
   function closeModalAdv() {
       setIsOpenAdv(false);
-  }
-
-  function buildADVURL() {
-    inputSelect===true? 
-      setADVAPIURL(`https://rickandmortyapi.com/api/character/?name=`+userInput) : 
-      setADVAPIURL(`https://rickandmortyapi.com/api/character/?`);
-
-    console.log(ADVAPIURL)
-    // advStatus()
-  }
-
-  function advStatus() {
-    ADVAPIURL.endsWith('?')===true? 
-    setADVAPIURL(ADVAPIURL+`&status=`) : setADVAPIURL(ADVAPIURL+`status=`);
-    console.log(ADVAPIURL)
-  }
-
-  function advUserInput() {
-    userInput.length > 0? 
-      setInputSelect(true) : 
+      setStatusValue('');
+      setUserInput('');
+      setSpeciesValue('');
+      setGenderValue('');
       setInputSelect(false);
-    console.log('Input Select '+inputSelect)
-    buildADVURL()
+      setStatusSelect(false);
+      setSpeciesSelect(false);
+      setGenderSelect(false)
+      console.log(`close modal ${ADVAPIURL}`)
   }
+  
+  function advUserInput() {
+    inputValue.length > 0? 
+      lockADVinput() : 
+      setInputSelect(false);
+
+    setADVinput('&name='+inputValue)
+    setInputSelect(true)
+  }
+
+  function lockADVinput() {
+    
+    
+
+    console.log('Input Select '+inputSelect);
+    refreshADVAPIURL()
+  }
+  
+  function advStatus() {
+    setStatusValue(document.getElementById('status').value)
+
+    statusValue.length > 1?
+      setStatusSelect(true):
+      setStatusSelect(false);
+
+    statusSelect? setADVstatus(`&status=`+statusValue) : setADVstatus('')
+
+    console.log('Status Value '+statusValue);
+
+  }
+  
+  function checkURL () {
+    console.log(URL)
+  }
+
+  function refreshADVAPIURL() {
+    setTimeout(function() {
+      setURL(APIURL + ADVinput + ADVstatus + ADVspecies + ADVgender);
+    }, 100);
+  }
+  let ADVAPIURL = APIURL + ADVinput + ADVstatus + ADVspecies + ADVgender
 
     return(
         <div>
@@ -65,6 +106,7 @@ const Character = () => {
             <br/>
             <button onClick={openModalAdv} >{modalIsOpenAdv?'WubbaLubbaDubDub':'Advanced Search'}</button>
             <br/>
+            <button onClick={checkURL} >Check ADVAPIURL</button>
             
             <Modal
             
@@ -98,16 +140,16 @@ const Character = () => {
 
                 <h2>Advanced Search</h2>
                 <h5>Name</h5>
-                <input onKeyUp={advUserInput} onChange={(e) => setUserInput(e.target.value)} />
+                <input onKeyUp={advUserInput} onChange={(e) => setInputValue(e.target.value)} />
 
                 <br/>
                 <br/>
 
-                <select>
-                    <option>Status</option>
-                    <option>Alive</option>
-                    <option>Dead</option>
-                    <option>Unknown</option>
+                <select id="status" onClick={advStatus} >
+                    <option value='1'>Status</option>
+                    <option value='alive'>Alive</option>
+                    <option value='dead'>Dead</option>
+                    <option value='unknown'>Unknown</option>
                 </select>
 
                 <select>
@@ -131,7 +173,8 @@ const Character = () => {
 
                 <br/>
                 <br/>
-
+                  
+                <button onClick={checkURL}>Check ADVAPIURL</button>
                 <button onClick={closeModalAdv} >Close</button>
 
             </Modal>

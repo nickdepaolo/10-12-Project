@@ -1,6 +1,5 @@
 import './App.css';
-import Contact from './components/Contact';
-import Character from './components/Character';
+import Character from './components/CharacterSearch';
 // import {useEffect} from 'react';
 
 function App() {
@@ -9,7 +8,6 @@ function App() {
   return (
     <div className="App">
       <p>10-12 Project</p>
-      {/* <Contact/> */}
       <Character/>
       {console.log('App page console log')}
     </div>
