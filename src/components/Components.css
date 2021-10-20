@@ -9,3 +9,27 @@
 .body {
     text-align: center;
 }
+
+/* #ADVmodal {
+    /* overlay: {
+        //   alignSelf: 'center',
+        //THIS IS NOT WORKING WILL NOT CENTER THE MODAL IN PAGE
+          maxWidth: 800
+        },
+        content: { should be ; not , below
+          position: 'absolute',
+          top: '4em',
+          left: '4em',
+          right: '4em',
+          bottom: '4em',
+          border: '.28em solid #ccc',
+          background: '#fff',
+          overflow: 'auto',
+          WebkitOverflowScrolling: 'touch',
+          borderRadius: '70px',
+          padding: 30,
+          textAlign: 'center',
+          
+          
+        } 
+} */

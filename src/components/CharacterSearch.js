@@ -23,7 +23,7 @@ const Character = () => {
     const [genderSelect, setGenderSelect] = useState(false)
     const [genderValue, setGenderValue] = useState('')
     const [ADVgender, setADVgender] = useState('')
-    const [URL, setURL] = useState('')
+    const [ADVURL, setADVURL] = useState('')
 
     
     
@@ -36,22 +36,23 @@ const Character = () => {
                console.log(json.results)
             })
     }
+
+    const submitADV = () => {
+      fetch(ADVURL)
+          .then(res => res.json())
+          .then(json =>{
+             setInfoContain(json.results);
+             console.log(json.results)
+          })
+  }
     
   function openModalAdv() {
-      setIsOpenAdv(true);
-      
+      setIsOpenAdv(true); 
   }
 
   function closeModalAdv() {
       setIsOpenAdv(false);
-      setStatusValue('');
-      setUserInput('');
-      setSpeciesValue('');
-      setGenderValue('');
-      setInputSelect(false);
-      setStatusSelect(false);
-      setSpeciesSelect(false);
-      setGenderSelect(false)
+     
   }
   
   function advUserInput() {
@@ -59,15 +60,23 @@ const Character = () => {
       lockADVinput() : 
       setInputSelect(false);
 
+      inputValue.length > 0? 
+      setADVinput('&name='+inputValue):
+      setADVinput('')
+
       
+
+
   }
     
     function lockADVinput() {
-      setInputSelect(true)
+      inputValue.length > 0? 
+      setInputSelect(true):
+      setInputSelect(false)
       
-      setADVinput('&name='+inputValue)
-
-      refreshADVAPIURL()
+      inputValue.length > 0? 
+      setADVinput('&name='+inputValue):
+      setADVinput('')
   }
   
   function advStatus() {
@@ -81,18 +90,43 @@ const Character = () => {
       setADVstatus(`&status=`+statusValue) : 
       setADVstatus('')
 
-      refreshADVAPIURL()
-  }
-  
-  function checkURL () {
-    refreshADVAPIURL()
-    console.log(URL)
+      
   }
 
+  function advSpecies() {
+    setSpeciesValue(document.getElementById('species').value)
+
+    document.getElementById('species').value > ''?
+      setSpeciesSelect(true):
+      setSpeciesSelect(false);
+
+    document.getElementById('species').value > ''? 
+      setADVspecies(`&species=`+speciesValue) : 
+      setADVspecies('')
+
+      
+  }
+
+  function advGender() {
+    setGenderValue(document.getElementById('gender').value)
+
+    document.getElementById('gender').value > ''?
+      setGenderSelect(true):
+      setGenderSelect(false);
+
+    document.getElementById('gender').value > ''? 
+      setADVgender(`&gender=`+genderValue) : 
+      setADVgender('')
+  }
+  
   function refreshADVAPIURL() {
    
-    setURL(APIURL + ADVinput + ADVstatus + ADVspecies + ADVgender);
- 
+    setADVURL(APIURL + ADVinput + ADVstatus + ADVspecies + ADVgender);
+    console.log(ADVURL)
+    advStatus()
+    advSpecies()
+    advGender()
+    advUserInput()
   }
 
     return(
@@ -102,82 +136,59 @@ const Character = () => {
             <br/>
             <button onClick={openModalAdv} >{modalIsOpenAdv?'WubbaLubbaDubDub':'Advanced Search'}</button>
             <br/>
-            <button onClick={checkURL} >Check ADVAPIURL</button>
-            
+ 
             <Modal
-
+                id='ADVmodal'
                 closeTimeoutMS={500}
-                style={{
-                   
-                    overlay: {
-                    //   alignSelf: 'center',
-                    //THIS IS NOT WORKING WILL NOT CENTER THE MODAL IN PAGE
-                      maxWidth: 800
-                    },
-                    content: {
-                      position: 'absolute',
-                      top: '4em',
-                      left: '4em',
-                      right: '4em',
-                      bottom: '4em',
-                      border: '.28em solid #ccc',
-                      background: '#fff',
-                      overflow: 'auto',
-                      WebkitOverflowScrolling: 'touch',
-                      borderRadius: '70px',
-                      padding: 30,
-                      textAlign: 'center',
-                      
-                      
-                    }
-                  }}
                 isOpen={modalIsOpenAdv}
                 onRequestClose={closeModalAdv}>
 
-                <form onMouseUp={checkURL} onKeyUp={checkURL} onMouseOver={checkURL}>
-                <h2>Advanced Search</h2>
-                <h5>Name</h5>
-                <input onKeyDown={(e) => setInputValue(e.target.value)} onKeyUp={advUserInput} />
+                <form  onMouseMove={refreshADVAPIURL}>
+                  <h2>Advanced Search</h2>
+                  <h5>Name</h5>
+                  <input onKeyUp={(e) => setInputValue(e.target.value)}  onChange={refreshADVAPIURL}/>
 
-                <br/>
-                <br/>
+                  <br/>
+                  <br/>
 
-                <select id="status" onChange={advStatus} onMouseUp={advStatus} onMouseDown={advStatus} >
-                    <option value=''>Status</option>
-                    <option value='alive'>Alive</option>
-                    <option value='dead'>Dead</option>
-                    <option value='unknown'>Unknown</option>
-                </select>
+                  <select id='status' onChange={advStatus} 
+                  onMouseMove={advStatus} onMouseUp={advStatus} onMouseDown={advStatus} onMouseLeave={advSpecies}>
+                      <option value=''>Status</option>
+                      <option value='alive'>Alive</option>
+                      <option value='dead'>Dead</option>
+                      <option value='unknown'>Unknown</option>
+                  </select>
 
-                <select>
-                    <option>Species</option>
-                    <option>Human</option>
-                    <option>Alien</option>
-                </select>
+                  <select id='species' onChange={advSpecies} 
+                  onMouseMove={advSpecies} onMouseUp={advSpecies} onMouseDown={advSpecies} onMouseLeave={advSpecies}>
+                      <option value=''>Species</option>
+                      <option value='human'>Human</option>
+                      <option value='alien'>Alien</option>
+                  </select>
 
-                <select>
-                    <option>Gender</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Genderless</option>
-                    <option>Unknown</option>
-                </select>
+                  <select id='gender' onChange={advGender} 
+                  onMouseMove={advGender} onMouseUp={advGender} onMouseDown={advGender} onMouseLeave={advGender}>
+                      <option value=''>Gender</option>
+                      <option value='male'>Male</option>
+                      <option value='female'>Female</option>
+                      <option value='genderless'>Genderless</option>
+                      <option value='unknown'>Unknown</option>
+                  </select>
 
-                <br/>
-                <br/>
+                  <br/>
+                  <br/>
 
-                <button>Search</button>
+                  <button  onClick={submitADV} >Search</button>
 
-                <br/>
-                <br/>
-                  
-                <button onClick={checkURL}>Check ADVAPIURL</button>
-                <button onClick={closeModalAdv} >Close</button>
+                  <br/>
+                  <br/>
+                    
                 </form>
 
+                  <button onClick={closeModalAdv} >Close</button>
             </Modal>
 
-            <CharacterMap infoContain={infoContain} />
+            <CharacterMap infoContain={infoContain}/>
 
         </div>
     )
