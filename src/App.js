@@ -1,6 +1,5 @@
 import './App.css';
 import Character from './components/CharacterSearch';
-// import {useEffect} from 'react';
 
 function App() {
 

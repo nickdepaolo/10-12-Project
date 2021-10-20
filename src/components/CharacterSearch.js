@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import CharacterMap from './CharacterMap';
 import './Components.css'
@@ -27,13 +26,10 @@ const Character = () => {
     const [URL, setURL] = useState('')
 
     
-
-    useEffect(() => {
-      console.log('useEffect ' + ADVAPIURL)
-    }, [])
+    
 
     const submitCharacter = () => {
-        fetch(APIURL+`&name=`+userInput)
+        fetch(APIURL+`&name=`+ userInput)
             .then(res => res.json())
             .then(json =>{
                setInfoContain(json.results);
@@ -43,6 +39,7 @@ const Character = () => {
     
   function openModalAdv() {
       setIsOpenAdv(true);
+      
   }
 
   function closeModalAdv() {
@@ -55,7 +52,6 @@ const Character = () => {
       setStatusSelect(false);
       setSpeciesSelect(false);
       setGenderSelect(false)
-      console.log(`close modal ${ADVAPIURL}`)
   }
   
   function advUserInput() {
@@ -63,41 +59,41 @@ const Character = () => {
       lockADVinput() : 
       setInputSelect(false);
 
-    setADVinput('&name='+inputValue)
-    setInputSelect(true)
+      
   }
-
-  function lockADVinput() {
     
-    
+    function lockADVinput() {
+      setInputSelect(true)
+      
+      setADVinput('&name='+inputValue)
 
-    console.log('Input Select '+inputSelect);
-    refreshADVAPIURL()
+      refreshADVAPIURL()
   }
   
   function advStatus() {
     setStatusValue(document.getElementById('status').value)
 
-    statusValue.length > 1?
+    document.getElementById('status').value > ''?
       setStatusSelect(true):
       setStatusSelect(false);
 
-    statusSelect? setADVstatus(`&status=`+statusValue) : setADVstatus('')
+    document.getElementById('status').value > ''? 
+      setADVstatus(`&status=`+statusValue) : 
+      setADVstatus('')
 
-    console.log('Status Value '+statusValue);
-
+      refreshADVAPIURL()
   }
   
   function checkURL () {
+    refreshADVAPIURL()
     console.log(URL)
   }
 
   function refreshADVAPIURL() {
-    setTimeout(function() {
-      setURL(APIURL + ADVinput + ADVstatus + ADVspecies + ADVgender);
-    }, 100);
+   
+    setURL(APIURL + ADVinput + ADVstatus + ADVspecies + ADVgender);
+ 
   }
-  let ADVAPIURL = APIURL + ADVinput + ADVstatus + ADVspecies + ADVgender
 
     return(
         <div>
@@ -109,7 +105,7 @@ const Character = () => {
             <button onClick={checkURL} >Check ADVAPIURL</button>
             
             <Modal
-            
+
                 closeTimeoutMS={500}
                 style={{
                    
@@ -138,15 +134,16 @@ const Character = () => {
                 isOpen={modalIsOpenAdv}
                 onRequestClose={closeModalAdv}>
 
+                <form onMouseUp={checkURL} onKeyUp={checkURL} onMouseOver={checkURL}>
                 <h2>Advanced Search</h2>
                 <h5>Name</h5>
-                <input onKeyUp={advUserInput} onChange={(e) => setInputValue(e.target.value)} />
+                <input onKeyDown={(e) => setInputValue(e.target.value)} onKeyUp={advUserInput} />
 
                 <br/>
                 <br/>
 
-                <select id="status" onClick={advStatus} >
-                    <option value='1'>Status</option>
+                <select id="status" onChange={advStatus} onMouseUp={advStatus} onMouseDown={advStatus} >
+                    <option value=''>Status</option>
                     <option value='alive'>Alive</option>
                     <option value='dead'>Dead</option>
                     <option value='unknown'>Unknown</option>
@@ -176,6 +173,7 @@ const Character = () => {
                   
                 <button onClick={checkURL}>Check ADVAPIURL</button>
                 <button onClick={closeModalAdv} >Close</button>
+                </form>
 
             </Modal>
 
