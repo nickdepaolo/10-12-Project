@@ -1,31 +1,23 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Modal from 'react-modal';
 import CharacterMap from './CharacterMap';
 import './Components.css'
 
-
-const Character = () => {
+const CharacterSearch = () => {
     const APIURL = 'https://rickandmortyapi.com/api/character/?';
     const [userInput, setUserInput] = useState('');
     const [infoContain, setInfoContain] = useState([])
+    const [nextContain, setNextContain] = useState([])
     const [modalIsOpenAdv, setIsOpenAdv] = useState(false)
-    // const [ADVAPIURL, setADVAPIURL]= useState('')
-    const [displayName, setDisplayName] = useState('')
-    const [inputSelect, setInputSelect] = useState(false)
     const [inputValue, setInputValue] = useState('')
     const [ADVinput, setADVinput] = useState('')
-    const [statusSelect, setStatusSelect] = useState(false)
     const [statusValue, setStatusValue] = useState('')
     const [ADVstatus, setADVstatus] = useState('')
-    const [speciesSelect, setSpeciesSelect] = useState(false)
     const [speciesValue, setSpeciesValue] = useState('')
     const [ADVspecies, setADVspecies] = useState('')
-    const [genderSelect, setGenderSelect] = useState(false)
     const [genderValue, setGenderValue] = useState('')
     const [ADVgender, setADVgender] = useState('')
     const [ADVURL, setADVURL] = useState('')
-
-    
     
 
     const submitCharacter = () => {
@@ -33,7 +25,9 @@ const Character = () => {
             .then(res => res.json())
             .then(json =>{
                setInfoContain(json.results);
+               setNextContain(json.info.next);
                console.log(json.results)
+               console.log(json.info)
             })
     }
 
@@ -42,9 +36,21 @@ const Character = () => {
           .then(res => res.json())
           .then(json =>{
              setInfoContain(json.results);
+             setNextContain(json.info.next);
              console.log(json.results)
           })
   }
+
+  const submitNext = () => {
+    fetch(nextContain)
+        .then(res => res.json())
+        .then(json =>{
+          setInfoContain(json.results)
+           setNextContain(json.info.next);
+           console.log(json);
+           window.scrollTo({top:0, left: 0, behavior: 'smooth'})
+        })
+}
     
   function openModalAdv() {
       setIsOpenAdv(true); 
@@ -52,28 +58,9 @@ const Character = () => {
 
   function closeModalAdv() {
       setIsOpenAdv(false);
-     
   }
   
   function advUserInput() {
-    inputValue.length > 0? 
-      lockADVinput() : 
-      setInputSelect(false);
-
-      inputValue.length > 0? 
-      setADVinput('&name='+inputValue):
-      setADVinput('')
-
-      
-
-
-  }
-    
-    function lockADVinput() {
-      inputValue.length > 0? 
-      setInputSelect(true):
-      setInputSelect(false)
-      
       inputValue.length > 0? 
       setADVinput('&name='+inputValue):
       setADVinput('')
@@ -82,37 +69,21 @@ const Character = () => {
   function advStatus() {
     setStatusValue(document.getElementById('status').value)
 
-    document.getElementById('status').value > ''?
-      setStatusSelect(true):
-      setStatusSelect(false);
-
     document.getElementById('status').value > ''? 
       setADVstatus(`&status=`+statusValue) : 
       setADVstatus('')
-
-      
   }
 
   function advSpecies() {
     setSpeciesValue(document.getElementById('species').value)
 
-    document.getElementById('species').value > ''?
-      setSpeciesSelect(true):
-      setSpeciesSelect(false);
-
     document.getElementById('species').value > ''? 
       setADVspecies(`&species=`+speciesValue) : 
       setADVspecies('')
-
-      
   }
 
   function advGender() {
     setGenderValue(document.getElementById('gender').value)
-
-    document.getElementById('gender').value > ''?
-      setGenderSelect(true):
-      setGenderSelect(false);
 
     document.getElementById('gender').value > ''? 
       setADVgender(`&gender=`+genderValue) : 
@@ -136,14 +107,14 @@ const Character = () => {
             <br/>
             <button onClick={openModalAdv} >{modalIsOpenAdv?'WubbaLubbaDubDub':'Advanced Search'}</button>
             <br/>
- 
+            
             <Modal
                 id='ADVmodal'
                 closeTimeoutMS={500}
                 isOpen={modalIsOpenAdv}
                 onRequestClose={closeModalAdv}>
 
-                <form  onMouseMove={refreshADVAPIURL}>
+                <form onMouseMove={refreshADVAPIURL}>
                   <h2>Advanced Search</h2>
                   <h5>Name</h5>
                   <input onKeyUp={(e) => setInputValue(e.target.value)}  onChange={refreshADVAPIURL}/>
@@ -151,23 +122,20 @@ const Character = () => {
                   <br/>
                   <br/>
 
-                  <select id='status' onChange={advStatus} 
-                  onMouseMove={advStatus} onMouseUp={advStatus} onMouseDown={advStatus} onMouseLeave={advSpecies}>
+                  <select id='status' onChange={advStatus}>
                       <option value=''>Status</option>
                       <option value='alive'>Alive</option>
                       <option value='dead'>Dead</option>
                       <option value='unknown'>Unknown</option>
                   </select>
 
-                  <select id='species' onChange={advSpecies} 
-                  onMouseMove={advSpecies} onMouseUp={advSpecies} onMouseDown={advSpecies} onMouseLeave={advSpecies}>
+                  <select id='species' onChange={advSpecies}>
                       <option value=''>Species</option>
                       <option value='human'>Human</option>
                       <option value='alien'>Alien</option>
                   </select>
 
-                  <select id='gender' onChange={advGender} 
-                  onMouseMove={advGender} onMouseUp={advGender} onMouseDown={advGender} onMouseLeave={advGender}>
+                  <select id='gender' onChange={advGender} >
                       <option value=''>Gender</option>
                       <option value='male'>Male</option>
                       <option value='female'>Female</option>
@@ -177,21 +145,26 @@ const Character = () => {
 
                   <br/>
                   <br/>
-
-                  <button  onClick={submitADV} >Search</button>
-
                   <br/>
                   <br/>
                     
                 </form>
+              
+                <button onClick={closeModalAdv} >Close</button>
+                <br/>
+                <br/>
+                <button  onClick={submitADV} onMouseUp={closeModalAdv}>Search</button>
 
-                  <button onClick={closeModalAdv} >Close</button>
             </Modal>
 
-            <CharacterMap infoContain={infoContain}/>
+            <CharacterMap infoContain={infoContain} arrayContain={nextContain}/>
+
+            {nextContain > ''? <button onClick={submitNext}>More...</button> : ''}
+            <br/>
+            <br/>
 
         </div>
     )
 
 }
-export default Character
+export default CharacterSearch

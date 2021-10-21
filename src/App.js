@@ -1,5 +1,5 @@
 import './App.css';
-import Character from './components/CharacterSearch';
+import CharacterSearch from './components/CharacterSearch';
 
 function App() {
 
@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <p>10-12 Project</p>
-      <Character/>
+      <CharacterSearch/>
       {console.log('App page console log')}
     </div>
   );
