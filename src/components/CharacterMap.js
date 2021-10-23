@@ -18,6 +18,7 @@ const CharacterMap = (props) => {
 
     function passProps() {
         props.triggerInput()
+        window.scrollTo({top:0, behavior: 'smooth'})
     }
     
     return(
