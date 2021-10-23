@@ -1,61 +1,34 @@
-import CharacterModal from './CharacterModal';
-import React, {useState} from 'react';
+import CharacterSpotlight from './CharacterSpotlight';
+import React, {useEffect, useState} from 'react';
+
 import './Components.css'
 
 
 const CharacterMap = (props) => {
-    
-    let infoContain = props.infoContain;
-    const nextContain = props.arrayContain;
+    const [spotID, setSpotID] = useState('')
+    const infoContain = props.infoContain;
     const sliceChar = infoContain.slice(0,1)
     const sliceList = infoContain.slice(1,20)
-    const [openCharacterModal, setOpenCharacterModal] = useState(false)
+   
+    let spotUpdate = infoContain[spotID -1]
 
-    const submitNext = () => {
-        fetch(nextContain)
-            .then(res => res.json())
-            .then(json =>{
-                
-               infoContain = json.results;
-               console.log(nextContain);
-               console.log(json)
-            })
+    function check() {
+        console.log(spotID)
     }
 
-    const openModal = () => {
-        setOpenCharacterModal(true)
+    function passProps() {
+        props.triggerInput()
     }
-
-    const closeModal = () => {
-        setOpenCharacterModal(false)
-    }
-
+    
     return(
         <div>
+            <button onClick={check}>Check</button>
 
-            {sliceChar.map((spot) =>(
-                <div key={spot.id}>
-                    <h1>{spot.name}</h1>
-                    <img width='300em' alt=''src={spot.image}/>
-                    <p>Species : {spot.species}</p>
-                    <p>Gender : {spot.gender}</p>
-                    <p>Origin : {spot.origin.name}</p>
-                    <p>Last Location : {spot.location.name}</p>
-                    <p>{spot.status}</p>
-                    <p>{spot.type}</p>
-                    <h1>________________</h1>
-                    
-                </div>
-            ))}
-           
-        
+            <CharacterSpotlight spotContain={sliceChar}/>
         
             {sliceList.map((card) => (
-                <div key={card.id}>
-                    <CharacterModal info={card} trigger={openCharacterModal}/>
-                    <a>
-                        <img width='150em' alt=''  src={card.image}/>
-                    </a>
+                <div key={card.id} id={card.id} value={card.name} onMouseOver={(e) => props.inputSelect(card.name)} onClick={passProps}>
+                    <img width='150em' alt='' src={card.image} value={card.name}/>
                     <h3>{card.name}</h3>
                     <p>{card.location.name}</p>
                     <p>{card.status}</p>

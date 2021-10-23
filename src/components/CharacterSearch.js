@@ -18,7 +18,7 @@ const CharacterSearch = () => {
     const [genderValue, setGenderValue] = useState('')
     const [ADVgender, setADVgender] = useState('')
     const [ADVURL, setADVURL] = useState('')
-    
+
 
     const submitCharacter = () => {
         fetch(APIURL+`&name=`+ userInput)
@@ -29,6 +29,7 @@ const CharacterSearch = () => {
                console.log(json.results)
                console.log(json.info)
             })
+            .then(setUserInput(''))
     }
 
     const submitADV = () => {
@@ -40,6 +41,7 @@ const CharacterSearch = () => {
              console.log(json.results)
           })
   }
+  
 
   const submitNext = () => {
     fetch(nextContain)
@@ -150,14 +152,14 @@ const CharacterSearch = () => {
                     
                 </form>
               
-                <button onClick={closeModalAdv} >Close</button>
+                <button onClick={closeModalAdv}>Close</button>
                 <br/>
                 <br/>
                 <button  onClick={submitADV} onMouseUp={closeModalAdv}>Search</button>
 
             </Modal>
 
-            <CharacterMap infoContain={infoContain} arrayContain={nextContain}/>
+            <CharacterMap infoContain={infoContain} inputSelect={setUserInput} triggerInput={submitCharacter}/>
 
             {nextContain > ''? <button onClick={submitNext}>More...</button> : ''}
             <br/>
