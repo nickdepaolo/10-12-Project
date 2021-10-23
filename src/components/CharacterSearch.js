@@ -4,68 +4,67 @@ import CharacterMap from './CharacterMap';
 import './Components.css'
 
 const CharacterSearch = () => {
-    const APIURL = 'https://rickandmortyapi.com/api/character/?';
-    const [userInput, setUserInput] = useState('');
-    const [infoContain, setInfoContain] = useState([])
-    const [nextContain, setNextContain] = useState([])
-    const [modalIsOpenAdv, setIsOpenAdv] = useState(false)
-    const [inputValue, setInputValue] = useState('')
-    const [ADVinput, setADVinput] = useState('')
-    const [statusValue, setStatusValue] = useState('')
-    const [ADVstatus, setADVstatus] = useState('')
-    const [speciesValue, setSpeciesValue] = useState('')
-    const [ADVspecies, setADVspecies] = useState('')
-    const [genderValue, setGenderValue] = useState('')
-    const [ADVgender, setADVgender] = useState('')
-    const [ADVURL, setADVURL] = useState('')
+  const APIURL = 'https://rickandmortyapi.com/api/character/?';
+  const [userInput, setUserInput] = useState('');
+  const [infoContain, setInfoContain] = useState([])
+  const [nextContain, setNextContain] = useState([])
+  const [modalIsOpenAdv, setIsOpenAdv] = useState(false)
+  const [inputValue, setInputValue] = useState('')
+  const [ADVinput, setADVinput] = useState('')
+  const [statusValue, setStatusValue] = useState('')
+  const [ADVstatus, setADVstatus] = useState('')
+  const [speciesValue, setSpeciesValue] = useState('')
+  const [ADVspecies, setADVspecies] = useState('')
+  const [genderValue, setGenderValue] = useState('')
+  const [ADVgender, setADVgender] = useState('')
+  const [ADVURL, setADVURL] = useState('')
 
 
-    const submitCharacter = () => {
-        fetch(APIURL+`&name=`+ userInput)
-            .then(res => res.json())
-            .then(json =>{
-               setInfoContain(json.results);
-               setNextContain(json.info.next);
-               console.log(json.results)
-               console.log(json.info)
-            })
-            .then(setUserInput(''))
+  const submitCharacter = () => {
+    fetch(APIURL+`&name=`+ userInput)
+      .then(res => res.json())
+      .then(json =>{
+          setInfoContain(json.results);
+          setNextContain(json.info.next);
+          console.log(json.results)
+          console.log(json.info)
+      })
+      .then(setUserInput(''))
     }
 
-    const submitADV = () => {
-      fetch(ADVURL)
-          .then(res => res.json())
-          .then(json =>{
-             setInfoContain(json.results);
-             setNextContain(json.info.next);
-             console.log(json.results)
-          })
+  const submitADV = () => {
+    fetch(ADVURL)
+      .then(res => res.json())
+      .then(json =>{
+          setInfoContain(json.results);
+          setNextContain(json.info.next);
+          console.log(json.results)
+      })
   }
-  
 
   const submitNext = () => {
     fetch(nextContain)
-        .then(res => res.json())
-        .then(json =>{
-          setInfoContain(json.results)
-           setNextContain(json.info.next);
-           console.log(json);
-           window.scrollTo({top:0, left: 0, behavior: 'smooth'})
-        })
-}
+      .then(res => res.json())
+      .then(json =>{
+        setInfoContain(json.results)
+          setNextContain(json.info.next);
+          console.log(json);
+          window.scrollTo({top:0, left: 0, behavior: 'smooth'})
+      })
+  }
     
   function openModalAdv() {
-      setIsOpenAdv(true); 
+    setIsOpenAdv(true); 
   }
 
   function closeModalAdv() {
-      setIsOpenAdv(false);
+    setIsOpenAdv(false);
   }
   
   function advUserInput() {
-      inputValue.length > 0? 
-      setADVinput('&name='+inputValue):
-      setADVinput('')
+    inputValue.length > 0? 
+    setADVinput('&name='+inputValue):
+    setADVinput('')
   }
   
   function advStatus() {
@@ -93,7 +92,6 @@ const CharacterSearch = () => {
   }
   
   function refreshADVAPIURL() {
-   
     setADVURL(APIURL + ADVinput + ADVstatus + ADVspecies + ADVgender);
     console.log(ADVURL)
     advStatus()
