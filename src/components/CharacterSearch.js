@@ -30,7 +30,7 @@ const CharacterSearch = () => {
           console.log(json.info)
       })
       .then(setUserInput(''))
-    }
+  }
 
   const submitADV = () => {
     fetch(ADVURL)

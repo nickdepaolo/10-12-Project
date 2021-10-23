@@ -14,6 +14,10 @@ p::first-letter {
   text-transform: capitalize;
 }
 
+img {
+  border-radius: 4.5em;
+}
+
 a:hover {
   cursor: pointer;
 }

@@ -9,12 +9,6 @@ const CharacterMap = (props) => {
     const infoContain = props.infoContain;
     const sliceChar = infoContain.slice(0,1)
     const sliceList = infoContain.slice(1,20)
-   
-    let spotUpdate = infoContain[spotID -1]
-
-    function check() {
-        console.log(spotID)
-    }
 
     function passProps() {
         props.triggerInput()
@@ -23,8 +17,7 @@ const CharacterMap = (props) => {
     
     return(
         <div>
-            <button onClick={check}>Check</button>
-
+   
             <CharacterSpotlight spotContain={sliceChar}/>
         
             {sliceList.map((card) => (
