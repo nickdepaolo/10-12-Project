@@ -5,7 +5,8 @@ const Failure = () => {
     
     return(
         <div>
-            <p>Genderless in adv doesnt work</p>
+            <p>Make new search for Ids on list click, same name problems</p>
+            <p>Main search input loses typed input state after search but its still on screen</p>
             <p>Search crashes if it fails</p>
         </div>
     )

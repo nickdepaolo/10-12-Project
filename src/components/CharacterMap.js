@@ -32,6 +32,7 @@ const CharacterMap = (props) => {
                     <img width='150em' alt='' src={card.image} value={card.name}/>
                     <h3>{card.name}</h3>
                     <p>{card.location.name}</p>
+                    <p>{card.gender}</p>
                     <p>{card.status}</p>
                     <h1>________________</h1>
                     <br/>
