@@ -4,7 +4,7 @@ import React, {useState, useEffect} from 'react'
 const CharacterSpotlight = (props) => {
 
     return(
-        <div>
+        <div id='spotlight'>
                 {props.spotContain.map((spot) =>(
                 <div key={spot.id}>
                     <h1>{spot.name}</h1>

@@ -5,14 +5,13 @@ import '../Components.css'
 
 
 const CharacterMap = (props) => {
-    const [spotID, setSpotID] = useState('')
     const infoContain = props.infoContain;
     const sliceChar = infoContain.slice(0,1)
     const sliceList = infoContain.slice(1,20)
 
     function passProps() {
         props.triggerInput()
-        window.scrollTo({top:0, behavior: 'smooth'})
+        window.scrollTo({top:0, left:0, behavior: 'smooth'})
     }
     
     return(

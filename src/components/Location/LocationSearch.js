@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import LocationMap from './LocationMap'
 
 const LocationSearch = () => {
 
+    const [infoContain, setInfoContain] = useState([])
+
+    const APIURL = 'https://rickandmortyapi.com/api/location'
+
+    const mainSearch = () => {
+        fetch(APIURL)
+        .then(res => res.json())
+        .then(json => setInfoContain(json.results))
+        .then(json => console.log(json))
+    }
+
+    function logTrigger() {
+        console.log(infoContain)
+    }
+ 
     return(
         <div>
-            <LocationMap/>
+            <h4>Location Search</h4>
+            <input/>
+            <button onClick={mainSearch} onMouseUp={logTrigger}>Search</button>
+            <LocationMap infoContain={infoContain}/>
         </div>
     )
 }

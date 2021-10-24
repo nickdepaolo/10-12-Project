@@ -10,11 +10,9 @@ function App() {
 
   return (
     <div className="App">
-      <p>Ricktionary</p>
       <Router>
-      <MainRouter/>
+        <MainRouter/>
       </Router>
-      {console.log('App page console log')}
     </div>
   );
 }

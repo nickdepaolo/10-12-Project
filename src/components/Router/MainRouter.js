@@ -2,15 +2,16 @@ import React from 'react';
 import {Route, Link, Switch} from 'react-router-dom';
 import CharacterSearch from '../Character/CharacterSearch';
 import LocationSearch from '../Location/LocationSearch';
+import Header from '../Header/Header';
+import '../Components.css'
 
-const MainRouter = () => {
+const MainRouter = (props) => {
 
     return(
         <div>
-            <ul>
-                <li><Link to='/CharacterSearch'>Character Search</Link></li>
-                <li><Link to='/LocationSearch'>Location Search</Link></li>
-            </ul>
+            <Header/>
+            <br/>
+                
             <Switch>
                 <Route exact path='/CharacterSearch'><CharacterSearch/></Route>
                 <Route exacy path='/LocationSearch'><LocationSearch/></Route>
