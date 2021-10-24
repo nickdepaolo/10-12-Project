@@ -1,6 +1,8 @@
 import './App.css';
-import CharacterSearch from './components/CharacterSearch';
-import Failure from './components/Failure';
+
+import MainRouter from './components/Router/MainRouter';
+import {Route, Link, Switch} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 
 function App() {
@@ -9,8 +11,9 @@ function App() {
   return (
     <div className="App">
       <p>Ricktionary</p>
-      <Failure/>
-      <CharacterSearch/>
+      <Router>
+      <MainRouter/>
+      </Router>
       {console.log('App page console log')}
     </div>
   );

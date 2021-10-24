@@ -1,7 +1,7 @@
 import CharacterSpotlight from './CharacterSpotlight';
 import React, {useEffect, useState} from 'react';
 
-import './Components.css'
+import '../Components.css'
 
 
 const CharacterMap = (props) => {

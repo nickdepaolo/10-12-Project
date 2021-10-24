@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import Modal from 'react-modal';
 import CharacterMap from './CharacterMap';
-import './Components.css'
+import '../Components.css'
+import Failure from '../Failure';
 
 const CharacterSearch = () => {
   const APIURL = 'https://rickandmortyapi.com/api/character/?';
@@ -102,6 +103,7 @@ const CharacterSearch = () => {
 
     return(
         <div>
+          <Failure/>
             <input onChange={(e) => setUserInput(e.target.value)} name="UserInput" />
             <button type="button" onClick={submitCharacter} className={'portalButton'} ></button>
             <br/>
