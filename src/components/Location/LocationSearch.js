@@ -10,7 +10,7 @@ const LocationSearch = () => {
     const mainSearch = () => {
         fetch(APIURL)
         .then(res => res.json())
-        .then(json => setInfoContain(json.results))
+        .then(json => setInfoContain(json.results.slice(0,5)))
         .then(json => console.log(json))
     }
 
