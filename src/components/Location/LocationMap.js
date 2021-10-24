@@ -12,7 +12,7 @@ const LocationMap = (props) => {
                     <h3>{card.name}</h3>
                     <h4>{card.type}</h4>
                     <h4>{card.dimension}</h4>
-                    {card.residents.map((character) => (
+                    {card.residents.slice(0,5).map((character) => (
                         <LocationCharacter character={character}/>
                         
                     ))}

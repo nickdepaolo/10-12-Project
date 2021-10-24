@@ -23,6 +23,8 @@ const LocationSearch = () => {
             <h4>Location Search</h4>
             <input/>
             <button onClick={mainSearch} onMouseUp={logTrigger}>Search</button>
+            <br/>
+            <br/>
             <LocationMap infoContain={infoContain}/>
         </div>
     )
