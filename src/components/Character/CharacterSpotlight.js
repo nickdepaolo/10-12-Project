@@ -3,6 +3,10 @@ import React, {useState, useEffect} from 'react'
 
 const CharacterSpotlight = (props) => {
 
+    useEffect(() => {
+        console.log(props)
+    }, [props])
+
     return(
         <div id='spotlight'>
                 {props.spotContain.map((spot) =>(

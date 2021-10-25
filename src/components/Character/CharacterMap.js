@@ -9,6 +9,10 @@ const CharacterMap = (props) => {
     const sliceChar = infoContain.slice(0,1)
     const sliceList = infoContain.slice(1,20)
 
+    // useEffect(() => {
+    //     console.log(sliceChar)
+    // },[sliceChar])
+
     function passProps() {
         props.triggerInput()
         window.scrollTo({top:0, left:0, behavior: 'smooth'})

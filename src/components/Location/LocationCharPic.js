@@ -1,16 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const CharPic = (props) => {
 
-    const infoContain = props.infoContain
+    const [passArray, setPassArray] = useState([]);
+    const infoContain = props.infoContain;
 
     useEffect(() => {
-        console.log(props)
+        logChar()
     },[props])
+
+    useEffect(() =>{
+        console.log(passArray)
+    },[passArray])
+
+    function logChar() {
+        let x = []
+        fetch(props.infoContain.url)
+        .then(res => res.json())
+        .then(json => x.push(json))
+        .then(setPassArray(x))
+    }
 
     return(
         <div>
-            <img width='90' src={infoContain.image}/>
+            <Link to={{pathname: '/CharacterSearch', state:{passArray: passArray}}}>
+            <img width='80' src={infoContain.image}/>
+            </Link >
             <h6>{infoContain.name}</h6>
        
 

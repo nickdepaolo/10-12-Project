@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import LocationMap from './LocationMap'
 
-const LocationSearch = () => {
+const LocationSearch = (props) => {
 
     const [infoContain, setInfoContain] = useState([])
+    const [inputContain, setInputContain] = useState('')
 
-    const APIURL = 'https://rickandmortyapi.com/api/location'
+    const APIURL = 'https://rickandmortyapi.com/api/location/?&name='
 
     const mainSearch = () => {
-        fetch(APIURL)
+        fetch(APIURL+inputContain)
         .then(res => res.json())
         .then(json => setInfoContain(json.results.slice(0,5)))
         .then(json => console.log(json))
@@ -21,7 +22,7 @@ const LocationSearch = () => {
     return(
         <div>
             <h4>Location Search</h4>
-            <input/>
+            <input onChange={(e)=> setInputContain(e.target.value)}/>
             <button onClick={mainSearch} onMouseUp={logTrigger}>Search</button>
             <br/>
             <br/>

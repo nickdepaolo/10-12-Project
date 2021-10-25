@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Modal from 'react-modal';
 import CharacterMap from './CharacterMap';
 import '../Components.css'
 
-const CharacterSearch = () => {
+const CharacterSearch = (props) => {
   const APIURL = 'https://rickandmortyapi.com/api/character/?';
   const [userInput, setUserInput] = useState('');
   const [infoContain, setInfoContain] = useState([])
@@ -19,6 +19,9 @@ const CharacterSearch = () => {
   const [ADVgender, setADVgender] = useState('')
   const [ADVURL, setADVURL] = useState('')
 
+  useEffect(() => {
+    console.log(props)
+  },[props])
 
   const submitCharacter = () => {
     fetch(APIURL+`&name=`+ userInput)
@@ -104,7 +107,7 @@ const CharacterSearch = () => {
         <div>
           <h4>Character Search</h4>
             <input onChange={(e) => setUserInput(e.target.value)} name="UserInput" />
-            <button type="button" onClick={submitCharacter} className={'portalButton'} ></button>
+            <button type="button" onClick={submitCharacter}>Search</button>
             <br/>
             <button onClick={openModalAdv} >{modalIsOpenAdv?'WubbaLubbaDubDub':'Advanced Search'}</button>
             <br/>
