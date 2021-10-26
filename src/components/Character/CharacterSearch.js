@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { useLocation } from 'react-router-dom';
 import Modal from 'react-modal';
 import CharacterMap from './CharacterMap';
 import '../Components.css'
@@ -20,8 +21,8 @@ const CharacterSearch = (props) => {
   const [ADVURL, setADVURL] = useState('')
 
   useEffect(() => {
-    console.log(props)
-  },[props])
+    setInfoContain(props.charPass)
+  },[props.charPass])
 
   const submitCharacter = () => {
     fetch(APIURL+`&name=`+ userInput)
@@ -162,7 +163,7 @@ const CharacterSearch = (props) => {
 
             </Modal>
 
-            <CharacterMap infoContain={infoContain} inputSelect={setUserInput} triggerInput={submitCharacter}/>
+            <CharacterMap  infoContain={infoContain} inputSelect={setUserInput} triggerInput={submitCharacter}/>
 
             {nextContain > ''? <button onClick={submitNext}>More...</button> : ''}
             <br/>

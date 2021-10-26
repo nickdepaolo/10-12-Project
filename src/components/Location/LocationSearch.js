@@ -12,7 +12,6 @@ const LocationSearch = (props) => {
         fetch(APIURL+inputContain)
         .then(res => res.json())
         .then(json => setInfoContain(json.results.slice(0,5)))
-        .then(json => console.log(json))
     }
 
     function logTrigger() {
@@ -26,7 +25,7 @@ const LocationSearch = (props) => {
             <button onClick={mainSearch} onMouseUp={logTrigger}>Search</button>
             <br/>
             <br/>
-            <LocationMap infoContain={infoContain}/>
+            <LocationMap charPass={props.charPass} infoContain={infoContain}/>
         </div>
     )
 }

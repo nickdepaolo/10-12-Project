@@ -13,16 +13,13 @@ const LocationCharacter = (props) => {
         fetch(props.character)
         .then(res => res.json())
         .then(json=> {
-            setInfoContain(json)
+            setInfoContain(json);
         })
-        .then(
-            console.log(infoContain)
-        )
     }
 
     return(
         <div>
-            <CharPic infoContain={infoContain}/>
+            <CharPic charPass={props.charPass} infoContain={infoContain}/>
         </div>
     )
 }

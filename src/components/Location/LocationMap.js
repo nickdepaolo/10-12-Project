@@ -33,7 +33,9 @@ const LocationMap = (props) => {
                     <h4>{card.dimension}</h4>
   
                     {card.residents.slice(0,sliceControl).map((character) => (
-                        <LocationCharacter character={character}/>
+                        <div key={character.id}>
+                            <LocationCharacter charPass={props.charPass} character={character}/>
+                        </div>
                         ))}
      
                         {card.residents.length > 5 && !sliceButton?  <button onClick={moreCharacters}>More...</button> : ''}

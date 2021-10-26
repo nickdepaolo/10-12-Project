@@ -5,13 +5,10 @@ import '../Components.css'
 
 
 const CharacterMap = (props) => {
-    const infoContain = props.infoContain;
+    
+    let infoContain = props.infoContain;
     const sliceChar = infoContain.slice(0,1)
-    const sliceList = infoContain.slice(1,20)
-
-    // useEffect(() => {
-    //     console.log(sliceChar)
-    // },[sliceChar])
+    const sliceList = infoContain.slice(1,22)
 
     function passProps() {
         props.triggerInput()
