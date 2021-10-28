@@ -7,18 +7,54 @@ const CharacterSpotlight = (props) => {
         console.log(props)
     }, [props])
 
+    const searchSpecies = (e) =>  {
+        fetch(`https://rickandmortyapi.com/api/character/?&species=${e}`)
+            .then(res => res.json())
+            .then(json =>{
+                props.setInfoContain(json.results);
+                console.log(json.results)
+            })
+    }
+
+    const searchGender = (e) => {
+        fetch(`https://rickandmortyapi.com/api/character/?&gender=${e}`)
+        .then(res => res.json())
+        .then(json =>{
+            props.setInfoContain(json.results);
+            console.log(json.results)
+        })
+    }
+
+    const searchType = (e) => {
+        fetch(`https://rickandmortyapi.com/api/character/?&type=${e}`)
+        .then(res => res.json())
+        .then(json =>{
+            props.setInfoContain(json.results);
+            console.log(json.results)
+        })
+    }
+
+    const searchStatus = (e) => {
+        fetch(`https://rickandmortyapi.com/api/character/?&status=${e}`)
+        .then(res => res.json())
+        .then(json =>{
+            props.setInfoContain(json.results);
+            console.log(json.results)
+        })  
+    }
+
     return(
         <div id='spotlight'>
                 {props.spotContain.map((spot) =>(
                 <div key={spot.id}>
                     <h1>{spot.name}</h1>
                     <img width='300em' alt=''src={spot.image}/>
-                    <p>Species : {spot.species}</p>
-                    <p>Gender : {spot.gender}</p>
+                    <p onClick={() => searchSpecies(spot.species)}>Species : {spot.species}</p>
+                    <p onClick={() => searchGender(spot.gender)}>Gender : {spot.gender}</p>
                     <p>Origin : {spot.origin.name}</p>
                     <p>Last Location : {spot.location.name}</p>
-                    <p>{spot.status}</p>
-                    <p>{spot.type}</p>
+                    <p onClick={() => searchStatus(spot.status)}>{spot.status}</p>
+                    <p onClick={() => searchType(spot.type)}>{spot.type}</p>
                     <h1>________________</h1>
                     
                 </div>

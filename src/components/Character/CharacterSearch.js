@@ -22,8 +22,10 @@ const CharacterSearch = (props) => {
   const [empty, setEmpty] = useState([])
 
   useEffect(() => {
-  props.passTrigger === true? setInfoContain(props.charPass) : setEmpty([])
+  props.passTrigger? setInfoContain(props.charPass) : setEmpty([])
   },[props.passTrigger])
+
+
 
   const submitCharacter = () => {
     fetch(APIURL+`&name=`+ userInput)
@@ -54,12 +56,8 @@ const CharacterSearch = (props) => {
         setInfoContain(json.results)
           setNextContain(json.info.next);
           console.log(json);
-          window.scrollTo({top:0, left: 0, behavior: 'smooth'})
+        document.getElementById("spotLight").scrollIntoView({behavior: 'smooth'})
       })
-  }
-
-  function handleCharPass() {
-    
   }
     
   function openModalAdv() {
@@ -168,7 +166,7 @@ const CharacterSearch = (props) => {
 
             </Modal>
 
-            <CharacterMap  infoContain={infoContain} inputSelect={setUserInput} triggerInput={submitCharacter}/>
+            <CharacterMap  infoContain={infoContain} setInfoContain={setInfoContain} />
 
             {nextContain > ''? <button onClick={submitNext}>More...</button> : ''}
             <br/>

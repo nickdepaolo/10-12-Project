@@ -9,8 +9,6 @@ const CharacterMap = (props) => {
     const infoContain = props.infoContain;
     const sliceList = infoContain.slice(1,22)
     const sliceChar = infoContain.slice(0,1)
-    const spotlight = document.getElementById("spotLight")
-    const myRef = useRef(null)
     const [passArray, setPassArray] = useState([])
     const [spotState, setSpotState] = useState([])
     const [isTrue, setIsTrue] = useState(false)
@@ -34,7 +32,7 @@ const CharacterMap = (props) => {
     
     function setSliceState() {
         
-        spotlight.scrollIntoView({behavior: 'smooth'})
+        document.getElementById("spotLight").scrollIntoView({behavior: 'smooth'})
         setSpotState(passArray)
         setTrue()
     }
@@ -43,7 +41,7 @@ const CharacterMap = (props) => {
         <div>
    
             <div id='spotLight'>
-                <CharacterSpotlight spotContain={isTrue? passArray : sliceChar}/>
+                <CharacterSpotlight setInfoContain={props.setInfoContain} spotContain={isTrue? passArray : sliceChar}/>
             </div>
         
             {sliceList.map((card) => (
