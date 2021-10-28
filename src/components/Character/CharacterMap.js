@@ -1,5 +1,5 @@
 import CharacterSpotlight from './CharacterSpotlight';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 
 import '../Components.css'
 
@@ -9,6 +9,8 @@ const CharacterMap = (props) => {
     const infoContain = props.infoContain;
     const sliceList = infoContain.slice(1,22)
     const sliceChar = infoContain.slice(0,1)
+    const spotlight = document.getElementById("spotLight")
+    const myRef = useRef(null)
     const [passArray, setPassArray] = useState([])
     const [spotState, setSpotState] = useState([])
     const [isTrue, setIsTrue] = useState(false)
@@ -17,18 +19,11 @@ const CharacterMap = (props) => {
         setIsTrue(false)
     }, [props.infoContain])
 
+    
 
     function setTrue() {
         setIsTrue(true);
         console.log(isTrue)
-    }
-    
-    function firstSet() {
-        setSpotState(sliceChar)
-    }
-    
-    function passProps() {
-        props.triggerInput()
     }
     
     function setSliceArray(e) {
@@ -38,7 +33,8 @@ const CharacterMap = (props) => {
     }
     
     function setSliceState() {
-        window.scrollTo({top:0, left:0, behavior: 'smooth'})
+        
+        spotlight.scrollIntoView({behavior: 'smooth'})
         setSpotState(passArray)
         setTrue()
     }
@@ -46,7 +42,9 @@ const CharacterMap = (props) => {
     return(
         <div>
    
-            <CharacterSpotlight spotContain={isTrue? passArray : sliceChar}/>
+            <div id='spotLight'>
+                <CharacterSpotlight spotContain={isTrue? passArray : sliceChar}/>
+            </div>
         
             {sliceList.map((card) => (
                 <div key={card.id} id={card.id} value={card.name} onClick={() => setSliceArray(card)} >
