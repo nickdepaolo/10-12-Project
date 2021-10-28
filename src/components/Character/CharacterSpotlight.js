@@ -12,7 +12,8 @@ const CharacterSpotlight = (props) => {
             .then(res => res.json())
             .then(json =>{
                 props.setInfoContain(json.results);
-                console.log(json.results)
+                console.log(json.results);
+                json.info.next == null ?  props.nextContain('') : props.nextContain(json.info.next);
             })
     }
 
@@ -21,7 +22,8 @@ const CharacterSpotlight = (props) => {
         .then(res => res.json())
         .then(json =>{
             props.setInfoContain(json.results);
-            console.log(json.results)
+            console.log(json.results);
+            json.info.next == null ?  props.nextContain('') : props.nextContain(json.info.next);
         })
     }
 
@@ -31,6 +33,7 @@ const CharacterSpotlight = (props) => {
         .then(json =>{
             props.setInfoContain(json.results);
             console.log(json.results)
+            json.info.next == null ?  props.nextContain('') : props.nextContain(json.info.next);
         })
     }
 
@@ -39,7 +42,9 @@ const CharacterSpotlight = (props) => {
         .then(res => res.json())
         .then(json =>{
             props.setInfoContain(json.results);
-            console.log(json.results)
+            console.log(json.results);
+            json.info.next == null ?  props.nextContain('') : props.nextContain(json.info.next);
+
         })  
     }
 

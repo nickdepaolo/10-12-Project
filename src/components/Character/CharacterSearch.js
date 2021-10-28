@@ -107,11 +107,16 @@ const CharacterSearch = (props) => {
     advUserInput()
   }
 
+  function refreshUsertInput() {
+    userInput > '' ? setUserInput(document.getElementById('mainInput').value) : setEmpty([]);
+    submitCharacter()
+  }
+
     return(
         <div>
           <h4>Character Search</h4>
-            <input onChange={(e) => setUserInput(e.target.value)} name="UserInput" />
-            <button type="button" onClick={submitCharacter}>Search</button>
+            <input id='mainInput' onChange={(e) => setUserInput(e.target.value)} name="UserInput" />
+            <button type="button" onClick={refreshUsertInput}>Search</button>
             <br/>
             <button onClick={openModalAdv} >{modalIsOpenAdv?'WubbaLubbaDubDub':'Advanced Search'}</button>
             <br/>
@@ -166,7 +171,7 @@ const CharacterSearch = (props) => {
 
             </Modal>
 
-            <CharacterMap  infoContain={infoContain} setInfoContain={setInfoContain} />
+            <CharacterMap nextContain={setNextContain} infoContain={infoContain} setInfoContain={setInfoContain} />
 
             {nextContain > ''? <button onClick={submitNext}>More...</button> : ''}
             <br/>
