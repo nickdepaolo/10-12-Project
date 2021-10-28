@@ -19,10 +19,11 @@ const CharacterSearch = (props) => {
   const [genderValue, setGenderValue] = useState('')
   const [ADVgender, setADVgender] = useState('')
   const [ADVURL, setADVURL] = useState('')
+  const [empty, setEmpty] = useState([])
 
   useEffect(() => {
-    setInfoContain(props.charPass)
-  },[props.charPass])
+  props.passTrigger === true? setInfoContain(props.charPass) : setEmpty([])
+  },[props.passTrigger])
 
   const submitCharacter = () => {
     fetch(APIURL+`&name=`+ userInput)
@@ -55,6 +56,10 @@ const CharacterSearch = (props) => {
           console.log(json);
           window.scrollTo({top:0, left: 0, behavior: 'smooth'})
       })
+  }
+
+  function handleCharPass() {
+    
   }
     
   function openModalAdv() {
