@@ -9,7 +9,7 @@ import '../Components.css'
 const MainRouter = (props) => {
     let charArray = []
     const [charPass, setCharPass] = useState([])
-    const [passTrigger, setPassTrigger] = useState(false)
+    const [charTrigger, setPassTrigger] = useState(false)
 
     useEffect(() => {
         pushCharArray()
@@ -32,7 +32,7 @@ const MainRouter = (props) => {
             <br/>
                 
             <Switch>
-                <Route exact path='/CharacterSearch'><CharacterSearch passTrigger={passTrigger} charPass={charArray}/></Route>
+                <Route exact path='/CharacterSearch'><CharacterSearch passTrigger={charTrigger} charPass={charArray}/></Route>
                 <Route exact path='/LocationSearch'><LocationSearch charPass={setCharPass}/></Route>
                 <Route exact path='/EpisodeSearch'><EpisodeSearch charPass={setCharPass}/></Route>
             </Switch>

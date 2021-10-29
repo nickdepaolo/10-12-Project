@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import CharacterEpisodeSearch from './CharacterEpisodeSearch'
 
 
 const CharacterSpotlight = (props) => {
@@ -60,6 +61,7 @@ const CharacterSpotlight = (props) => {
                     <p>Last Location : {spot.location.name}</p>
                     <p onClick={() => searchStatus(spot.status)}>{spot.status}</p>
                     <p onClick={() => searchType(spot.type)}>{spot.type}</p>
+                    <CharacterEpisodeSearch episodes={spot.episode}/>
                     <h1>________________</h1>
                     
                 </div>
