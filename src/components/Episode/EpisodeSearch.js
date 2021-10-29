@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EpisodeMap from "./EpisodeMap";
 
-const EpisodeSearch = () => {
+const EpisodeSearch = (props) => {
     const [userInput, setUserInput] = useState('Pilot')
     const [episodeArray, setEpisodeArray] = useState([])
     const [searchInput, setSearchInput] = useState('')
@@ -29,7 +29,7 @@ const EpisodeSearch = () => {
             <h4>Episode Search</h4>
             <input id='episodeInput' onChange={(e) => setUserInput(e.target.value)} />
             <button onClick={submitEpisode}>Search</button>
-            <EpisodeMap episodeArray={episodeArray}/>
+            <EpisodeMap charPass={props.charPass} episodeArray={episodeArray}/>
 
         </div>
     )

@@ -21,7 +21,7 @@ const EpisodeCharFetch = (props) => {
     return(
 
         <div>
-            <EpisodeCharMap character={fetchContain}/>
+            <EpisodeCharMap charPass={props.charPass} character={fetchContain}/>
         </div>
     )
 }

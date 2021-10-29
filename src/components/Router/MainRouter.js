@@ -34,7 +34,7 @@ const MainRouter = (props) => {
             <Switch>
                 <Route exact path='/CharacterSearch'><CharacterSearch passTrigger={passTrigger} charPass={charArray}/></Route>
                 <Route exact path='/LocationSearch'><LocationSearch charPass={setCharPass}/></Route>
-                <Route exact path='/EpisodeSearch'><EpisodeSearch/></Route>
+                <Route exact path='/EpisodeSearch'><EpisodeSearch charPass={setCharPass}/></Route>
             </Switch>
         </div>
     )

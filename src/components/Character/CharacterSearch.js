@@ -22,10 +22,12 @@ const CharacterSearch = (props) => {
   const [empty, setEmpty] = useState([])
 
   useEffect(() => {
-  props.passTrigger? setInfoContain(props.charPass) : setEmpty([])
+  props.passTrigger? setInfoContain(props.charPass) : setEmpty([]);
   },[props.passTrigger])
 
-
+  useEffect(() => {
+    document.getElementById("spotLight").scrollIntoView({behavior: 'smooth'});
+  },[infoContain])
 
   const submitCharacter = () => {
     fetch(APIURL+`&name=`+ userInput)
@@ -56,7 +58,6 @@ const CharacterSearch = (props) => {
         setInfoContain(json.results)
           setNextContain(json.info.next);
           console.log(json);
-        document.getElementById("spotLight").scrollIntoView({behavior: 'smooth'})
       })
   }
     
