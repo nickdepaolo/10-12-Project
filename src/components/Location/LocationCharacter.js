@@ -7,7 +7,7 @@ const LocationCharacter = (props) => {
 
     useEffect(() => {
         mainSearch()
-    },[props])
+    },[props.character])
 
     const mainSearch = () => {
         fetch(props.character)

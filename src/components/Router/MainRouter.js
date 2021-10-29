@@ -8,8 +8,12 @@ import '../Components.css'
 
 const MainRouter = (props) => {
     let charArray = []
+    let locObject = ''
     const [charPass, setCharPass] = useState([])
+    const [locPass, setLocPass] = useState('')
+    const [epiPass, setEpiPass] = useState('')
     const [charTrigger, setPassTrigger] = useState(false)
+    const [locTrigger, setLocTrigger] = useState(false)
 
     useEffect(() => {
         pushCharArray()
@@ -19,6 +23,11 @@ const MainRouter = (props) => {
     useEffect(() => {
         console.log(charArray)
     }, [charArray])
+
+    useEffect(() => {
+        setLocTrigger(true);
+        console.log(locPass)
+    }, [locPass])
 
     function pushCharArray() {
         console.log('push')
@@ -32,8 +41,8 @@ const MainRouter = (props) => {
             <br/>
                 
             <Switch>
-                <Route exact path='/CharacterSearch'><CharacterSearch passTrigger={charTrigger} charPass={charArray}/></Route>
-                <Route exact path='/LocationSearch'><LocationSearch charPass={setCharPass}/></Route>
+                <Route exact path='/CharacterSearch'><CharacterSearch locPass={setLocPass} passTrigger={charTrigger} charPass={charArray}/></Route>
+                <Route exact path='/LocationSearch'><LocationSearch locTrigger={locTrigger} locPass={locPass} charPass={setCharPass}/></Route>
                 <Route exact path='/EpisodeSearch'><EpisodeSearch charPass={setCharPass}/></Route>
             </Switch>
         </div>

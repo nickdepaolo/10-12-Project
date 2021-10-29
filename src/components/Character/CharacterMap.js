@@ -1,5 +1,7 @@
 import CharacterSpotlight from './CharacterSpotlight';
 import React, {useEffect, useState, useRef} from 'react';
+import {Route, Link, Switch} from 'react-router-dom';
+
 
 import '../Components.css'
 
@@ -61,14 +63,17 @@ const CharacterMap = (props) => {
         <div>
    
             <div id='spotLight'>
-                <CharacterSpotlight nextContain={props.nextContain} setInfoContain={props.setInfoContain} spotContain={isTrue? passArray : sliceChar}/>
+                <CharacterSpotlight locPass={props.locPass} nextContain={props.nextContain} setInfoContain={props.setInfoContain} spotContain={isTrue? passArray : sliceChar}/>
             </div>
         
             {sliceList.map((card) => (
                 <div key={card.id} id={card.id} value={card.name} onClick={() => setSliceArray(card)} >
                     <img width='150em' alt='' src={card.image} value={card.name} onClick={setSliceState}/>
                     <h3>{card.name}</h3>
+                    <Link onClick={props.locPass(card.location.name)} to='/LocationSearch'>
+
                     <p>{card.location.name}</p>
+                    </Link>
                     <p onClick={() => searchGender(card.gender)}>{card.gender}</p>
                     <p onClick={() => searchStatus(card.status)}>{card.status}</p>
                     <h1>________________</h1>

@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LocationMap from './LocationMap'
 
 const LocationSearch = (props) => {
 
     const [infoContain, setInfoContain] = useState([])
     const [inputContain, setInputContain] = useState('')
+    const [empty, setEmpty] = useState('')
 
     const APIURL = 'https://rickandmortyapi.com/api/location/?&name='
 
+    useEffect(() => {
+        props.locTrigger ? setInputContain(props.locPass) : setEmpty('');
+        console.log(props.locPass)
+    }, [props.locPass])
+
+    useEffect(() => {
+        props.locTrigger ? mainSearch() : setEmpty('')
+      
+    }, [inputContain])
+
     const mainSearch = () => {
+        fetch(APIURL+inputContain)
+        .then(res => res.json())
+        .then(json => setInfoContain(json.results.slice(0,5)))
+    }
+    
+    const fromCharSearch = () => {
         fetch(APIURL+inputContain)
         .then(res => res.json())
         .then(json => setInfoContain(json.results.slice(0,5)))
