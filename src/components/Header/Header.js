@@ -10,6 +10,7 @@ const Header = () => {
             <h2>Ricktionary</h2>
             <h3><Link to='/CharacterSearch'>Character Search</Link></h3>
             <h3><Link to='/LocationSearch'>Location Search</Link></h3>
+            <h3><Link to='/EpisodeSearch'>Episode Search</Link></h3>
             <br/>
         </div>
     )

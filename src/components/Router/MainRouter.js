@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {Route, Link, Switch} from 'react-router-dom';
 import CharacterSearch from '../Character/CharacterSearch';
 import LocationSearch from '../Location/LocationSearch';
+import EpisodeSearch from '../Episode/EpisodeSearch';
 import Header from '../Header/Header';
 import '../Components.css'
 
@@ -32,7 +33,8 @@ const MainRouter = (props) => {
                 
             <Switch>
                 <Route exact path='/CharacterSearch'><CharacterSearch passTrigger={passTrigger} charPass={charArray}/></Route>
-                <Route exacy path='/LocationSearch'><LocationSearch charPass={setCharPass}/></Route>
+                <Route exact path='/LocationSearch'><LocationSearch charPass={setCharPass}/></Route>
+                <Route exact path='/EpisodeSearch'><EpisodeSearch/></Route>
             </Switch>
         </div>
     )
