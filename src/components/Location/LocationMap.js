@@ -26,7 +26,7 @@ const LocationMap = (props) => {
     return(
         <div>
             {infoContain.map((card) => (
-                <div id={card.id}>
+                <div key={card.id}>
                     
                     <h3>{card.name}</h3>
                     <h4>{card.type}</h4>

@@ -4,6 +4,11 @@ import CharPic from './LocationCharPic'
 const LocationCharacter = (props) => {
 
     const [infoContain, setInfoContain] = useState([])
+    const [charContain, setCharContain] = useState('')
+
+    useEffect(() => {
+        setCharContain(props.character)
+    },[props.character])
 
     useEffect(() => {
         mainSearch()
