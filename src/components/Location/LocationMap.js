@@ -26,14 +26,14 @@ const LocationMap = (props) => {
     return(
         <div>
             {infoContain.map((card) => (
-                <div key={card.id}>
+                <div key={card.name}>
                     
                     <h3>{card.name}</h3>
                     <h4>{card.type}</h4>
                     <h4>{card.dimension}</h4>
                   
                     {card.residents.slice(0,sliceControl).map((character) => (
-                        <div key={character.id}>
+                        <div key={character.name}>
                             <LocationCharacter charPass={props.charPass} character={character}/>
                         </div>
                         ))}
