@@ -9,7 +9,7 @@ const EpisodeSpotlight = (props) => {
     return(
         <div>
               {props.sliceEpisode.map((episode) => (
-                <div>
+                <div key={episode.name}>
                     <br/>
                     <h1>{episode.name}</h1>
                     <h2>{episode.air_date}</h2>

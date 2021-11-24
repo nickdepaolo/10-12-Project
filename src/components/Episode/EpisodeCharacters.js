@@ -12,7 +12,7 @@ const EpisodeCharacters = (props) => {
     return(
         <div>
           {characters.map((character) => (
-              <div>
+              <div key={character}>
                   <EpisodeCharFetch charPass={props.charPass} character={character}/>
               </div>
           ))}

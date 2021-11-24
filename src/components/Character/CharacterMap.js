@@ -72,10 +72,10 @@ const CharacterMap = (props) => {
                     <h3>{card.name}</h3>
                     <Link onClick={props.locPass(card.location.name)} to='/LocationSearch'>
 
-                    <p>{card.location.name}</p>
+                    {/* <p>{card.location.name}</p> */}
                     </Link>
-                    <p onClick={() => searchGender(card.gender)}>{card.gender}</p>
-                    <p onClick={() => searchStatus(card.status)}>{card.status}</p>
+                    {/* <p onClick={() => searchGender(card.gender)}>{card.gender}</p> */}
+                    {/* <p onClick={() => searchStatus(card.status)}>{card.status}</p> */}
                     <h1>________________</h1>
                     <br/>
                 </div>

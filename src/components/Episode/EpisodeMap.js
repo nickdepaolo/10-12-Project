@@ -10,7 +10,7 @@ const EpisodeMap = (props) => {
         <div>
             <EpisodeSpotlight charPass={props.charPass} sliceEpisode={sliceEpisode}/>
             {sliceList.map((episode) => (
-                <div>
+                <div key={episode.name}>
                     <br/>
                     <h3>{episode.name}</h3>
                     <h4>{episode.air_date}</h4>

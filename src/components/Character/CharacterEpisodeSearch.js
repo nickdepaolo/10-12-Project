@@ -24,7 +24,7 @@ const CharacterEpisodeSearch = (props) => {
     return(
         <div id='characterEpisode'>
             {props.episodes.slice(0,sliceControl).map((episode) => (
-                <div>
+                <div key={episode}>
                     <CharacterEpisodeSort sliceControl={setSliceControl} episode={episode}/>
                 </div>
             ))}
