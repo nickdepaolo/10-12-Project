@@ -50,6 +50,14 @@ const CharacterSpotlight = (props) => {
         })  
     }
 
+    const pushOrigin = (e) => {
+        props.locPass(e)
+    }
+
+    const pushLocation = (e) => {
+        props.locPass(e)
+    }
+
     return(
         <div id='spotlight'>
                 {props.spotContain.map((spot) =>(
@@ -58,21 +66,22 @@ const CharacterSpotlight = (props) => {
                     <img width='300em' alt=''src={spot.image}/>
                     <p onClick={() => searchSpecies(spot.species)}>Species : {spot.species}</p>
                     <p onClick={() => searchGender(spot.gender)}>Gender : {spot.gender}</p>
+
                     <Link to='/LocationSearch'>
-                    <p onClick={props.locPass(spot.origin.name)}>Origin : {spot.origin.name}</p>
+                        <p onClick={() => pushOrigin(spot.origin.name)}>Origin : {spot.origin.name}</p>
                     </Link>
+
                     <Link to='/LocationSearch'>
-                    <p onClick={props.locPass(spot.location.name)}>Last Location : {spot.location.name}</p>
+                        <p onClick={() => pushLocation(spot.location.name)}>Last Location : {spot.location.name}</p>
                     </Link>
+
                     <p onClick={() => searchStatus(spot.status)}>{spot.status}</p>
                     <p onClick={() => searchType(spot.type)}>{spot.type}</p>
                     <CharacterEpisodeSearch episodes={spot.episode}/>
                     <h1>________________</h1>
-                    
                 </div>
             ))}
                
-
         </div>
     )
 }
