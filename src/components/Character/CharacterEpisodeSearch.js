@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import CharacterEpisodeSort from "./CharacterEpisodeSort";
 
 const CharacterEpisodeSearch = (props) => {
@@ -25,7 +26,9 @@ const CharacterEpisodeSearch = (props) => {
         <div id='characterEpisode'>
             {props.episodes.slice(0,sliceControl).map((episode) => (
                 <div key={episode}>
-                    <CharacterEpisodeSort sliceControl={setSliceControl} episode={episode}/>
+                    <Link to='/EpisodeSearch'>
+                        <CharacterEpisodeSort sliceControl={setSliceControl} episode={episode}/>
+                    </Link>
                 </div>
             ))}
             {moreTrue && props.episodes.length > 5 ? <button onClick={setSliceFalse}>Less</button> : ''}
