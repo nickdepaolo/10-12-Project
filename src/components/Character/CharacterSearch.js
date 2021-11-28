@@ -172,7 +172,7 @@ const CharacterSearch = (props) => {
 
             </Modal>
 
-            <CharacterMap locPass={props.locPass} nextContain={setNextContain} infoContain={infoContain} setInfoContain={setInfoContain} />
+            <CharacterMap epiPass={props.epiPass} locPass={props.locPass} nextContain={setNextContain} infoContain={infoContain} setInfoContain={setInfoContain} />
 
             {nextContain > ''? <button onClick={submitNext}>More...</button> : ''}
             <br/>

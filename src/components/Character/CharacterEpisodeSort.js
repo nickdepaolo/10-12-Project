@@ -25,7 +25,6 @@ const CharacterEpisodeSort = (props) => {
     }
 
      
-
     return(
         <div>
             <CharacterEpisodeMap sliceControl={props.sliceControl} episode={episodeContain}/>

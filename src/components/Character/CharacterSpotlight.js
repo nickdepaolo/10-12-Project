@@ -77,7 +77,7 @@ const CharacterSpotlight = (props) => {
 
                     <p onClick={() => searchStatus(spot.status)}>{spot.status}</p>
                     <p onClick={() => searchType(spot.type)}>{spot.type}</p>
-                    <CharacterEpisodeSearch episodes={spot.episode}/>
+                    <CharacterEpisodeSearch epiPass={props.epiPass} episodes={spot.episode}/>
                     <h1>________________</h1>
                 </div>
             ))}

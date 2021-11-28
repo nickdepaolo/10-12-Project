@@ -63,7 +63,7 @@ const CharacterMap = (props) => {
         <div>
    
             <div id='spotLight'>
-                <CharacterSpotlight locPass={props.locPass} nextContain={props.nextContain} setInfoContain={props.setInfoContain} spotContain={isTrue? passArray : sliceChar}/>
+                <CharacterSpotlight epiPass={props.epiPass} locPass={props.locPass} nextContain={props.nextContain} setInfoContain={props.setInfoContain} spotContain={isTrue? passArray : sliceChar}/>
             </div>
         
             {sliceList.map((card) => (
