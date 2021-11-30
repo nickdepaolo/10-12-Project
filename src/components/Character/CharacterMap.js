@@ -70,10 +70,10 @@ const CharacterMap = (props) => {
                 <div key={card.id} id={card.id} value={card.name} onClick={() => setSliceArray(card)} >
                     <img width='150em' alt='' src={card.image} value={card.name} onClick={setSliceState}/>
                     <h3>{card.name}</h3>
-                    <Link onClick={props.locPass(card.location.name)} to='/LocationSearch'>
+                    {/* <Link onClick={props.locPass(card.location.name)} to='/LocationSearch'> */}
 
                     {/* <p>{card.location.name}</p> */}
-                    </Link>
+                    {/* </Link> */}
                     {/* <p onClick={() => searchGender(card.gender)}>{card.gender}</p> */}
                     {/* <p onClick={() => searchStatus(card.status)}>{card.status}</p> */}
                     <h1>________________</h1>

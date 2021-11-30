@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EpisodeMap from "./EpisodeMap";
 
 const EpisodeSearch = (props) => {
@@ -6,6 +6,10 @@ const EpisodeSearch = (props) => {
     const [episodeArray, setEpisodeArray] = useState([])
     const [searchInput, setSearchInput] = useState('')
     const [empty, setEmpty] = ('')
+
+    useEffect(() => {
+        setEpisodeArray(props.epiPass)
+    }, [props.epiTrigger])
 
     const submitEpisode = () => {
         fetch(`https://rickandmortyapi.com/api/episode`)

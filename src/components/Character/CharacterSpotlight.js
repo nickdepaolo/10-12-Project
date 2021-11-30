@@ -67,13 +67,13 @@ const CharacterSpotlight = (props) => {
                     <p onClick={() => searchSpecies(spot.species)}>Species : {spot.species}</p>
                     <p onClick={() => searchGender(spot.gender)}>Gender : {spot.gender}</p>
 
-                    <Link to='/LocationSearch'>
-                        <p onClick={() => pushOrigin(spot.origin.name)}>Origin : {spot.origin.name}</p>
-                    </Link>
+                    
+                        <p onClick={() => pushOrigin(spot.origin.name)}><Link to='/LocationSearch'>Origin : {spot.origin.name}</Link></p>
+                    
 
-                    <Link to='/LocationSearch'>
-                        <p onClick={() => pushLocation(spot.location.name)}>Last Location : {spot.location.name}</p>
-                    </Link>
+                    
+                        <p onClick={() => pushLocation(spot.location.name)}><Link to='/LocationSearch'>Last Location : {spot.location.name}</Link></p>
+                    
 
                     <p onClick={() => searchStatus(spot.status)}>{spot.status}</p>
                     <p onClick={() => searchType(spot.type)}>{spot.type}</p>

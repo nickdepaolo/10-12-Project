@@ -8,32 +8,31 @@ import '../Components.css'
 
 const MainRouter = (props) => {
     let charArray = []
+    let epiArray = []
     let locObject = ''
-    const [charPass, setCharPass] = useState([])
+    const [charPass, setCharPass] = useState('')
     const [locPass, setLocPass] = useState('')
     const [epiPass, setEpiPass] = useState('')
     const [charTrigger, setPassTrigger] = useState(false)
     const [locTrigger, setLocTrigger] = useState(false)
+    const [epiTrigger, setEpiTrigger] = useState(false)
 
     useEffect(() => {
-        pushCharArray()
+        setPassTrigger(true)
+        charArray.splice(0, 1, charPass)
         console.log(charPass)
     },[charPass])
-
-    useEffect(() => {
-        console.log(charArray)
-    }, [charArray])
 
     useEffect(() => {
         setLocTrigger(true);
         console.log(locPass)
     }, [locPass])
 
-    function pushCharArray() {
-        console.log('push')
-        setPassTrigger(true)
-        charArray.splice(0, 1, charPass)
-    }
+    useEffect(() => {
+        setEpiTrigger(true)
+        epiArray.splice(0, 1, epiPass)
+        console.log(epiPass)
+    }, [epiPass])
 
     return(
         <div>
@@ -41,9 +40,9 @@ const MainRouter = (props) => {
             <br/>
                 
             <Switch>
-                <Route exact path='/CharacterSearch'><CharacterSearch epiPass={setEpiPass} locPass={setLocPass} passTrigger={charTrigger} charPass={charArray}/></Route>
+                <Route exact path='/CharacterSearch'><CharacterSearch passTrigger={charTrigger} epiPass={setEpiPass} locPass={setLocPass} charPass={charArray}/></Route>
                 <Route exact path='/LocationSearch'><LocationSearch locTrigger={locTrigger} locPass={locPass} charPass={setCharPass}/></Route>
-                <Route exact path='/EpisodeSearch'><EpisodeSearch charPass={setCharPass}/></Route>
+                <Route exact path='/EpisodeSearch'><EpisodeSearch epiTrigger={epiTrigger} epiPass={epiArray} charPass={setCharPass}/></Route>
             </Switch>
         </div>
     )
