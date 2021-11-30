@@ -140,7 +140,7 @@ const CharacterSearch = (props) => {
                       <option value=''>Status</option>
                       <option value='alive'>Alive</option>
                       <option value='dead'>Dead</option>
-                      <option value='unknown'>Unknown</option>
+                      {/* <option value='unknown'>Unknown</option> */}
                   </select>
 
                   <select id='species' onChange={advSpecies}>
