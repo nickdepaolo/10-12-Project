@@ -33,7 +33,7 @@ const LocationMap = (props) => {
                     <h4>{card.dimension}</h4>
                   
                     {card.residents.slice(0,sliceControl).map((character) => (
-                        <div key={character.name}>
+                        <div key={character}>
                             <LocationCharacter charPass={props.charPass} character={character}/>
                         </div>
                         ))}
