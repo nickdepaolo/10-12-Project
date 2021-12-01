@@ -20,6 +20,7 @@ const CharacterSearch = (props) => {
   const [genderValue, setGenderValue] = useState('')
   const [ADVgender, setADVgender] = useState('')
   const [ADVURL, setADVURL] = useState('')
+  const [charSelect, setCharSelect] = useState(false)
   const [empty, setEmpty] = useState([])
 
   useEffect(() => {
@@ -29,6 +30,10 @@ const CharacterSearch = (props) => {
   useEffect(() => {
     document.getElementById("spotLight").scrollIntoView({behavior: 'smooth'});
   },[infoContain])
+
+  useEffect(() => {
+    setPrevContain('')
+  }, [charSelect])
 
   const submitCharacter = () => {
     fetch(APIURL+`&name=`+ userInput)
@@ -128,6 +133,7 @@ const CharacterSearch = (props) => {
 
     return(
         <div>
+
           <h4>Character Search</h4>
             <input id='mainInput' onChange={(e) => setUserInput(e.target.value)} name="UserInput" />
             <button type="button" onClick={refreshUsertInput}>Search</button>
@@ -185,11 +191,11 @@ const CharacterSearch = (props) => {
 
             </Modal>
 
-            <CharacterMap epiPass={props.epiPass} locPass={props.locPass} nextContain={setNextContain} infoContain={infoContain} setInfoContain={setInfoContain} />
-            {prevContain > '' ? <button onClick={submitPrev}> Back </button> : ''}
+            <CharacterMap charSelect={setCharSelect} epiPass={props.epiPass} locPass={props.locPass} nextContain={setNextContain} infoContain={infoContain} setInfoContain={setInfoContain} />
+            {prevContain > '' && !charSelect ? <button onClick={submitPrev}> Back </button> : ''}
             {prevContain > '' ? <br/>  : ''}
             {prevContain > '' ? <br/>  : ''}
-            {nextContain > '' ? <button onClick={submitNext}> More... </button> : ''}
+            {nextContain > '' && !charSelect ? <button onClick={submitNext}> More... </button> : ''}
             <br/>
             <br/>
 

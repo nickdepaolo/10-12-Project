@@ -9,13 +9,14 @@ import '../Components.css'
 const CharacterMap = (props) => {
     
     const infoContain = props.infoContain;
-    const sliceList = infoContain.slice(1,22)
+    let sliceList = infoContain.slice(1,22)
     const sliceChar = infoContain.slice(0,1)
     const [passArray, setPassArray] = useState([])
     const [isTrue, setIsTrue] = useState(false)
 
     useEffect(() =>{
         setIsTrue(false)
+        props.charSelect(false)
     }, [props.infoContain])
 
     
@@ -27,6 +28,7 @@ const CharacterMap = (props) => {
     
     function setSliceArray(e) {
         let sliceArray = []
+        props.charSelect(true)
         sliceArray.push(e)
         setPassArray(sliceArray)
     }
@@ -66,16 +68,10 @@ const CharacterMap = (props) => {
                 <CharacterSpotlight epiPass={props.epiPass} locPass={props.locPass} nextContain={props.nextContain} setInfoContain={props.setInfoContain} spotContain={isTrue? passArray : sliceChar}/>
             </div>
         
-            {sliceList.map((card) => (
+            {isTrue? '' : sliceList.map((card) => (
                 <div key={card.id} id={card.id} value={card.name} onClick={() => setSliceArray(card)} >
                     <img width='150em' alt='' src={card.image} value={card.name} onClick={setSliceState}/>
                     <h3>{card.name}</h3>
-                    {/* <Link onClick={props.locPass(card.location.name)} to='/LocationSearch'> */}
-
-                    {/* <p>{card.location.name}</p> */}
-                    {/* </Link> */}
-                    {/* <p onClick={() => searchGender(card.gender)}>{card.gender}</p> */}
-                    {/* <p onClick={() => searchStatus(card.status)}>{card.status}</p> */}
                     <h1>________________</h1>
                     <br/>
                 </div>
