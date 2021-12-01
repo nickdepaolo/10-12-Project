@@ -9,6 +9,7 @@ const CharacterSearch = (props) => {
   const [userInput, setUserInput] = useState('');
   const [infoContain, setInfoContain] = useState([])
   const [nextContain, setNextContain] = useState([])
+  const [prevContain, setPrevContain] = useState('')
   const [modalIsOpenAdv, setIsOpenAdv] = useState(false)
   const [inputValue, setInputValue] = useState('')
   const [ADVinput, setADVinput] = useState('')
@@ -55,12 +56,24 @@ const CharacterSearch = (props) => {
     fetch(nextContain)
       .then(res => res.json())
       .then(json =>{
-        setInfoContain(json.results)
-          setNextContain(json.info.next);
-          console.log(json);
+        setInfoContain(json.results);
+        setNextContain(json.info.next);
+        setPrevContain(json.info.prev);
+        console.log(json);
       })
   }
-    
+  
+  const submitPrev = () => {
+    fetch(prevContain)
+      .then(res => res.json())
+      .then(json =>{
+        setInfoContain(json.results);
+        setNextContain(json.info.next);
+        setPrevContain(json.info.prev);
+        console.log(json);
+      })
+  }
+
   function openModalAdv() {
     setIsOpenAdv(true); 
   }
@@ -173,8 +186,10 @@ const CharacterSearch = (props) => {
             </Modal>
 
             <CharacterMap epiPass={props.epiPass} locPass={props.locPass} nextContain={setNextContain} infoContain={infoContain} setInfoContain={setInfoContain} />
-
-            {nextContain > ''? <button onClick={submitNext}>More...</button> : ''}
+            {prevContain > '' ? <button onClick={submitPrev}> Back </button> : ''}
+            {prevContain > '' ? <br/>  : ''}
+            {prevContain > '' ? <br/>  : ''}
+            {nextContain > '' ? <button onClick={submitNext}> More... </button> : ''}
             <br/>
             <br/>
 

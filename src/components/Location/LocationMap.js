@@ -30,7 +30,7 @@ const LocationMap = (props) => {
                     
                     <h3>{card.name}</h3>
                     <h4>{card.type}</h4>
-                    <h4>{card.dimension}</h4>
+                    {card.dimension == 'unknown' ? <h5>Dimension Unknown</h5> : <h5>{card.dimension}</h5>}
                   
                     {card.residents.slice(0,sliceControl).map((character) => (
                         <div key={character}>

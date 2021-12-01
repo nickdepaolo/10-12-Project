@@ -68,11 +68,11 @@ const CharacterSpotlight = (props) => {
                     {spot.gender == 'unknown' ? <p>Gender Unknown</p> : <p onClick={() => searchGender(spot.gender)}>Gender : {spot.gender}</p>}
 
                     
-                        {spot.origin.name == 'unknown' ? '' : <p onClick={() => pushOrigin(spot.origin.name)}><Link to='/LocationSearch'>Origin : {spot.origin.name}</Link></p>}
+                        {spot.origin.name == 'unknown' ? 'Origin Unknown' : <p onClick={() => pushOrigin(spot.origin.name)}><Link to='/LocationSearch'>Origin : {spot.origin.name}</Link></p>}
                     
 
                     
-                        <p onClick={() => pushLocation(spot.location.name)}><Link to='/LocationSearch'>Last Location : {spot.location.name}</Link></p>
+                        {spot.location.name == 'unknown' ? '' : <p onClick={() => pushLocation(spot.location.name)}><Link to='/LocationSearch'>Last Location : {spot.location.name}</Link></p>}
                     
 
                     {spot.status == 'unknown' ? <p>Status Unknown</p> : <p onClick={() => searchStatus(spot.status)}>{spot.status}</p>}
