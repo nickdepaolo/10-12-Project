@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import EpisodeSpotlight from "./EpisodeSpotlight";
 
 const EpisodeMap = (props) => {
     const episodeArray = props.episodeArray
     const sliceEpisode = episodeArray.slice(0,1)
     const sliceList = episodeArray.slice(1,22)
+    const [spotState, setSpotState] = useState([])
+
+    // useEffect(() => {
+    //     setSpotState(sliceEpisode)
+    // }, [sliceEpisode])
+
+    function pushEpisode(e) {
+        setSpotState(e)
+    }
 
     return(
         <div>
-            <EpisodeSpotlight charPass={props.charPass} sliceEpisode={sliceEpisode}/>
+            <EpisodeSpotlight charPass={props.charPass} sliceEpisode={sliceList}/>
             {sliceList.map((episode) => (
                 <div key={episode.name}>
                     <br/>
