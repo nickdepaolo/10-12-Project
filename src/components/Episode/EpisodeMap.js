@@ -17,7 +17,7 @@ const EpisodeMap = (props) => {
 
     return(
         <div>
-            <EpisodeSpotlight charPass={props.charPass} sliceEpisode={sliceList}/>
+            <EpisodeSpotlight charPass={props.charPass} sliceEpisode={sliceEpisode}/>
             {sliceList.map((episode) => (
                 <div key={episode.name}>
                     <br/>

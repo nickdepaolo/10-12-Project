@@ -31,7 +31,7 @@ const MainRouter = (props) => {
     useEffect(() => {
         setEpiTrigger(true)
         epiArray.splice(0, 1, epiPass)
-        console.log(epiPass)
+        console.log(epiPass, epiArray)
     }, [epiPass])
 
     return(

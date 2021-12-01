@@ -9,6 +9,7 @@ const EpisodeSearch = (props) => {
 
     useEffect(() => {
         setEpisodeArray(props.epiPass)
+        console.log(props)
     }, [props.epiTrigger])
 
     const submitEpisode = () => {
