@@ -8,7 +8,7 @@ const LocationCharacter = (props) => {
 
     useEffect(() => {
         setCharContain(props.character)
-        mainSearch()
+        // mainSearch()
     },[props.character])
 
     const mainSearch = () => {
