@@ -26,6 +26,7 @@ const MainRouter = (props) => {
     useEffect(() => {
         setLocTrigger(true);
         console.log(locPass)
+        console.log('triggered')
     }, [locPass])
 
     useEffect(() => {

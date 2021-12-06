@@ -15,8 +15,8 @@ const LocationSearch = (props) => {
     }, [props.locPass])
 
     useEffect(() => {
-        props.locTrigger ? mainSearch() : setEmpty('')
-      
+        props.locPass > '' ? mainSearch() : setEmpty('')
+        
     }, [inputContain])
 
     const mainSearch = () => {
