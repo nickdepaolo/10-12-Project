@@ -19,6 +19,20 @@ const LocationSearch = (props) => {
         props.locPass > '' ? mainSearch() : setEmpty('')
     }, [inputContain])
 
+    useEffect(() => {
+        typeContain > '' ? fetch(`https://rickandmortyapi.com/api/location/?&type=${typeContain}`)
+                .then(res => res.json())
+                .then(json => setInfoContain(json.results))
+                .then(json => console.log(json))
+            : setEmpty('');
+        console.log(typeContain)
+    }, [typeContain])
+
+    useEffect(() => {
+        demContain > '' ? setEmpty('') : setEmpty('')
+        console.log(demContain)
+    }, [demContain])
+
     const mainSearch = () => {
         fetch(APIURL+inputContain)
         .then(res => res.json())
