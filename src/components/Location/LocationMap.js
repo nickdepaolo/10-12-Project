@@ -23,14 +23,25 @@ const LocationMap = (props) => {
         setSliceControl(5)
     }
 
+    function selectDem(e) {
+        props.demContain(e)
+        console.log(e)
+
+    }
+
+    function selectType(e) {
+        props.typeContain(e)
+        console.log(e)
+    }
+
     return(
         <div>
             {infoContain.map((card) => (
                 <div key={card.name}>
                     
                     <h3>{card.name}</h3>
-                    <h4>{card.type}</h4>
-                    {card.dimension == 'unknown' ? <h5>Dimension Unknown</h5> : <h5>{card.dimension}</h5>}
+                    <h4 onClick={() => selectType(card.type)}>{card.type}</h4>
+                    {card.dimension == 'unknown' ? <h5>Dimension Unknown</h5> : <h5 onClick={() => selectDem(card.dimension)}>{card.dimension}</h5>}
                   
                     {card.residents.slice(0,sliceControl).map((character) => (
                         <div key={character}>

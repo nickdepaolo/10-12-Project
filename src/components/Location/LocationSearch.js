@@ -5,6 +5,8 @@ const LocationSearch = (props) => {
 
     const [infoContain, setInfoContain] = useState([])
     const [inputContain, setInputContain] = useState('')
+    const [typeContain, setTypeContain] = useState('')
+    const [demContain, setDemContain] = useState('')
     const [empty, setEmpty] = useState('')
 
     const APIURL = 'https://rickandmortyapi.com/api/location/?&name='
@@ -15,16 +17,9 @@ const LocationSearch = (props) => {
 
     useEffect(() => {
         props.locPass > '' ? mainSearch() : setEmpty('')
-        
     }, [inputContain])
 
     const mainSearch = () => {
-        fetch(APIURL+inputContain)
-        .then(res => res.json())
-        .then(json => setInfoContain(json.results.slice(0,5)))
-    }
-    
-    const fromCharSearch = () => {
         fetch(APIURL+inputContain)
         .then(res => res.json())
         .then(json => setInfoContain(json.results.slice(0,5)))
@@ -37,7 +32,7 @@ const LocationSearch = (props) => {
             <button onClick={mainSearch} >Search</button>
             <br/>
             <br/>
-            <LocationMap charPass={props.charPass} infoContain={infoContain}/>
+            <LocationMap demContain={setDemContain} typeContain={setTypeContain} charPass={props.charPass} infoContain={infoContain}/>
         </div>
     )
 }
