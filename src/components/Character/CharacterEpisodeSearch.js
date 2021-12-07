@@ -5,10 +5,6 @@ const CharacterEpisodeSearch = (props) => {
     const [sliceControl, setSliceControl] = useState(5)
     const [moreTrue, setMoreTrue] = useState(false)
 
-    useEffect(() => {
-        console.log(props.episodes)
-    },[props])
-
     function setSliceTrue() {
         setSliceControl(45);
         setMoreTrue(true)
@@ -18,7 +14,6 @@ const CharacterEpisodeSearch = (props) => {
         setSliceControl(5);
         setMoreTrue(false);
         document.getElementById("spotLight").scrollIntoView({behavior: 'smooth'});
-
     }
 
     return(

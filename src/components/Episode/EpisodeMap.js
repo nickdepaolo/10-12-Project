@@ -11,9 +11,9 @@ const EpisodeMap = (props) => {
     //     setSpotState(sliceEpisode)
     // }, [sliceEpisode])
 
-    function pushEpisode(e) {
-        setSpotState(e)
-    }
+    // function pushEpisode(e) {
+    //     setSpotState(e)
+    // }
 
     return(
         <div>

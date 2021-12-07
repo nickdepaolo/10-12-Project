@@ -5,16 +5,11 @@ import CharacterEpisodeSearch from './CharacterEpisodeSearch'
 
 const CharacterSpotlight = (props) => {
 
-    useEffect(() => {
-        console.log(props)
-    }, [props])
-
     const searchSpecies = (e) =>  {
         fetch(`https://rickandmortyapi.com/api/character/?&species=${e}`)
             .then(res => res.json())
             .then(json =>{
                 props.setInfoContain(json.results);
-                console.log(json.results);
                 json.info.next == null ?  props.nextContain('') : props.nextContain(json.info.next);
             })
     }
@@ -24,7 +19,6 @@ const CharacterSpotlight = (props) => {
         .then(res => res.json())
         .then(json =>{
             props.setInfoContain(json.results);
-            console.log(json.results);
             json.info.next == null ?  props.nextContain('') : props.nextContain(json.info.next);
         })
     }
@@ -34,7 +28,6 @@ const CharacterSpotlight = (props) => {
         .then(res => res.json())
         .then(json =>{
             props.setInfoContain(json.results);
-            console.log(json.results)
             json.info.next == null ?  props.nextContain('') : props.nextContain(json.info.next);
         })
     }
@@ -44,7 +37,6 @@ const CharacterSpotlight = (props) => {
         .then(res => res.json())
         .then(json =>{
             props.setInfoContain(json.results);
-            console.log(json.results);
             json.info.next == null ?  props.nextContain('') : props.nextContain(json.info.next);
 
         })  

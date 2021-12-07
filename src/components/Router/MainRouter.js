@@ -20,19 +20,15 @@ const MainRouter = (props) => {
     useEffect(() => {
         setPassTrigger(true)
         charArray.splice(0, 1, charPass)
-        console.log(charPass)
     },[charPass])
 
     useEffect(() => {
         setLocTrigger(true);
-        console.log(locPass)
-        console.log('triggered')
     }, [locPass])
 
     useEffect(() => {
         setEpiTrigger(true)
         epiArray.splice(0, 1, epiPass)
-        console.log(epiPass, epiArray)
     }, [epiPass])
 
     return(

@@ -2,14 +2,10 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const EpisodeCharMap = (props) => {
-
-
-
     function setCharPass() {
         props.charPass(props.character);
         
     }
-
 
     return(
         <div>

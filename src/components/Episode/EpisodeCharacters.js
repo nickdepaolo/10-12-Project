@@ -3,11 +3,6 @@ import EpisodeCharFetch from "./EpisodeCharFetch";
 
 const EpisodeCharacters = (props) => {
     let characters = props.characters
-
-    useEffect(() => {
-        console.log(props)
-    }, [props])
-
   
     return(
         <div>

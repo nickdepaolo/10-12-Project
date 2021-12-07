@@ -41,8 +41,6 @@ const CharacterSearch = (props) => {
       .then(json =>{
           setInfoContain(json.results);
           setNextContain(json.info.next);
-          console.log(json.results)
-          console.log(json.info)
       })
       .then(setUserInput(''))
   }
@@ -53,7 +51,6 @@ const CharacterSearch = (props) => {
       .then(json =>{
           setInfoContain(json.results);
           setNextContain(json.info.next);
-          console.log(json.results)
       })
   }
 
@@ -64,7 +61,6 @@ const CharacterSearch = (props) => {
         setInfoContain(json.results);
         setNextContain(json.info.next);
         setPrevContain(json.info.prev);
-        console.log(json);
       })
   }
   
@@ -75,7 +71,6 @@ const CharacterSearch = (props) => {
         setInfoContain(json.results);
         setNextContain(json.info.next);
         setPrevContain(json.info.prev);
-        console.log(json);
       })
   }
 

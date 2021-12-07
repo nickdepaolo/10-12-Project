@@ -2,15 +2,8 @@ import React, { useEffect, useState } from "react";
 import CharacterEpisodeMap from "./CharacterEpisodeMap";
 
 const CharacterEpisodeSort = (props) => {
-
     const [episodeContain, setEpisodeContain] = useState('')
-   
-
     const episodeURL = props.episode
-
-    useEffect(() => {
-        console.log(episodeContain)
-    },[episodeContain])
 
     useEffect(() => {
         submitEpisode()

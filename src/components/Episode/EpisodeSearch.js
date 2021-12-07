@@ -9,7 +9,6 @@ const EpisodeSearch = (props) => {
 
     useEffect(() => {
         setEpisodeArray(props.epiPass)
-        console.log(props)
     }, [props.epiTrigger])
 
     const submitEpisode = () => {
@@ -21,7 +20,6 @@ const EpisodeSearch = (props) => {
     function setInput() {
         userInput > '' ? setSearchInput('&name='+userInput) : setSearchInput('');
         submitEpisode();
-        console.log(searchInput)
     }
 
     function updateStates() {

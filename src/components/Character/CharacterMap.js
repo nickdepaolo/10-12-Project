@@ -1,8 +1,6 @@
 import CharacterSpotlight from './CharacterSpotlight';
 import React, {useEffect, useState, useRef} from 'react';
 import {Route, Link, Switch} from 'react-router-dom';
-
-
 import '../Components.css'
 
 
@@ -19,11 +17,8 @@ const CharacterMap = (props) => {
         props.charSelect(false)
     }, [props.infoContain])
 
-    
-
     function setTrue() {
         setIsTrue(true);
-        console.log(isTrue)
     }
     
     function setSliceArray(e) {

@@ -4,18 +4,9 @@ import { Link } from "react-router-dom";
 
 const CharacterEpisodeMap = (props) => {
 
-
-    useEffect(() => {
-        console.log(props)
-    },[props])
-
    function pushEpisode() {
-
        props.epiPass(props.episode)
-       console.log(props)
    }
-
-   
 
     return(
         <div>

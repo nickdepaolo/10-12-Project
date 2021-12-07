@@ -8,10 +8,6 @@ const EpisodeCharFetch = (props) => {
         fetchChar()
     }, [props])
 
-    useEffect(() => {
-        console.log(fetchContain)
-    }, [fetchContain])
-
     function fetchChar() {
         fetch(props.character)
         .then(res => res.json())

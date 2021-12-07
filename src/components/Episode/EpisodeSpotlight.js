@@ -2,9 +2,7 @@ import React, { useEffect } from "react";
 import EpisodeCharacters from "./EpisodeCharacters";
 
 const EpisodeSpotlight = (props) => {
-    useEffect(() => {
-        console.log(props)
-    }, [props])
+    
 
     return(
         <div>

@@ -11,7 +11,6 @@ const LocationSearch = (props) => {
 
     useEffect(() => {
         props.locTrigger ? setInputContain(props.locPass) : setEmpty('');
-        console.log(props.locPass)
     }, [props.locPass])
 
     useEffect(() => {
@@ -31,15 +30,11 @@ const LocationSearch = (props) => {
         .then(json => setInfoContain(json.results.slice(0,5)))
     }
 
-    function logTrigger() {
-        console.log(infoContain)
-    }
- 
     return(
         <div>
             <h4>Location Search</h4>
             <input onChange={(e)=> setInputContain(e.target.value)}/>
-            <button onClick={mainSearch} onMouseUp={logTrigger}>Search</button>
+            <button onClick={mainSearch} >Search</button>
             <br/>
             <br/>
             <LocationMap charPass={props.charPass} infoContain={infoContain}/>
