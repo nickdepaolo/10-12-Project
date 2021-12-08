@@ -24,6 +24,7 @@ const LocationSearch = (props) => {
                 .then(res => res.json())
                 .then(json => setInfoContain(json.results))
             : setEmpty('');
+            console.log(typeContain)
     }, [typeContain])
 
     useEffect(() => {

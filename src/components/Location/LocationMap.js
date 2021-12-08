@@ -8,6 +8,10 @@ const LocationMap = (props) => {
     const infoContain = props.infoContain;
 
     useEffect(() => {
+        document.getElementById("infoMap").scrollIntoView({behavior: 'smooth'});
+      },[infoContain])
+
+    useEffect(() => {
         swapButton()
     }, [sliceControl])
 
@@ -25,14 +29,17 @@ const LocationMap = (props) => {
 
     function selectDem(e) {
         props.demContain(e)
+        console.log(e)
+
     }
 
     function selectType(e) {
         props.typeContain(e)
+        console.log(e)
     }
 
     return(
-        <div>
+        <div  id='infoMap'>
             {infoContain.map((card) => (
                 <div key={card.name}>
                     

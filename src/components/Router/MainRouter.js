@@ -3,6 +3,7 @@ import {Route, Link, Switch} from 'react-router-dom';
 import CharacterSearch from '../Character/CharacterSearch';
 import LocationSearch from '../Location/LocationSearch';
 import EpisodeSearch from '../Episode/EpisodeSearch';
+import Home from '../Home/Home'
 import Header from '../Header/Header';
 import '../Components.css'
 
@@ -37,6 +38,7 @@ const MainRouter = (props) => {
             <br/>
                 
             <Switch>
+                <Route exact path='/'><Home/></Route>
                 <Route exact path='/CharacterSearch'><CharacterSearch passTrigger={charTrigger} epiPass={setEpiPass} locPass={setLocPass} charPass={charArray}/></Route>
                 <Route exact path='/LocationSearch'><LocationSearch locTrigger={locTrigger} locPass={locPass} charPass={setCharPass}/></Route>
                 <Route exact path='/EpisodeSearch'><EpisodeSearch epiTrigger={epiTrigger} epiPass={epiArray} charPass={setCharPass}/></Route>
