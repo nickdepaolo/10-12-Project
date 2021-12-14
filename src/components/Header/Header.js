@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import '../Components.css'
 
 const Header = (props) => {
+    const [empty, setEmpty] = useState('')
 
     function clearStates() {
-        props.epiPass('');
-        props.locPass('');
-        props.charPass('')
+        props.locPass !== '' && props.locPass > '' ? props.setLocPass([]) : setEmpty('');
     }
 
     return(

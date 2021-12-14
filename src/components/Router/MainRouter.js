@@ -34,7 +34,7 @@ const MainRouter = (props) => {
 
     return(
         <div>
-            <Header epiPass={setEpiPass} charPass={setCharPass} locPass={setLocPass} />
+            <Header epiPass={epiPass} charPass={charPass} locPass={locPass} setEpiPass={setEpiPass} setCharPass={setCharPass} setLocPass={setLocPass} />
             <br/>
                 
             <Switch>
