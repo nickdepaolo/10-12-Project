@@ -34,6 +34,10 @@ const LocationSearch = (props) => {
             : setEmpty('')
     }, [demContain])
 
+    useEffect(() => {
+        document.getElementById("locMain").scrollIntoView({behavior: 'smooth'});
+      },[infoContain])
+
     const mainSearch = () => {
         fetch(APIURL+inputContain)
         .then(res => res.json())
@@ -41,7 +45,7 @@ const LocationSearch = (props) => {
     }
 
     return(
-        <div>
+        <div id='locMain'>
             <h4>Location Search</h4>
             <input onChange={(e)=> setInputContain(e.target.value)}/>
             <button onClick={mainSearch} >Search</button>

@@ -28,7 +28,7 @@ const CharacterSearch = (props) => {
   },[props.passTrigger])
 
   useEffect(() => {
-    document.getElementById("spotLight").scrollIntoView({behavior: 'smooth'});
+    document.getElementById("charMain").scrollIntoView({behavior: 'smooth'});
   },[infoContain])
 
   useEffect(() => {
@@ -127,7 +127,7 @@ const CharacterSearch = (props) => {
   }
 
     return(
-        <div>
+        <div id='charMain'>
 
           <h4>Character Search</h4>
             <input id='mainInput' onChange={(e) => setUserInput(e.target.value)} name="UserInput" />

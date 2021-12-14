@@ -8,10 +8,6 @@ const LocationMap = (props) => {
     const infoContain = props.infoContain;
 
     useEffect(() => {
-        document.getElementById("infoMap").scrollIntoView({behavior: 'smooth'});
-      },[infoContain])
-
-    useEffect(() => {
         swapButton()
     }, [sliceControl])
 
