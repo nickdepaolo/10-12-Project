@@ -2,10 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import '../Components.css'
 
-const Header = () => {
+const Header = (props) => {
+
+    function clearStates() {
+        props.epiPass('');
+        props.locPass('');
+        props.charPass('')
+    }
 
     return(
-        <div className='header'>
+        <div onClick={clearStates} className='header'>
             <br/>
             <h2><Link to='/'>Ricktionary</Link></h2>
             <h3><Link to='/CharacterSearch'>Character Search</Link></h3>
