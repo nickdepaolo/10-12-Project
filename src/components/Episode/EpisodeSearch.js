@@ -11,6 +11,11 @@ const EpisodeSearch = (props) => {
         setEpisodeArray(props.epiPass)
     }, [props.epiTrigger])
 
+    useEffect(() => {
+        document.getElementById("epiMain").scrollIntoView({behavior: 'smooth'});
+      },[episodeArray])
+    
+
     const submitEpisode = () => {
         fetch(`https://rickandmortyapi.com/api/episode`)
         .then(res => res.json())
@@ -28,7 +33,7 @@ const EpisodeSearch = (props) => {
     }
 
     return(
-        <div onChange={updateStates}>
+        <div id ='epiMain' onChange={updateStates}>
             <h4>Episode Search</h4>
             <input id='episodeInput' onChange={(e) => setUserInput(e.target.value)} />
             <button onClick={submitEpisode}>Search</button>
