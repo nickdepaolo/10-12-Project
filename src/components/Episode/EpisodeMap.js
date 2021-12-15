@@ -16,7 +16,8 @@ const EpisodeMap = (props) => {
             const data = await res.json();
             const query = data.query.pages
             const parsed = Object.values(query)[0].extract
-            setWiki(parsed)
+            {Object.values(query)[0].pageid !== 43794574 ? Object.values(query)[0].pageid !== 65819511 ? setWiki(parsed) : setWiki('') : setWiki('')}
+            console.log(query)
         } catch(error) {
             setWiki('Catch error')
         }
