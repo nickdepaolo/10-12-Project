@@ -23,7 +23,7 @@ const Header = (props) => {
     }
 
     async function fetchWiki2() {
-        const url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=extracts|pageimages&pithumbsize=400&origin=*&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=mortyplicity';
+        const url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=1&prop=extracts|pageimages&pithumbsize=400&origin=*&exintro&explaintext&exsentences=15&exlimit=max&gsrsearch=anatomy%20park';
         const res = await fetch(url);
         const data = await res.json();
         const query = data.query.pages
