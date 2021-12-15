@@ -5,7 +5,9 @@ const EpisodeSearch = (props) => {
     const [userInput, setUserInput] = useState('Pilot')
     const [episodeArray, setEpisodeArray] = useState([])
     const [searchInput, setSearchInput] = useState('')
-    const [empty, setEmpty] = ('')
+    const [empty, setEmpty] = useState('')
+    const [wiki, setWiki] = useState('')
+    const [episodeName, setEpisodeName] = useState('')
 
     useEffect(() => {
         setEpisodeArray(props.epiPass)
@@ -13,8 +15,7 @@ const EpisodeSearch = (props) => {
 
     useEffect(() => {
         document.getElementById("epiMain").scrollIntoView({behavior: 'smooth'});
-      },[episodeArray])
-    
+    },[episodeArray])
 
     const submitEpisode = () => {
         fetch(`https://rickandmortyapi.com/api/episode`)
@@ -29,7 +30,6 @@ const EpisodeSearch = (props) => {
 
     function updateStates() {
         userInput > '' ? setUserInput(document.getElementById('episodeInput').value) : setEmpty([]);
-    
     }
 
     return(
@@ -37,7 +37,7 @@ const EpisodeSearch = (props) => {
             <h4>Episode Search</h4>
             <input id='episodeInput' onChange={(e) => setUserInput(e.target.value)} />
             <button onClick={submitEpisode}>Search</button>
-            <EpisodeMap charPass={props.charPass} episodeArray={episodeArray}/>
+            <EpisodeMap charPass={props.charPass} episodeArray={episodeArray} wiki={wiki}/>
 
         </div>
     )
