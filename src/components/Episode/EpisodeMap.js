@@ -24,6 +24,7 @@ const EpisodeMap = (props) => {
 
     useEffect(() => {
         {episodeName > '' ? fetchWiki() : console.log('nope')}
+        console.log(episodeName)
     }, [episodeName])
 
     return(

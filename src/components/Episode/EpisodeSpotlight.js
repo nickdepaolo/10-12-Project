@@ -4,7 +4,8 @@ import EpisodeCharacters from "./EpisodeCharacters";
 const EpisodeSpotlight = (props) => {
     
     function setName(e) {
-        props.episodeName(e.replace(/ /g, '%20'))
+        e == 'Pilot' ? props.episodeName('Rick%20Morty%20Pilot') : props.episodeName(e.replace(/ /g, '%20'))
+        console.log(e)
     }
 
     return(
