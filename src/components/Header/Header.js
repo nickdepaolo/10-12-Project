@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react/cjs/react.development";
 import '../Components.css'
 
 const Header = (props) => {
@@ -23,16 +24,21 @@ const Header = (props) => {
     }
 
     async function fetchWiki2() {
-        const url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=1&prop=extracts|pageimages&pithumbsize=400&origin=*&exintro&explaintext&exsentences=15&exlimit=max&gsrsearch=anatomy%20park';
-        const res = await fetch(url);
-        const data = await res.json();
-        const query = data.query.pages
-        const parsed = Object.values(query)[0].extract
-
-        setWiki(parsed)
+        try {const url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=1&prop=extracts|pageimages&pithumbsize=400&origin=*&exintro&explaintext&exsentences=15&exlimit=max&gsrsearch=cat';
+            const res = await fetch(url)
+            const data = await res.json();
+            const query = data.query.pages
+            const parsed = Object.values(query)[0].extract
+            setWiki(parsed)
+        } catch(error) {
+            setWiki('Catch error')
+        }
         
-        console.log(query)
     }
+
+    useEffect(() => {
+        console.log(wiki)
+    }, [wiki])
 
     return(
         <div onClick={clearStates} className='header'>
