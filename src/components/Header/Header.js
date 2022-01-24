@@ -48,7 +48,7 @@ const Header = (props) => {
             <h3><Link to='/LocationSearch'>Location Search</Link></h3>
             <h3><Link to='/EpisodeSearch'>Episode Search</Link></h3>
             <br/>
-            <button onClick={fetchWiki2} >Wiki</button>
+            {/* <button onClick={fetchWiki2} >Wiki</button> */}
             <p>{wiki}</p>
         </div>
     )

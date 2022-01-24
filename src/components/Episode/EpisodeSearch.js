@@ -7,7 +7,6 @@ const EpisodeSearch = (props) => {
     const [searchInput, setSearchInput] = useState('')
     const [empty, setEmpty] = useState('')
     const [wiki, setWiki] = useState('')
-    const [episodeName, setEpisodeName] = useState('')
 
     useEffect(() => {
         setEpisodeArray(props.epiPass)
@@ -37,7 +36,7 @@ const EpisodeSearch = (props) => {
             <h4>Episode Search</h4>
             <input id='episodeInput' onChange={(e) => setUserInput(e.target.value)} />
             <button onClick={submitEpisode}>Search</button>
-            <EpisodeMap charPass={props.charPass} episodeArray={episodeArray} wiki={wiki}/>
+            <EpisodeMap charPass={props.charPass} episodeArray={episodeArray} wiki={wiki} selectedEpi={setEpisodeArray}/>
 
         </div>
     )
