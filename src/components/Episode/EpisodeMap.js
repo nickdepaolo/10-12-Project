@@ -42,6 +42,7 @@ const EpisodeMap = (props) => {
         sliceArray.push(e)
         setSpotState(sliceArray)
         console.log(e)
+        document.getElementById("epiSpotLight").scrollIntoView({behavior: 'smooth'})
     }
 
     useEffect(() => {
@@ -56,7 +57,9 @@ const EpisodeMap = (props) => {
 
     return(
         <div>
-            <EpisodeSpotlight charPass={props.charPass} sliceEpisode={spotState} episodeName={setEpisodeName} wiki={wiki}/>
+            <div id='epiSpotLight'>
+                <EpisodeSpotlight charPass={props.charPass} sliceEpisode={spotState} episodeName={setEpisodeName} wiki={wiki}/> 
+            </div>
             {sliceList.map((episode) => (
                 <div key={episode.name}>
                     <br/>
