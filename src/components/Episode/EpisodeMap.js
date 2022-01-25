@@ -58,14 +58,14 @@ const EpisodeMap = (props) => {
     return(
         <div>
             <div id='epiSpotLight'>
-                <EpisodeSpotlight charPass={props.charPass} sliceEpisode={spotState} episodeName={setEpisodeName} wiki={wiki}/> 
+                <EpisodeSpotlight charPass={props.charPass} sliceEpisode={sliceEpisode} episodeName={setEpisodeName} wiki={wiki}/> 
             </div>
             {sliceList.map((episode) => (
                 <div key={episode.name}>
                     <br/>
                     <h3 onClick={() => selectedEpi(episode)} >{episode.name}</h3>
-                    <h4>{episode.air_date}</h4>
-                    <h4>{episode.episode}</h4>
+                    <h4 onClick={() => selectedEpi(episode)}>{episode.air_date}</h4>
+                    <h4 onClick={() => selectedEpi(episode)}>{episode.episode}</h4>
                     <h1>__________________</h1>
                 </div>
             ))}
