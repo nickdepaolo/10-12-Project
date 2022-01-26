@@ -24,19 +24,6 @@ const EpisodeMap = (props) => {
         }
     } 
 
-    async function fetchWiki2() {
-        try {const url = `https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Earth`;
-            const res = await fetch(url)
-            const data = await res.json();
-            const query = data.query.pages
-            // const parsed = Object.values(query)[0].extract
-            // {Object.values(query)[0].pageid !== 43794574 ? Object.values(query)[0].pageid !== 65819511 ? setWiki(parsed) : setWiki('') : setWiki('')}
-            console.log(data)
-        } catch(error) {
-            setWiki('Catch error')
-        }
-    }
-
     function selectedEpi(e) {
         let sliceArray = []
         sliceArray.push(e)
@@ -49,11 +36,6 @@ const EpisodeMap = (props) => {
         {episodeName > '' ? fetchWiki() : console.log('nope')} 
         console.log(episodeName)
     }, [episodeName])
-
-    useEffect(() =>{
-        {spotState == '' && sliceEpisode > '' ? setSpotState(sliceEpisode) : console.log('nope slice')}
-        console.log(spotState)
-    }, [sliceEpisode])
 
     return(
         <div>
