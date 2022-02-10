@@ -22,7 +22,7 @@ const LocationSearch = (props) => {
     useEffect(() => {
         typeContain > '' ? fetch(`https://rickandmortyapi.com/api/location/?&type=${typeContain}`)
                 .then(res => res.json())
-                .then(json => setInfoContain(json.results))
+                .then( json => {json.results? setInfoContain(json.results) : setEmpty('')})
             : setEmpty('');
             console.log(typeContain)
     }, [typeContain])

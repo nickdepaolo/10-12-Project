@@ -19,7 +19,7 @@ const EpisodeSearch = (props) => {
     const submitEpisode = () => {
         fetch(`https://rickandmortyapi.com/api/episode`)
         .then(res => res.json())
-        .then(json => {setEpisodeArray(json.results)})
+        .then(json => {json.results? setEpisodeArray(json.results) : setEmpty('')})
     }
 
     function setInput() {
