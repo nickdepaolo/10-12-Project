@@ -41,7 +41,7 @@ const LocationSearch = (props) => {
     const mainSearch = () => {
         fetch(APIURL+inputContain)
         .then(res => res.json())
-        .then(json => setInfoContain(json.results.slice(0,5)))
+        .then(json => {json.results? setInfoContain(json.results.slice(0,5)) : setEmpty('')})
     }
 
     return(
