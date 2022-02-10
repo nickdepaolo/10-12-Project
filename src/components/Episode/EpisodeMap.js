@@ -20,10 +20,10 @@ const EpisodeMap = (props) => {
             {Object.values(query)[0].pageid !== 43794574 ? Object.values(query)[0].pageid !== 65819511 ? setWiki(parsed) : setWiki('') : setWiki('')}
             console.log(query)
         } catch(error) {
-            setWiki('Catch error')
+            console.log('Catch error')
         }
     } 
-
+    
     function selectedEpi(e) {
         let sliceArray = []
         sliceArray.push(e)

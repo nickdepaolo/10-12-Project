@@ -35,14 +35,15 @@ const CharacterSearch = (props) => {
     setPrevContain('')
   }, [charSelect])
 
-  const submitCharacter = () => {
-    fetch(APIURL+`&name=`+ userInput)
+  async function submitCharacter() {
+   try{fetch(APIURL+`&name=`+ userInput)
       .then(res => res.json())
       .then(json =>{
-          setInfoContain(json.results);
-          setNextContain(json.info.next);
+          json.results? setInfoContain(json.results) : setEmpty('');
+          json.info? setNextContain(json.info.next) : setEmpty('');
       })
       .then(setUserInput(''))
+    }catch(error){console.log('error')}
   }
 
   const submitADV = () => {
