@@ -23,6 +23,8 @@ const EpisodeMap = (props) => {
             console.log('Catch error')
         }
     } 
+
+    
     
     function selectedEpi(e) {
         let sliceArray = []
