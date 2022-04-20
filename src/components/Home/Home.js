@@ -1,5 +1,7 @@
 import React from "react";
 import dance from "../../Assets/dance.gif"
+import synthwave from "../../Assets/synthwave.jpg"
+
 
 const Home = () => {
 

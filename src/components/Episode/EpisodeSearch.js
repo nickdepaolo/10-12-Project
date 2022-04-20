@@ -38,8 +38,8 @@ const EpisodeSearch = (props) => {
             <input id='episodeInput' onChange={(e) => setUserInput(e.target.value)} />
             <button onClick={submitEpisode}>Search</button>
             <br/>
-            {episodeArray > '' ? '' : <h3>Enter an episode or press the search button to pull up a list</h3>}
-            {episodeArray > '' ? '' : <img src={loop}/>}
+            {episodeArray > '' ? '' : <h3 className="fade-in">Enter an episode or press the search button to pull up a list</h3>}
+            {episodeArray > '' ? '' : <img className="fade-in" src={loop}/>}
             <EpisodeMap charPass={props.charPass} episodeArray={episodeArray} wiki={wiki} selectedEpi={setEpisodeArray}/>
 
         </div>
