@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EpisodeMap from "./EpisodeMap";
+import loop from "../../Assets/head.gif"
 
 const EpisodeSearch = (props) => {
     const [userInput, setUserInput] = useState('Pilot')
@@ -38,6 +39,7 @@ const EpisodeSearch = (props) => {
             <button onClick={submitEpisode}>Search</button>
             <br/>
             {episodeArray > '' ? '' : <h3>Enter an episode or press the search button to pull up a list</h3>}
+            {episodeArray > '' ? '' : <img src={loop}/>}
             <EpisodeMap charPass={props.charPass} episodeArray={episodeArray} wiki={wiki} selectedEpi={setEpisodeArray}/>
 
         </div>

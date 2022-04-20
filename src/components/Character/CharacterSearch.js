@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Modal from 'react-modal';
 import CharacterMap from './CharacterMap';
 import '../Components.css'
+import loop from "../../Assets/TransformingRing.gif"
 
 const CharacterSearch = (props) => {
   const APIURL = 'https://rickandmortyapi.com/api/character/?';
@@ -137,6 +138,8 @@ const CharacterSearch = (props) => {
             <button onClick={openModalAdv} >{modalIsOpenAdv?'WubbaLubbaDubDub':'Advanced Search'}</button>
             <br/>
             {infoContain > '' ? '' : <h3>Enter a Name or press the search button to pull up a list</h3>}
+            <br/>
+            {infoContain > '' ? '' : <img src={loop}/>}
             
             <Modal
                 id='ADVmodal'

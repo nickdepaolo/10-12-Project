@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LocationMap from './LocationMap'
+import loop from "../../Assets/universeLoop.gif"
+
 
 const LocationSearch = (props) => {
 
@@ -52,6 +54,7 @@ const LocationSearch = (props) => {
             <br/>
             {infoContain > '' ? '' : <h3>Enter a location or press the search button to pull up a list</h3>}
             <br/>
+            {infoContain > '' ? '' : <img src={loop}/>}
             <LocationMap demContain={setDemContain} typeContain={setTypeContain} charPass={props.charPass} infoContain={infoContain}/>
         </div>
     )
