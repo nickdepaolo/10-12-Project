@@ -36,6 +36,8 @@ const EpisodeSearch = (props) => {
             <h4>Episode Search</h4>
             <input id='episodeInput' onChange={(e) => setUserInput(e.target.value)} />
             <button onClick={submitEpisode}>Search</button>
+            <br/>
+            {episodeArray > '' ? '' : <h3>Enter an episode or press the search button to pull up a list</h3>}
             <EpisodeMap charPass={props.charPass} episodeArray={episodeArray} wiki={wiki} selectedEpi={setEpisodeArray}/>
 
         </div>

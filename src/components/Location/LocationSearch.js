@@ -50,6 +50,7 @@ const LocationSearch = (props) => {
             <input onChange={(e)=> setInputContain(e.target.value)}/>
             <button onClick={mainSearch} >Search</button>
             <br/>
+            {infoContain > '' ? '' : <h3>Enter a location or press the search button to pull up a list</h3>}
             <br/>
             <LocationMap demContain={setDemContain} typeContain={setTypeContain} charPass={props.charPass} infoContain={infoContain}/>
         </div>

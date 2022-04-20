@@ -136,6 +136,7 @@ const CharacterSearch = (props) => {
             <br/>
             <button onClick={openModalAdv} >{modalIsOpenAdv?'WubbaLubbaDubDub':'Advanced Search'}</button>
             <br/>
+            {infoContain > '' ? '' : <h3>Enter a Name or press the search button to pull up a list</h3>}
             
             <Modal
                 id='ADVmodal'
