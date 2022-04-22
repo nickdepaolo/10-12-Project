@@ -10,7 +10,6 @@ const EpisodeWiki = (props) => {
 
     function setName(e) {
         e == 'Pilot' ? setEpisodeName('Rick%20Morty%20Pilot') : setEpisodeName(e.replace(/ /g, '%20'))
-        console.log(e)
     }
 
     return(

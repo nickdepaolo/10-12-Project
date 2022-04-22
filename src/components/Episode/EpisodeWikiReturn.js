@@ -11,9 +11,8 @@ const EpisodeWikiReturn = (props) => {
             const query = data.query.pages
             const parsed = Object.values(query)[0].extract
             {Object.values(query)[0].pageid !== 43794574 ? Object.values(query)[0].pageid !== 65819511 ? setWiki(parsed) : setWiki('') : setWiki('')}
-            console.log(wiki)
         } catch(error) {
-            console.log('Catch error')
+            fetchWiki()
         }
     } 
 
