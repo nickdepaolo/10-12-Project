@@ -139,7 +139,7 @@ const CharacterSearch = (props) => {
             <br/>
             {infoContain > '' ? '' : <h3 className='fade-in'>Enter a Name or press the search button to pull up a list</h3>}
             <br/>
-            {infoContain > '' ? '' : <img class='fade-in' src={loop}/>}
+            {infoContain > '' ? '' : <img className='fade-in' src={loop}/>}
             
             <Modal
                 id='ADVmodal'

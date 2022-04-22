@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EpisodeSpotlight from "./EpisodeSpotlight";
+import EpisodeWiki from "./EpisodeWiki";
 
 const EpisodeMap = (props) => {
     const episodeArray = props.episodeArray
@@ -18,7 +19,7 @@ const EpisodeMap = (props) => {
             const query = data.query.pages
             const parsed = Object.values(query)[0].extract
             {Object.values(query)[0].pageid !== 43794574 ? Object.values(query)[0].pageid !== 65819511 ? setWiki(parsed) : setWiki('') : setWiki('')}
-            console.log(query)
+            console.log(wiki)
         } catch(error) {
             console.log('Catch error')
         }
@@ -42,7 +43,9 @@ const EpisodeMap = (props) => {
     return(
         <div>
             <div id='epiSpotLight'>
-                <EpisodeSpotlight charPass={props.charPass} sliceEpisode={spotState == '' ? sliceEpisode : spotState} episodeName={setEpisodeName} wiki={wiki}/> 
+                <EpisodeWiki wiki={wiki}/>
+                <EpisodeSpotlight charPass={props.charPass} sliceEpisode={spotState == '' ? sliceEpisode : spotState} episodeName={setEpisodeName} /> 
+            <h2>{wiki}</h2>
             </div>
             {sliceList.map((episode) => (
                 <div key={episode.name}>

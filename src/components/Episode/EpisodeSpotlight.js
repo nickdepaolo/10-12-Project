@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import EpisodeCharacters from "./EpisodeCharacters";
 
 const EpisodeSpotlight = (props) => {
+    const [wiki, setWiki] = useState('')
+    const [episodeName, setEpisodeName] = useState('')
     
     function setName(e) {
         e == 'Pilot' ? props.episodeName('Rick%20Morty%20Pilot') : props.episodeName(e.replace(/ /g, '%20'))
