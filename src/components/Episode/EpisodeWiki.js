@@ -1,9 +1,22 @@
-import react from "react";
+import React, { useEffect, useState } from "react";
+import EpisodeWikiReturn from "./EpisodeWikiReturn";
 
 const EpisodeWiki = (props) => {
+    const [episodeName, setEpisodeName] = useState('')
+
+    useEffect(() =>{
+        setName(props.episodeName)
+    }, [props.episodeName])
+
+    function setName(e) {
+        e == 'Pilot' ? setEpisodeName('Rick%20Morty%20Pilot') : setEpisodeName(e.replace(/ /g, '%20'))
+        console.log(e)
+    }
 
     return(
-        <h4>{props.wiki}</h4>
+       <div>
+        <EpisodeWikiReturn episodeName={episodeName}/>
+       </div>
     )
 }
 

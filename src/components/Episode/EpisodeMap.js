@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import EpisodeSpotlight from "./EpisodeSpotlight";
-import EpisodeWiki from "./EpisodeWiki";
 
 const EpisodeMap = (props) => {
     const episodeArray = props.episodeArray
@@ -24,8 +23,6 @@ const EpisodeMap = (props) => {
             console.log('Catch error')
         }
     } 
-
-    
     
     function selectedEpi(e) {
         let sliceArray = []
@@ -43,9 +40,7 @@ const EpisodeMap = (props) => {
     return(
         <div>
             <div id='epiSpotLight'>
-                <EpisodeWiki wiki={wiki}/>
-                <EpisodeSpotlight charPass={props.charPass} sliceEpisode={spotState == '' ? sliceEpisode : spotState} episodeName={setEpisodeName} /> 
-            <h2>{wiki}</h2>
+                <EpisodeSpotlight charPass={props.charPass} sliceEpisode={spotState == '' ? sliceEpisode : spotState} episodeName={setEpisodeName} wiki={wiki}/> 
             </div>
             {sliceList.map((episode) => (
                 <div key={episode.name}>
