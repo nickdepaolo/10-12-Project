@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import LocationCharacter from './LocationCharacter';
+import LocationCharPic from './LocationCharPic';
 
 const LocationMap = (props) => {
     const [sliceControl, setSliceControl] = useState(5)
@@ -46,6 +47,7 @@ const LocationMap = (props) => {
                     {card.residents.slice(0,sliceControl).map((character) => (
                         <div key={character}>
                             <LocationCharacter charPass={props.charPass} character={character}/>
+                            {/* <LocationCharPic charPass={props.charPass} infoContain={character}/> */}
                         </div>
                         ))}
      
