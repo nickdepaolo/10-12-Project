@@ -26,13 +26,10 @@ const LocationMap = (props) => {
 
     function selectDem(e) {
         props.demContain(e)
-        console.log(e)
-
     }
 
     function selectType(e) {
         props.typeContain(e)
-        console.log(e)
     }
 
     return(

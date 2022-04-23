@@ -4,6 +4,10 @@ const EpisodeWikiReturn = (props) => {
     const [wiki, setWiki] = useState('')
     const [episodeName, setEpisodeName] = useState('')
 
+    useEffect(() =>{
+        fetchWiki()
+    }, [props.episodeName])
+    
     async function fetchWiki() {
         try {const url = `https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=1&prop=extracts|pageimages&pithumbsize=400&origin=*&exintro&explaintext&exsentences=15&exlimit=max&gsrsearch=${props.episodeName}`;
             const res = await fetch(url)
@@ -16,9 +20,6 @@ const EpisodeWikiReturn = (props) => {
         }
     } 
 
-    useEffect(() =>{
-        fetchWiki()
-    }, [props.episodeName])
 
     return(
         <div>
