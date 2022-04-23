@@ -21,7 +21,7 @@ const EpisodeMap = (props) => {
     return(
         <div>
             <div id='epiSpotLight'>
-                <EpisodeSpotlight charPass={props.charPass} sliceEpisode={spotState == '' ? sliceEpisode : spotState} episodeName={setEpisodeName} wiki={wiki}/> 
+                <EpisodeSpotlight charPass={props.charPass} sliceEpisode={spotState === '' ? sliceEpisode : spotState} episodeName={setEpisodeName} wiki={wiki}/> 
             </div>
             {sliceList.map((episode) => (
                 <div key={episode.name}>

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import { useLocation } from 'react-router-dom';
 import Modal from 'react-modal';
 import CharacterMap from './CharacterMap';
 import '../Components.css'

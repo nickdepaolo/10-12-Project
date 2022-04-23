@@ -1,7 +1,6 @@
 import './App.css';
 
 import MainRouter from './components/Router/MainRouter';
-import {Route, Link, Switch} from 'react-router-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
 
 

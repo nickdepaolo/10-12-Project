@@ -60,15 +60,15 @@ const CharacterSpotlight = (props) => {
 
                     <img width='300em' alt=''src={spot.image}/>
 
-                    {spot.species == 'unknown' ? <p>Species Unknown</p> : <p onClick={() => searchSpecies(spot.species)}>Species : {spot.species}</p>}
+                    {spot.species === 'unknown' ? <p>Species Unknown</p> : <p onClick={() => searchSpecies(spot.species)}>Species : {spot.species}</p>}
 
-                    {spot.gender == 'unknown' ? <p>Gender Unknown</p> : <p onClick={() => searchGender(spot.gender)}>Gender : {spot.gender}</p>}
+                    {spot.gender === 'unknown' ? <p>Gender Unknown</p> : <p onClick={() => searchGender(spot.gender)}>Gender : {spot.gender}</p>}
                     
-                    {spot.origin.name == 'unknown' ? 'Origin Unknown' : <p onClick={() => pushOrigin(spot.origin.name)}><Link to='/LocationSearch'>Origin : {spot.origin.name}</Link></p>}
+                    {spot.origin.name === 'unknown' ? 'Origin Unknown' : <p onClick={() => pushOrigin(spot.origin.name)}><Link to='/LocationSearch'>Origin : {spot.origin.name}</Link></p>}
                     
-                    {spot.location.name == 'unknown' ? '' : <p onClick={() => pushLocation(spot.location.name)}><Link to='/LocationSearch'>Last Location : {spot.location.name}</Link></p>}
+                    {spot.location.name === 'unknown' ? '' : <p onClick={() => pushLocation(spot.location.name)}><Link to='/LocationSearch'>Last Location : {spot.location.name}</Link></p>}
                     
-                    {spot.status == 'unknown' ? <p>Status Unknown</p> : <p onClick={() => searchStatus(spot.status)}>{spot.status}</p>}
+                    {spot.status === 'unknown' ? <p>Status Unknown</p> : <p onClick={() => searchStatus(spot.status)}>{spot.status}</p>}
 
                     <p onClick={() => searchType(spot.type)}>{spot.type}</p>
 
