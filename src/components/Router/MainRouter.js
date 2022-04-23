@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Route, Link, Switch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import CharacterSearch from '../Character/CharacterSearch';
 import LocationSearch from '../Location/LocationSearch';
 import EpisodeSearch from '../Episode/EpisodeSearch';
@@ -10,7 +10,6 @@ import '../Components.css'
 const MainRouter = (props) => {
     let charArray = []
     let epiArray = []
-    let locObject = ''
     const [charPass, setCharPass] = useState('')
     const [locPass, setLocPass] = useState('')
     const [epiPass, setEpiPass] = useState('')

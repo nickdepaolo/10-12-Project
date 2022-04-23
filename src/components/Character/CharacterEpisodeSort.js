@@ -6,8 +6,8 @@ const CharacterEpisodeSort = (props) => {
     const episodeURL = props.episode
 
     useEffect(() => {
-        submitEpisode()
-    },[props.episode])
+        submitEpisode() 
+    },[props.episode]) 
 
     const submitEpisode = () => {
         fetch(episodeURL)

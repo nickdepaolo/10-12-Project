@@ -58,5 +58,15 @@ a {
   100% {opacity:1;}
 }
 
+.header{
+  background-image: url('./Assets/banner.webp');
+  color: white;
+}
+
+#headText{
+  color: aliceblue;
+}
+
+
 
 
