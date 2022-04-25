@@ -5,6 +5,7 @@ import LocationSearch from '../Location/LocationSearch';
 import EpisodeSearch from '../Episode/EpisodeSearch';
 import Home from '../Home/Home'
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer'
 import '../Components.css'
 
 const MainRouter = (props) => {
@@ -42,6 +43,8 @@ const MainRouter = (props) => {
                 <Route exact path='/LocationSearch'><LocationSearch locTrigger={locTrigger} locPass={locPass} charPass={setCharPass}/></Route>
                 <Route exact path='/EpisodeSearch'><EpisodeSearch epiTrigger={epiTrigger} epiPass={epiArray} charPass={setCharPass}/></Route>
             </Switch>
+
+            <Footer/>
         </div>
     )
 }

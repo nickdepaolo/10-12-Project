@@ -48,12 +48,17 @@ const LocationSearch = (props) => {
     return(
         <div id='locMain'>
             <h4>Location Search</h4>
-            <input onChange={(e)=> setInputContain(e.target.value)}/>
-            <button onClick={mainSearch} >Search</button>
+            <input className='searchInput' onChange={(e)=> setInputContain(e.target.value)}/>
+            <button className='searchButton' onClick={mainSearch} >Search</button>
             <br/>
             {infoContain > '' ? '' : <h3 className="fade-in">Enter a location or press the search button to pull up a list</h3>}
             <br/>
             {infoContain > '' ? '' : <img className="fade-in" src={loop}/>}
+            {infoContain > '' ? '' : <br/>}
+            {infoContain > '' ? '' : <br/>}
+            {infoContain > '' ? '' : <br/>}
+            {infoContain > '' ? '' : <br/>}
+
             <LocationMap demContain={setDemContain} typeContain={setTypeContain} charPass={props.charPass} infoContain={infoContain}/>
         </div>
     )

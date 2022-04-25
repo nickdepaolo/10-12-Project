@@ -15,12 +15,14 @@ const Header = (props) => {
         <div onClick={clearStates} className='header'>
             <br/>
             <h1><Link to='/' style={{color: 'white'}}>Ricktionary</Link></h1>
-            <h3><Link to='/CharacterSearch' style={{color: 'white'}}>Character Search</Link></h3>
-            <h3><Link to='/LocationSearch' style={{color: 'white'}}>Location Search</Link></h3>
-            <h3><Link to='/EpisodeSearch' style={{color: 'white'}}>Episode Search</Link></h3>
             <br/>
-            {/* <button onClick={fetchWiki2} >Wiki</button> */}
-            <p>{wiki}</p>
+            <div id="headerButtons">
+                <button className="topButton"><Link to='/LocationSearch' className="topLink">Location Search</Link></button>
+                <button className="topButton"><Link to='/CharacterSearch' className="topLink">Character Search</Link></button>
+                <button className="topButton"><Link to='/EpisodeSearch' className="topLink">Episode Search</Link></button>
+            </div>
+            <br/>
+         
         </div>
     )
 }

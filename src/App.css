@@ -59,14 +59,142 @@ a {
 }
 
 .header{
-  background-image: url('./Assets/banner.webp');
+  background: 
+  linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0) 90%),
+  linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0) 30%),
+  linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0) 15%),
+  url('./Assets/banner.webp');
   color: white;
+  border-bottom: .5em;
+  border-top: 0em;
+  border-left: 0em;
+  border-right: 0em;
+  border-color: #9ED4D2;
+  border-style:solid;
 }
 
-#headText{
-  color: aliceblue;
+#headerButtons{
+  display: flex;
+  justify-content: space-evenly;
 }
 
+.topButton{
+  color: rgba(255, 251, 251, 0.6);
+  background-color: rgba(0, 0, 0, 0.823);
+  border-radius: 12px;
+  border-style: solid;
+  border-color: rgba(250, 235, 215, 0.564);
+  border-width: .08em;
+  cursor: pointer;
+  font-size: 1.4em;
+  transition: .4s ease-in-out; 
+  outline: none;
+  width: 13%;
+  height: 86%;
+  margin-top: .50%;
+}
 
+.topButton:hover{
+  color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(253, 253, 253, 0.689);
+  border-color: #9ED4D2;
+}
 
+.topLink{
+  color: antiquewhite;
+}
 
+.topLink:hover{
+  color: black;
+  transition: .4s cubic-bezier(1, 1, 1, 1);
+}
+
+.searchInput{
+  border-radius: 8px;
+  border-style: solid;
+  cursor: pointer;
+  font-size: 1em;
+  text-align: center;
+}
+
+.searchButton{
+  border-radius: 8px;
+  border-style: solid;
+  cursor: pointer;
+  font-size: 1em;
+  transition: .4s ease-in-out; 
+  outline: none;
+  width: 5%;
+  margin-top: .50%;
+}
+
+.searchButton:hover{
+  color: antiquewhite;
+  background-color: rgba(0, 0, 0, 0.504);
+}
+
+#advButton{
+  border-radius: 8px;
+  border-style: solid;
+  cursor: pointer;
+  font-size: 1em;
+  transition: .4s ease-in-out; 
+  outline: none;
+  width: 11%;
+  margin-top: .50%;
+}
+
+#advButton:hover{
+  color: antiquewhite;
+  background-color: rgba(0, 0, 0, 0.504);
+}
+
+.modalButton{
+  border-radius: 8px;
+  border-style: solid;
+  cursor: pointer;
+  font-size: 1em;
+  transition: .4s ease-in-out; 
+  outline: none;
+  width: 5%;
+  margin-top: .50%;
+}
+
+.modalButton:hover{
+  color: antiquewhite;
+  background-color: rgba(0, 0, 0, 0.504);
+}
+
+.advSelect{
+  border-radius: 8px;
+  border-style: solid;
+  cursor: pointer;
+  font-size: 1em;
+  transition: .4s ease-in-out; 
+  outline: none;
+  width: 6%;
+  margin-top: .50%;
+}
+
+.advSelect:hover{
+  color: antiquewhite;
+  background-color: rgba(0, 0, 0, 0.504);
+}
+
+#footer{
+  position: relative;
+  height: 4em;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: url('./Assets/banner.webp');
+  color: antiquewhite;
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 0em;
+  border-top: .5em;
+  border-left: 0em;
+  border-right: 0em;
+  border-color: #9ED4D2;
+  border-style:solid;
+}

@@ -131,10 +131,10 @@ const CharacterSearch = (props) => {
         <div id='charMain'>
 
           <h4>Character Search</h4>
-            <input id='mainInput' onChange={(e) => setUserInput(e.target.value)} name="UserInput" />
-            <button type="button" onClick={refreshUsertInput}>Search</button>
+            <input id='mainInput' className='searchInput' onChange={(e) => setUserInput(e.target.value)} name="UserInput" />
+            <button type="button" className='searchButton' onClick={refreshUsertInput}>Search</button>
             <br/>
-            <button onClick={openModalAdv} >{modalIsOpenAdv?'WubbaLubbaDubDub':'Advanced Search'}</button>
+            <button onClick={openModalAdv} id='advButton' >{modalIsOpenAdv?'WubbaLubbaDubDub':'Advanced Search'}</button>
             <br/>
             {infoContain > '' ? '' : <h3 className='fade-in'>Enter a Name or press the search button to pull up a list</h3>}
             <br/>
@@ -149,26 +149,26 @@ const CharacterSearch = (props) => {
                 <form onMouseMove={refreshADVAPIURL}>
                   <h2>Advanced Search</h2>
                   <h5>Name</h5>
-                  <input onKeyUp={(e) => setInputValue(e.target.value)}  onChange={refreshADVAPIURL}/>
+                  <input className='searchInput' onKeyUp={(e) => setInputValue(e.target.value)}  onChange={refreshADVAPIURL}/>
 
                   <br/>
                   <br/>
 
-                  <select id='status' onChange={advStatus}>
+                  <select className='advSelect' id='status' onChange={advStatus}>
                       <option value=''>Status</option>
                       <option value='alive'>Alive</option>
                       <option value='dead'>Dead</option>
                       {/* <option value='unknown'>Unknown</option> */}
                   </select>
 
-                  <select id='species' onChange={advSpecies}>
+                  <select className='advSelect' id='species' onChange={advSpecies}>
                       <option value=''>Species</option>
                       <option value='human'>Human</option>
                       <option value='alien'>Alien</option>
                       <option value='robot'>Robot</option>
                   </select>
 
-                  <select id='gender' onChange={advGender} >
+                  <select className='advSelect' id='gender' onChange={advGender} >
                       <option value=''>Gender</option>
                       <option value='male'>Male</option>
                       <option value='female'>Female</option>
@@ -179,14 +179,13 @@ const CharacterSearch = (props) => {
                   <br/>
                   <br/>
                   <br/>
-                  <br/>
                     
                 </form>
               
-                <button onClick={closeModalAdv}>Close</button>
+                <button className='modalButton' onClick={closeModalAdv}>Close</button>
                 <br/>
                 <br/>
-                <button  onClick={submitADV} onMouseUp={closeModalAdv}>Search</button>
+                <button className='modalButton' onClick={submitADV} onMouseUp={closeModalAdv}>Search</button>
 
             </Modal>
 
