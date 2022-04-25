@@ -9,7 +9,7 @@ const Home = () => {
         <div>
           <h1>Welcome to the Rictionary!</h1>
           <img src={dance}/>
-          <h3>Your source for a complete referce for Rick and Morty</h3>
+          <h3>Your source for a complete reference for Rick and Morty</h3>
           <br/>
           <h3>Select one of the search options above to get started</h3>
 

@@ -1,13 +1,16 @@
 import react from "react";
 
+
 const Footer = () => {
 
     return(
         <div id="footer">
-            <h5>Nicholas De Paolo 2022</h5>
-            <h5>Rick and Morty API</h5>
-            <h5>Contact Developer</h5>
-            <h5>Github Repo</h5>
+            <br/>
+            <div id="footerTextWrapper">
+                <a className="footerText" href="https://www.linkedin.com/in/nick-de-paolo-a57788237/">Nicholas De Paolo 2022</a>
+                <a className="footerText" href="https://rickandmortyapi.com/">Rick and Morty API</a>
+                <a className="footerText" href="https://github.com/nickdepaolo/10-12-Project">GitHub Repo</a>
+            </div>
         </div>
     )
 }

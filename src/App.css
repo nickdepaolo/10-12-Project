@@ -190,7 +190,6 @@ a {
   width: 80%;
   background: url('./Assets/banner.webp');
   color: antiquewhite;
-  display: flex;
   justify-content: space-evenly;
   border-bottom: 0em;
   border-top: 1em;
@@ -199,4 +198,15 @@ a {
   border-color: #9ED4D2;
   border-style:solid;
   border-top-right-radius: 9em;
+  
+}
+#footerTextWrapper{
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.footerText{
+  color: antiquewhite;
+ 
 }
