@@ -73,6 +73,10 @@ a {
   border-style:solid;
   border-bottom-left-radius: 8em;
 }
+#logo{
+  width: 25%;
+  border-radius: 0%;
+}
 
 #headerButtons{
   display: flex;
@@ -85,7 +89,7 @@ a {
   border-radius: 12px;
   border-style: solid;
   border-color: rgba(250, 235, 215, 0.564);
-  border-width: .08em;
+  border-width: 0em;
   cursor: pointer;
   font-size: 1.4em;
   transition: .4s ease-in-out; 

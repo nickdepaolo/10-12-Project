@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import '../Components.css'
+import Logo from '../../Assets/ricktionaryLogo.png'
 
 const Header = (props) => {
     const [empty, setEmpty] = useState('')
@@ -14,7 +15,7 @@ const Header = (props) => {
     return(
         <div onClick={clearStates} className='header'>
             <br/>
-            <h1><Link to='/' style={{color: 'white'}}>Ricktionary</Link></h1>
+            <Link to='/'><img id="logo" src={Logo}/></Link>
             <br/>
             <div id="headerButtons">
                 <button className="topButton"><Link to='/LocationSearch' className="topLink">Location Search</Link></button>
