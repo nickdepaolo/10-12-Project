@@ -65,12 +65,13 @@ a {
   linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0) 15%),
   url('./Assets/banner.webp');
   color: white;
-  border-bottom: .5em;
+  border-bottom: 1em;
   border-top: 0em;
   border-left: 0em;
   border-right: 0em;
   border-color: #9ED4D2;
   border-style:solid;
+  border-bottom-left-radius: 8em;
 }
 
 #headerButtons{
@@ -186,15 +187,16 @@ a {
   height: 4em;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width: 80%;
   background: url('./Assets/banner.webp');
   color: antiquewhite;
   display: flex;
   justify-content: space-evenly;
   border-bottom: 0em;
-  border-top: .5em;
+  border-top: 1em;
   border-left: 0em;
   border-right: 0em;
   border-color: #9ED4D2;
   border-style:solid;
+  border-top-right-radius: 9em;
 }
