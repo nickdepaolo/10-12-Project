@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { useLocation } from 'react-router-dom';
 import Modal from 'react-modal';
 import CharacterMap from './CharacterMap';
 import '../Components.css'
@@ -21,8 +22,16 @@ const CharacterSearch = (props) => {
   const [ADVgender, setADVgender] = useState('')
   const [ADVURL, setADVURL] = useState('')
   const [charSelect, setCharSelect] = useState(false)
+  const [homeState, setHomeState] = useState('')
   const [empty, setEmpty] = useState([])
+  const location = useLocation()
+  const {linkName} = location.state !== undefined? location.state : ''
 
+  useEffect(() => {
+    setUserInput(linkName)
+    submitLinkCharacter(linkName)
+  }, [linkName])
+  
   useEffect(() => {
   props.passTrigger? setInfoContain(props.charPass) : setEmpty([]);
   },[props.passTrigger])
@@ -45,6 +54,17 @@ const CharacterSearch = (props) => {
       .then(setUserInput(''))
     }catch(error){console.log('error')}
   }
+
+  async function submitLinkCharacter(e) {
+    try{fetch(APIURL+`&name=`+ e)
+       .then(res => res.json())
+       .then(json =>{
+           json.results? setInfoContain(json.results) : setEmpty('');
+           json.info? setNextContain(json.info.next) : setEmpty('');
+       })
+       .then(setUserInput(''))
+     }catch(error){console.log('error')}
+   }
 
   const submitADV = () => {
     fetch(ADVURL)

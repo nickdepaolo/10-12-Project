@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from 'react-router-dom';
 import EpisodeMap from "./EpisodeMap";
 import loop from "../../Assets/head.gif"
 
@@ -8,6 +9,8 @@ const EpisodeSearch = (props) => {
     const [searchInput, setSearchInput] = useState('')
     const [empty, setEmpty] = useState('')
     const [wiki, setWiki] = useState('')
+    const location = useLocation()
+    const {linkName} = location.state !== undefined? location.state : ''
 
     useEffect(() => {
         setEpisodeArray(props.epiPass)
@@ -17,8 +20,18 @@ const EpisodeSearch = (props) => {
         document.getElementById("epiMain").scrollIntoView({behavior: 'smooth'});
     },[episodeArray])
 
+    useEffect(() => {
+        submitLinkEpisode(linkName)
+      }, [linkName])
+
     const submitEpisode = () => {
-        fetch(`https://rickandmortyapi.com/api/episode`)
+        fetch(`https://rickandmortyapi.com/api/episode/?&name=` + userInput)
+        .then(res => res.json())
+        .then(json => {json.results? setEpisodeArray(json.results) : setEmpty('')})
+    }
+
+    const submitLinkEpisode = (e) => {
+        fetch(`https://rickandmortyapi.com/api/episode/?name=` + e)
         .then(res => res.json())
         .then(json => {json.results? setEpisodeArray(json.results) : setEmpty('')})
     }

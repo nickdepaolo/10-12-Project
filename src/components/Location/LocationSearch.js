@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from 'react-router-dom';
 import LocationMap from './LocationMap'
 import loop from "../../Assets/universeLoop.gif"
 
@@ -10,6 +11,8 @@ const LocationSearch = (props) => {
     const [typeContain, setTypeContain] = useState('')
     const [demContain, setDemContain] = useState('')
     const [empty, setEmpty] = useState('')
+    const location = useLocation()
+    const {linkName} = location.state !== undefined? location.state : ''
 
     const APIURL = 'https://rickandmortyapi.com/api/location/?&name='
 
@@ -20,6 +23,10 @@ const LocationSearch = (props) => {
     useEffect(() => {
         props.locPass > '' ? mainSearch() : setEmpty('')
     }, [inputContain])
+
+    useEffect(() => {
+        mainLinkSearch(linkName)
+      }, [linkName])
 
     useEffect(() => {
         typeContain > '' ? fetch(`https://rickandmortyapi.com/api/location/?&type=${typeContain}`)
@@ -40,7 +47,13 @@ const LocationSearch = (props) => {
       },[infoContain])
 
     const mainSearch = () => {
-        fetch(APIURL+inputContain)
+        fetch(APIURL + inputContain)
+        .then(res => res.json())
+        .then(json => {json.results? setInfoContain(json.results.slice(0,5)) : setEmpty('')})
+    }
+
+    const mainLinkSearch = (e) => {
+        fetch(APIURL + e)
         .then(res => res.json())
         .then(json => {json.results? setInfoContain(json.results.slice(0,5)) : setEmpty('')})
     }
