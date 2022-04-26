@@ -190,10 +190,10 @@ const CharacterSearch = (props) => {
             </Modal>
 
             <CharacterMap charSelect={setCharSelect} epiPass={props.epiPass} locPass={props.locPass} nextContain={setNextContain} infoContain={infoContain} setInfoContain={setInfoContain} />
-            {prevContain > '' && !charSelect ? <button onClick={submitPrev}> Back </button> : ''}
+            {prevContain > '' && !charSelect ? <button className='moreButton' onClick={submitPrev}> Back </button> : ''}
             {prevContain > '' ? <br/>  : ''}
             {prevContain > '' ? <br/>  : ''}
-            {nextContain > '' && !charSelect ? <button className='moreButton' onClick={submitNext}> More... </button> : ''}
+            {nextContain > '' && !charSelect ? <button className='moreButtonChar' onClick={submitNext}> More... </button> : ''}
             <br/>
             <br/>
 

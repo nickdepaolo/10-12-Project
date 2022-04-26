@@ -64,8 +64,8 @@ const CharacterMap = (props) => {
         
             {isTrue? '' : sliceList.map((card) => (
                 <div key={card.id} id={card.id} value={card.name} onClick={() => setSliceArray(card)} >
-                    <img width='150em' alt='' src={card.image} value={card.name} onClick={setSliceState}/>
-                    <h3>{card.name}</h3>
+                    <img className='pointer' width='150em' alt='' src={card.image} value={card.name} onClick={setSliceState}/>
+                    <h3 className='pointer'>{card.name}</h3>
                     <h1>________________</h1>
                     <br/>
                 </div>

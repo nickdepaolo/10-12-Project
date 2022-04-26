@@ -76,9 +76,10 @@ const Home = () => {
 
           </div>
           
-
           <br/>
           <br/>
+          <br/>
+          
         </div>
 
     )

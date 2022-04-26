@@ -37,9 +37,9 @@ const LocationMap = (props) => {
             {infoContain.map((card) => (
                 <div key={card.name}>
                     
-                    <h3>{card.name}</h3>
-                    <h4 onClick={() => selectType(card.type)}>{card.type}</h4>
-                    {card.dimension == 'unknown' ? <h5>Dimension Unknown</h5> : <h5 onClick={() => selectDem(card.dimension)}>{card.dimension}</h5>}
+                    <h3 className='pointer'>{card.name}</h3>
+                    <h4 className='pointer' onClick={() => selectType(card.type)}>{card.type}</h4>
+                    {card.dimension == 'unknown' ? <h5>Dimension Unknown</h5> : <h5 className='pointer' onClick={() => selectDem(card.dimension)}>{card.dimension}</h5>}
                   
                     {card.residents.slice(0,sliceControl).map((character) => (
                         <div key={character}>
@@ -48,8 +48,8 @@ const LocationMap = (props) => {
                         </div>
                         ))}
      
-                        {card.residents.length > 5 && !sliceButton?  <button onClick={moreCharacters}>More...</button> : ''}
-                        {card.residents.length > 5 && sliceButton? <button onClick={swapLess}>Less</button> : ''}
+                        {card.residents.length > 5 && !sliceButton?  <button className='moreButton' onClick={moreCharacters}>More...</button> : ''}
+                        {card.residents.length > 5 && sliceButton? <button className='moreButton' onClick={swapLess}>Less</button> : ''}
                     <h1>________________</h1>
                     <br/>
                 </div>

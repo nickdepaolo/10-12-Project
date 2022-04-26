@@ -26,9 +26,9 @@ const EpisodeMap = (props) => {
             {sliceList.map((episode) => (
                 <div key={episode.name}>
                     <br/>
-                    <h3 onClick={() => selectedEpi(episode)} >{episode.name}</h3>
-                    <h4 onClick={() => selectedEpi(episode)}>{episode.air_date}</h4>
-                    <h4 onClick={() => selectedEpi(episode)}>{episode.episode}</h4>
+                    <h3 className='pointer' onClick={() => selectedEpi(episode)} >{episode.name}</h3>
+                    <h4 className='pointer' onClick={() => selectedEpi(episode)}>{episode.air_date}</h4>
+                    <h4 className='pointer' onClick={() => selectedEpi(episode)}>{episode.episode}</h4>
                     <h1>__________________</h1>
                 </div>
             ))}

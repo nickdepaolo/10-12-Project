@@ -25,8 +25,8 @@ const CharacterEpisodeSearch = (props) => {
                     
                 </div>
             ))}
-            {moreTrue && props.episodes.length > 5 ? <button onClick={setSliceFalse}>Less</button> : ''}
-            {!moreTrue && props.episodes.length > 5 ? <button onClick={setSliceTrue}>More</button> : ''}
+            {moreTrue && props.episodes.length > 5 ? <button className="moreButton" onClick={setSliceFalse}>Less</button> : ''}
+            {!moreTrue && props.episodes.length > 5 ? <button className="moreButton" onClick={setSliceTrue}>More</button> : ''}
         </div>
     )
 }

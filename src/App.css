@@ -33,6 +33,7 @@ a {
   -o-animation: fadeIn 2s;
   -ms-animation: fadeIn 2s;
 }
+
 @keyframes fadeIn {
   0% {opacity:0;}
   100% {opacity:1;}
@@ -73,6 +74,7 @@ a {
   border-style:solid;
   border-bottom-left-radius: 8em;
 }
+
 #logo{
   width: 25%;
   border-radius: 0%;
@@ -186,8 +188,35 @@ a {
   background-color: rgba(0, 0, 0, 0.504);
 }
 
-.moreButton{
+.moreButtonChar{
   margin-bottom: 3em;
+  border-radius: 8px;
+  border-style: solid;
+  cursor: pointer;
+  font-size: 1em;
+  transition: .4s ease-in-out; 
+  outline: none;
+  width: 4.5%;
+}
+
+.moreButtonChar:hover{
+  color: antiquewhite;
+  background-color: rgba(0, 0, 0, 0.504);
+}
+
+.moreButton{
+  border-radius: 8px;
+  border-style: solid;
+  cursor: pointer;
+  font-size: 1em;
+  transition: .4s ease-in-out; 
+  outline: none;
+  width: 4%;
+}
+
+.moreButton:hover{
+  color: antiquewhite;
+  background-color: rgba(0, 0, 0, 0.504);
 }
 
 #footer{
@@ -195,7 +224,7 @@ a {
   height: 1.5em;
   left: 0;
   bottom: 0;
-  width: 80%;
+  width: 73%;
   background: url('./Assets/banner.webp');
   color: antiquewhite;
   justify-content: space-evenly;
@@ -221,10 +250,11 @@ a {
 .homeCardWrapper{
   display: flex;
   justify-content: space-evenly;
+  
 }
 
 .homeCard{
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(3, 87, 100, 0.212);
   padding: 1em;
   width: 20em;
   height: 10em;
@@ -233,5 +263,8 @@ a {
 
 .homePic{
  width: 8em;
+}
 
+.pointer {
+  cursor: pointer;
 }
