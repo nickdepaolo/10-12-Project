@@ -193,7 +193,7 @@ const CharacterSearch = (props) => {
             {prevContain > '' && !charSelect ? <button onClick={submitPrev}> Back </button> : ''}
             {prevContain > '' ? <br/>  : ''}
             {prevContain > '' ? <br/>  : ''}
-            {nextContain > '' && !charSelect ? <button onClick={submitNext}> More... </button> : ''}
+            {nextContain > '' && !charSelect ? <button className='moreButton' onClick={submitNext}> More... </button> : ''}
             <br/>
             <br/>
 

@@ -40,11 +40,7 @@ const EpisodeSearch = (props) => {
             <br/>
             {episodeArray > '' ? '' : <h3 className="fade-in">Enter an episode or press the search button to pull up a list</h3>}
             {episodeArray > '' ? '' : <img className="fade-in" src={loop}/>}
-            {episodeArray > '' ? '' : <br/>}
-            {episodeArray > '' ? '' : <br/>}
-            {episodeArray > '' ? '' : <br/>}
-            {episodeArray > '' ? '' : <br/>}
-            {episodeArray > '' ? '' : <br/>}
+          
 
             <EpisodeMap charPass={props.charPass} episodeArray={episodeArray} wiki={wiki} selectedEpi={setEpisodeArray}/>
 

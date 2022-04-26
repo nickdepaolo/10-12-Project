@@ -65,11 +65,11 @@ a {
   linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0) 15%),
   url('./Assets/banner.webp');
   color: white;
-  border-bottom: 1em;
+  border-bottom: .7em;
   border-top: 0em;
   border-left: 0em;
   border-right: 0em;
-  border-color: #9ED4D2;
+  border-color: #97ce4c;
   border-style:solid;
   border-bottom-left-radius: 8em;
 }
@@ -186,9 +186,13 @@ a {
   background-color: rgba(0, 0, 0, 0.504);
 }
 
+.moreButton{
+  margin-bottom: 3em;
+}
+
 #footer{
-  position: relative;
-  height: 4em;
+  position: fixed;
+  height: 1.5em;
   left: 0;
   bottom: 0;
   width: 80%;
@@ -196,21 +200,38 @@ a {
   color: antiquewhite;
   justify-content: space-evenly;
   border-bottom: 0em;
-  border-top: 1em;
+  border-top: .7em;
   border-left: 0em;
   border-right: 0em;
-  border-color: #9ED4D2;
+  border-color: #97ce4c;
   border-style:solid;
-  border-top-right-radius: 9em;
+  border-top-right-radius: 2em;
   
 }
+
 #footerTextWrapper{
   display: flex;
   justify-content: space-evenly;
-
 }
 
 .footerText{
   color: antiquewhite;
- 
+}
+
+.homeCardWrapper{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.homeCard{
+  background-color: rgba(0, 0, 0, 0.15);
+  padding: 1em;
+  width: 20em;
+  height: 10em;
+  border-radius: .5em;
+}
+
+.homePic{
+ width: 8em;
+
 }

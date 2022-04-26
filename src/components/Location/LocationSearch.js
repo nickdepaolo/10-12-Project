@@ -54,10 +54,7 @@ const LocationSearch = (props) => {
             {infoContain > '' ? '' : <h3 className="fade-in">Enter a location or press the search button to pull up a list</h3>}
             <br/>
             {infoContain > '' ? '' : <img className="fade-in" src={loop}/>}
-            {infoContain > '' ? '' : <br/>}
-            {infoContain > '' ? '' : <br/>}
-            {infoContain > '' ? '' : <br/>}
-            {infoContain > '' ? '' : <br/>}
+           
 
             <LocationMap demContain={setDemContain} typeContain={setTypeContain} charPass={props.charPass} infoContain={infoContain}/>
         </div>
