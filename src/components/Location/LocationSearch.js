@@ -71,14 +71,14 @@ const LocationSearch = (props) => {
 
             {infoContain > '' ? '' : <div className="flexWrapper">
                 <div className="flexCol">
-                    <div className="homeCard">
+                    <div className="searchCard" onClick={() => mainLinkSearch('interdimensional cable')}>
                         <img className="homePic" src={cable}/>
                         <h6>Interdimensional Cable</h6>
                     </div>
                 </div>
                 <img className="fade-in" src={loop}/>
                 <div className="flexCol">
-                    <div className="homeCard">
+                    <div className="searchCard" onClick={() => mainLinkSearch('Planet squanch')}>
                         <img className="homePic" src={squanch}/>
                         <h6>Planet Squanch</h6>
                     </div>

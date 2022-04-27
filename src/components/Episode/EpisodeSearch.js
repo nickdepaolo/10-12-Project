@@ -59,14 +59,14 @@ const EpisodeSearch = (props) => {
 
             {episodeArray > '' ? '' :<div className="flexWrapper">
                 <div className="flexCol">
-                    <div className="homeCard">
+                    <div className="searchCard" onClick={() => submitLinkEpisode('potion')}>
                         <img className="homePic" src={potion}/>
                         <h6>Rick Potion #9</h6>
                     </div>
                 </div>
                  <img  src={loop}/>
                 <div className="flexCol">
-                    <div className="homeCard">
+                    <div className="searchCard" onClick={() => submitLinkEpisode('mortynight')}>
                         <img className="homePic" src={mortynight}/>
                         <h6>Mortynight Run</h6>
                     </div>

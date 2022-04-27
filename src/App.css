@@ -262,6 +262,15 @@ a {
   border-radius: .5em;
 }
 
+.searchCard{
+  background-color: rgba(3, 87, 100, 0.212);
+  padding: 1em;
+  width: 20em;
+  height: 10em;
+  border-radius: .5em;
+  cursor: pointer;
+}
+
 .homePic{
  width: 8em;
 }

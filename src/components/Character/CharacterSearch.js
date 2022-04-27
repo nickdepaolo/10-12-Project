@@ -164,12 +164,12 @@ const CharacterSearch = (props) => {
             {infoContain > '' ? '' : <div className='flexWrapper'>
               <div className='flexCol'>
                 <div className='homeCol'>
-                  <div className='homeCard'>
+                  <div className="searchCard" onClick={() => submitLinkCharacter('birdperson')}>
                     <img className='homePic' src={birdperson}/>
                     <h6>Birdperson</h6>
                   </div>
                   <br/>
-                  <div className='homeCard'>
+                  <div className="searchCard" onClick={() => submitLinkCharacter('wong')}>
                     <img className='homePic' src={drWong}/>
                     <h6>Dr. Wong</h6>
                   </div>
@@ -178,12 +178,12 @@ const CharacterSearch = (props) => {
               <img src={loop}/>
               <div className='flexCol'>
                 <div className='homeCol'>
-                  <div className='homeCard'>
+                  <div className="searchCard" onClick={() => submitLinkCharacter('beth smith')}>
                     <img className='homePic' src={beth}/>
                     <h6>Beth Smith</h6>
                   </div>
                   <br/>
-                  <div className='homeCard'>
+                  <div className="searchCard" onClick={() => submitLinkCharacter('conroy')}>
                     <img className='homePic' src={conroy}/>
                     <h6>Conroy</h6>
                   </div>
