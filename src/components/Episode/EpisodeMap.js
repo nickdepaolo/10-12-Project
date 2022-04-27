@@ -10,6 +10,9 @@ const EpisodeMap = (props) => {
     const [wiki, setWiki] = useState('')
     const [empty, setEmpty] = useState('')
 
+    
+
+
     function selectedEpi(e) {
         let sliceArray = []
         sliceArray.push(e)

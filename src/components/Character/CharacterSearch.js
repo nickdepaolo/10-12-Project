@@ -156,7 +156,7 @@ const CharacterSearch = (props) => {
             <br/>
             <button onClick={openModalAdv} id='advButton' >{modalIsOpenAdv?'WubbaLubbaDubDub':'Advanced Search'}</button>
             <br/>
-            {infoContain > '' ? '' : <h3 className='fade-in'>Enter a Name or press the search button to pull up a list</h3>}
+            <br/>
             <br/>
             {infoContain > '' ? '' : <img className='fade-in' src={loop}/>}
             
