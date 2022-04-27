@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
 import LocationMap from './LocationMap'
 import loop from "../../Assets/universeLoop.gif"
+import cable from "../../Assets/cable.jpg"
+import squanch from "../../Assets/squanch.jpg"
 
 
 const LocationSearch = (props) => {
@@ -25,7 +27,7 @@ const LocationSearch = (props) => {
     }, [inputContain])
 
     useEffect(() => {
-        mainLinkSearch(linkName)
+        linkName !== undefined? mainLinkSearch(linkName) : setEmpty('')
       }, [linkName])
 
     useEffect(() => {
@@ -64,9 +66,25 @@ const LocationSearch = (props) => {
             <input className='searchInput' onChange={(e)=> setInputContain(e.target.value)}/>
             <button className='searchButton' onClick={mainSearch} >Search</button>
             <br/>
-            {infoContain > '' ? '' : <h3 className="fade-in">Enter a location or press the search button to pull up a list</h3>}
             <br/>
-            {infoContain > '' ? '' : <img className="fade-in" src={loop}/>}
+            <br/>
+
+            {infoContain > '' ? '' : <div className="flexWrapper">
+                <div className="flexCol">
+                    <div className="homeCard">
+                        <img className="homePic" src={cable}/>
+                        <h6>Interdimensional Cable</h6>
+                    </div>
+                </div>
+                <img className="fade-in" src={loop}/>
+                <div className="flexCol">
+                    <div className="homeCard">
+                        <img className="homePic" src={squanch}/>
+                        <h6>Planet Squanch</h6>
+                    </div>
+                </div>
+            </div>}
+            
            
 
             <LocationMap demContain={setDemContain} typeContain={setTypeContain} charPass={props.charPass} infoContain={infoContain}/>

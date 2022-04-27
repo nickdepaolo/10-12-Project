@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
 import EpisodeMap from "./EpisodeMap";
 import loop from "../../Assets/head.gif"
+import potion from "../../Assets/potion.jpg"
+import mortynight from "../../Assets/mortynight.jpg"
 
 const EpisodeSearch = (props) => {
     const [userInput, setUserInput] = useState('Pilot')
@@ -21,7 +23,7 @@ const EpisodeSearch = (props) => {
     },[episodeArray])
 
     useEffect(() => {
-        submitLinkEpisode(linkName)
+        linkName !== undefined? submitLinkEpisode(linkName) : setEmpty('')
       }, [linkName])
 
     const submitEpisode = () => {
@@ -34,6 +36,7 @@ const EpisodeSearch = (props) => {
         fetch(`https://rickandmortyapi.com/api/episode/?name=` + e)
         .then(res => res.json())
         .then(json => {json.results? setEpisodeArray(json.results) : setEmpty('')})
+        console.log(e)
     }
 
     function setInput() {
@@ -51,8 +54,24 @@ const EpisodeSearch = (props) => {
             <input id='episodeInput' className='searchInput' onChange={(e) => setUserInput(e.target.value)} />
             <button className='searchButton' onClick={submitEpisode}>Search</button>
             <br/>
-            {episodeArray > '' ? '' : <h3 className="fade-in">Enter an episode or press the search button to pull up a list</h3>}
-            {episodeArray > '' ? '' : <img className="fade-in" src={loop}/>}
+            <br/>
+            <br/>
+
+            {episodeArray > '' ? '' :<div className="flexWrapper">
+                <div className="flexCol">
+                    <div className="homeCard">
+                        <img className="homePic" src={potion}/>
+                        <h6>Rick Potion #9</h6>
+                    </div>
+                </div>
+                 <img  src={loop}/>
+                <div className="flexCol">
+                    <div className="homeCard">
+                        <img className="homePic" src={mortynight}/>
+                        <h6>Mortynight Run</h6>
+                    </div>
+                </div>
+            </div>}
           
 
             <EpisodeMap charPass={props.charPass} episodeArray={episodeArray} wiki={wiki} selectedEpi={setEpisodeArray}/>

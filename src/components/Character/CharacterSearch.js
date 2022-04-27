@@ -4,6 +4,10 @@ import Modal from 'react-modal';
 import CharacterMap from './CharacterMap';
 import '../Components.css'
 import loop from "../../Assets/TransformingRing.gif"
+import birdperson from "../../Assets/birdperson.jpeg"
+import beth from "../../Assets/beth.jpeg"
+import drWong from "../../Assets/drWong.jpeg"
+import conroy from "../../Assets/conroy.jpeg"
 
 const CharacterSearch = (props) => {
   const APIURL = 'https://rickandmortyapi.com/api/character/?';
@@ -28,8 +32,7 @@ const CharacterSearch = (props) => {
   const {linkName} = location.state !== undefined? location.state : ''
 
   useEffect(() => {
-    setUserInput(linkName)
-    submitLinkCharacter(linkName)
+    linkName !== undefined? submitLinkCharacter(linkName) : setEmpty('')
   }, [linkName])
   
   useEffect(() => {
@@ -158,7 +161,36 @@ const CharacterSearch = (props) => {
             <br/>
             <br/>
             <br/>
-            {infoContain > '' ? '' : <img className='fade-in' src={loop}/>}
+            {infoContain > '' ? '' : <div className='flexWrapper'>
+              <div className='flexCol'>
+                <div className='homeCol'>
+                  <div className='homeCard'>
+                    <img className='homePic' src={birdperson}/>
+                    <h6>Birdperson</h6>
+                  </div>
+                  <br/>
+                  <div className='homeCard'>
+                    <img className='homePic' src={drWong}/>
+                    <h6>Dr. Wong</h6>
+                  </div>
+                </div>
+              </div>
+              <img src={loop}/>
+              <div className='flexCol'>
+                <div className='homeCol'>
+                  <div className='homeCard'>
+                    <img className='homePic' src={beth}/>
+                    <h6>Beth Smith</h6>
+                  </div>
+                  <br/>
+                  <div className='homeCard'>
+                    <img className='homePic' src={conroy}/>
+                    <h6>Conroy</h6>
+                  </div>
+                </div>
+              </div>
+              </div>}
+            
             
             <Modal
                 id='ADVmodal'
