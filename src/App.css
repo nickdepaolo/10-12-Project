@@ -294,3 +294,27 @@ a {
   flex-direction: column;
   justify-content: space-evenly;
 }
+
+#charCard{
+  background-color: rgba(3, 87, 100, 0.212);
+  padding: .1em;
+  margin: 1.5em;
+  margin-top: 2.5em;
+  margin-left: 33%;
+  margin-right: 33%;
+  border-radius: 1em;
+}
+
+#epiCard{
+  background-color: rgba(3, 87, 100, 0.212);
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: 1em;
+  border-radius: 1em;
+
+}
+
+#epiFlex{
+  display: flex;
+  flex-direction: row;
+}

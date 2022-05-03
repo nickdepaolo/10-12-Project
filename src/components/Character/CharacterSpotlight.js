@@ -53,30 +53,35 @@ const CharacterSpotlight = (props) => {
         <div id='spotlight'>
 
             {props.spotContain.map((spot) =>(
-
+                
                 <div key={spot.id}>
 
-                    <h1>{spot.name}</h1>
+                        <img width='300em' alt=''src={spot.image}/>
+                        
+                        <div id='charCard'>
 
-                    <img width='300em' alt=''src={spot.image}/>
+                        <h1>{spot.name}</h1>
 
-                    {spot.species === 'unknown' ? <p>Species Unknown</p> : <p className='pointer' onClick={() => searchSpecies(spot.species)}>Species : {spot.species}</p>}
+                        {spot.species === 'unknown' ? <h3>Species Unknown</h3> : <h3 className='pointer' onClick={() => searchSpecies(spot.species)}>Species : {spot.species}</h3>}
 
-                    {spot.gender === 'unknown' ? <p>Gender Unknown</p> : <p className='pointer' onClick={() => searchGender(spot.gender)}>Gender : {spot.gender}</p>}
-                    
-                    {spot.origin.name === 'unknown' ? 'Origin Unknown' : <p className='pointer' onClick={() => pushOrigin(spot.origin.name)}><Link to='/LocationSearch'>Origin : {spot.origin.name}</Link></p>}
-                    
-                    {spot.location.name === 'unknown' ? '' : <p className='pointer' onClick={() => pushLocation(spot.location.name)}><Link to='/LocationSearch'>Last Location : {spot.location.name}</Link></p>}
-                    
-                    {spot.status === 'unknown' ? <p>Status Unknown</p> : <p className='pointer' onClick={() => searchStatus(spot.status)}>{spot.status}</p>}
+                        {spot.gender === 'unknown' ? <h3>Gender Unknown</h3> : <h3 className='pointer' onClick={() => searchGender(spot.gender)}>Gender : {spot.gender}</h3>}
+                        
+                        {spot.origin.name === 'unknown' ? <h3>Origin Unknown</h3> : <h3 className='pointer' onClick={() => pushOrigin(spot.origin.name)}><Link to='/LocationSearch'>Origin : {spot.origin.name}</Link></h3>}
+                        
+                        {spot.location.name === 'unknown' ? '' : <h3 className='pointer' onClick={() => pushLocation(spot.location.name)}><Link to='/LocationSearch'>Last Location : {spot.location.name}</Link></h3>}
+                        
+                        {spot.status === 'unknown' ? <h3>Status Unknown</h3> : <h3 className='pointer' onClick={() => searchStatus(spot.status)}>{spot.status}</h3>}
 
-                    <p className='pointer' onClick={() => searchType(spot.type)}>{spot.type}</p>
+                        <h3 className='pointer' onClick={() => searchType(spot.type)}>{spot.type}</h3>
 
-                    <CharacterEpisodeSearch epiPass={props.epiPass} episodes={spot.episode}/>
+                        </div>
 
-                    <h1>________________</h1>
+                        <CharacterEpisodeSearch epiPass={props.epiPass} episodes={spot.episode}/>
 
-                </div>
+                        <h1>________________</h1>
+
+                    </div>
+                
             ))}
                
         </div>
