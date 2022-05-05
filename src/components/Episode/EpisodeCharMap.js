@@ -12,7 +12,7 @@ const EpisodeCharMap = (props) => {
             <Link onClick={setCharPass}  to='/CharacterSearch' >
                 <img width='80' src={props.character.image}/>
             </Link>
-            <p><Link onClick={setCharPass}  to='/CharacterSearch' >{props.character.name}</Link></p>
+            <p><Link onClick={setCharPass}  to='/CharacterSearch' ><h5>{props.character.name}</h5></Link></p>
         </div>
     )
 }

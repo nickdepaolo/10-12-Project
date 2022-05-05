@@ -36,6 +36,7 @@ const EpisodeSpotlight = (props) => {
                    {props.sliceEpisode[0].characters !== undefined ? <EpisodeWiki episodeName={episode.name}/> : ''}
                     </div>
                     <br/>
+                    <br/>
                    {props.sliceEpisode[0].characters !== undefined ? <EpisodeCharacters charPass={props.charPass} characters={props.sliceEpisode[0].characters}/> : ''}
                     <h1>__________________</h1>
                 </div>

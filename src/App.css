@@ -74,6 +74,8 @@ a {
   border-style:solid;
   border-bottom-left-radius: 8em;
   background-size: cover;
+  box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.5);
+
 }
 
 #logo{
