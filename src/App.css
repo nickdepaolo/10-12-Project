@@ -70,7 +70,7 @@ a {
   border-top: 0em;
   border-left: 0em;
   border-right: 0em;
-  border-color: #97ce4c;
+  border-color: #02B1C8;
   border-style:solid;
   border-bottom-left-radius: 8em;
 }
@@ -233,7 +233,7 @@ a {
   border-top: .7em;
   border-left: 0em;
   border-right: 0em;
-  border-color: #97ce4c;
+  border-color: #02B1C8;
   border-style:solid;
   border-top-right-radius: 2em;
   
@@ -260,6 +260,7 @@ a {
   width: 20em;
   height: 10em;
   border-radius: .5em;
+  box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.5);
 }
 
 .searchCard{
@@ -269,6 +270,7 @@ a {
   height: 10em;
   border-radius: .5em;
   cursor: pointer;
+  box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.5);
 }
 
 .homePic{
@@ -303,6 +305,7 @@ a {
   margin-left: 33%;
   margin-right: 33%;
   border-radius: 1em;
+  box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.5);
 }
 
 #epiCard{
@@ -311,6 +314,7 @@ a {
   margin-right: 25%;
   padding: 1em;
   border-radius: 1em;
+  box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.5);
 
 }
 
