@@ -62,8 +62,8 @@ a {
 .header{
   background: 
   linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0) 90%),
-  linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0) 30%),
-  linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0) 15%),
+  linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0) 50%),
+  linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0) 10%),
   url('./Assets/banner.webp');
   color: white;
   border-bottom: .7em;
@@ -73,6 +73,7 @@ a {
   border-color: #02B1C8;
   border-style:solid;
   border-bottom-left-radius: 8em;
+  background-size: cover;
 }
 
 #logo{
