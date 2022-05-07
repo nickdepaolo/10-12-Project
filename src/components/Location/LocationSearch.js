@@ -19,6 +19,7 @@ const LocationSearch = (props) => {
 
     useEffect(() =>{
         setInfoContain('')
+        clearSource()
     }, [])
 
     useEffect(() => {
@@ -48,6 +49,10 @@ const LocationSearch = (props) => {
     useEffect(() => {
         document.getElementById("locMain").scrollIntoView({behavior: 'smooth'});
       },[infoContain])
+
+    const clearSource = () => {
+        setInfoContain('')
+    }
 
     const mainSearch = () => {
         fetch(APIURL + inputContain)
