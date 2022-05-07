@@ -17,6 +17,10 @@ const LocationSearch = (props) => {
 
     const APIURL = 'https://rickandmortyapi.com/api/location/?&name='
 
+    useEffect(() =>{
+        setInfoContain('')
+    }, [])
+
     useEffect(() => {
         props.locTrigger && setInputContain(props.locPass);
     }, [props.locPass]) //eslint-disable-line react-hooks/exhaustive-deps
@@ -66,7 +70,8 @@ const LocationSearch = (props) => {
             <br/>
             <br/>
 
-            {infoContain > '' ? '' : <div className="flexWrapper">
+            {infoContain > '' ? <LocationMap demContain={setDemContain} typeContain={setTypeContain} charPass={props.charPass} infoContain={infoContain}/>
+            : <div className="flexWrapper">
                 <div className="flexCol">
                     <div className="searchCard" onClick={() => mainLinkSearch('interdimensional cable')}>
                         <img className="homePic" src={cable} alt='Interdimensional Cable'/>
@@ -84,7 +89,6 @@ const LocationSearch = (props) => {
             
            
 
-            <LocationMap demContain={setDemContain} typeContain={setTypeContain} charPass={props.charPass} infoContain={infoContain}/>
         </div>
     )
 }
