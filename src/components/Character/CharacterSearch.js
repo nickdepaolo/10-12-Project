@@ -136,7 +136,6 @@ const CharacterSearch = (props) => {
   
   function refreshADVAPIURL() {
     setADVURL(APIURL + ADVinput + ADVstatus + ADVspecies + ADVgender);
-    console.log(ADVURL)
     advStatus()
     advSpecies()
     advGender()
@@ -194,7 +193,9 @@ const CharacterSearch = (props) => {
                 id='ADVmodal'
                 closeTimeoutMS={500}
                 isOpen={modalIsOpenAdv}
-                onRequestClose={closeModalAdv}>
+                onRequestClose={closeModalAdv}
+                ariaHideApp={false}
+                >
 
                 <form onMouseMove={refreshADVAPIURL}>
                   <h2>Advanced Search</h2>
