@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CharPic = (props) => {
@@ -12,7 +12,7 @@ const CharPic = (props) => {
     return(
         <div>
             <Link onClick={setCharPass} to='/CharacterSearch'>
-            <img width='80' src={infoContain.image}/>
+            <img width='80' src={infoContain.image} alt='Location'/>
             </Link >
             <h6>{infoContain.name}</h6>
        

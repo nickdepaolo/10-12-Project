@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const EpisodeCharMap = (props) => {
@@ -10,9 +10,9 @@ const EpisodeCharMap = (props) => {
     return(
         <div>
             <Link onClick={setCharPass}  to='/CharacterSearch' >
-                <img width='80' src={props.character.image}/>
+                <img width='80' src={props.character.image} alt='Character'/>
             </Link>
-            <p><Link onClick={setCharPass}  to='/CharacterSearch' ><h5>{props.character.name}</h5></Link></p>
+            <Link onClick={setCharPass}  to='/CharacterSearch' ><h5>{props.character.name}</h5></Link>
         </div>
     )
 }

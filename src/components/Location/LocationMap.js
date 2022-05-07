@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Link} from 'react-router-dom';
 import LocationCharacter from './LocationCharacter';
-import LocationCharPic from './LocationCharPic';
 
 const LocationMap = (props) => {
     const [sliceControl, setSliceControl] = useState(5)
@@ -10,7 +8,7 @@ const LocationMap = (props) => {
 
     useEffect(() => {
         swapButton()
-    }, [sliceControl])
+    }, [sliceControl]) //eslint-disable-line react-hooks/exhaustive-deps
 
     function moreCharacters() {
         setSliceControl(20)
@@ -39,7 +37,7 @@ const LocationMap = (props) => {
                     
                     <h3 className='pointer'>{card.name}</h3>
                     <h4 className='pointer' onClick={() => selectType(card.type)}>{card.type}</h4>
-                    {card.dimension == 'unknown' ? <h5>Dimension Unknown</h5> : <h5 className='pointer' onClick={() => selectDem(card.dimension)}>{card.dimension}</h5>}
+                    {card.dimension === 'unknown' ? <h5>Dimension Unknown</h5> : <h5 className='pointer' onClick={() => selectDem(card.dimension)}>{card.dimension}</h5>}
                   
                     {card.residents.slice(0,sliceControl).map((character) => (
                         <div key={character}>

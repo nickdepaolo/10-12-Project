@@ -26,18 +26,16 @@ const CharacterSearch = (props) => {
   const [ADVgender, setADVgender] = useState('')
   const [ADVURL, setADVURL] = useState('')
   const [charSelect, setCharSelect] = useState(false)
-  const [homeState, setHomeState] = useState('')
-  const [empty, setEmpty] = useState([])
   const location = useLocation()
   const {linkName} = location.state !== undefined? location.state : ''
 
   useEffect(() => {
-    linkName !== undefined? submitLinkCharacter(linkName) : setEmpty('')
+    linkName !== undefined && submitLinkCharacter(linkName) 
   }, [linkName])
   
   useEffect(() => {
-  props.passTrigger? setInfoContain(props.charPass) : setEmpty([]);
-  },[props.passTrigger])
+  props.passTrigger && setInfoContain(props.charPass);
+  },[props.passTrigger]) //eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     document.getElementById("charMain").scrollIntoView({behavior: 'smooth'});
@@ -51,8 +49,8 @@ const CharacterSearch = (props) => {
    try{fetch(APIURL+`&name=`+ userInput)
       .then(res => res.json())
       .then(json =>{
-          json.results? setInfoContain(json.results) : setEmpty('');
-          json.info? setNextContain(json.info.next) : setEmpty('');
+          json.results && setInfoContain(json.results);
+          json.info && setNextContain(json.info.next);
       })
       .then(setUserInput(''))
     }catch(error){console.log('error')}
@@ -62,8 +60,8 @@ const CharacterSearch = (props) => {
     try{fetch(APIURL+`&name=`+ e)
        .then(res => res.json())
        .then(json =>{
-           json.results? setInfoContain(json.results) : setEmpty('');
-           json.info? setNextContain(json.info.next) : setEmpty('');
+           json.results && setInfoContain(json.results);
+           json.info && setNextContain(json.info.next);
        })
        .then(setUserInput(''))
      }catch(error){console.log('error')}
@@ -146,7 +144,7 @@ const CharacterSearch = (props) => {
   }
 
   function refreshUsertInput() {
-    userInput > '' ? setUserInput(document.getElementById('mainInput').value) : setEmpty([]);
+    userInput && setUserInput(document.getElementById('mainInput').value);
     submitCharacter()
   }
 
@@ -165,26 +163,26 @@ const CharacterSearch = (props) => {
               <div className='flexCol'>
                 <div className='homeCol'>
                   <div className="searchCard" onClick={() => submitLinkCharacter('birdperson')}>
-                    <img className='homePic' src={birdperson}/>
+                    <img className='homePic' src={birdperson} alt='Birdperson'/>
                     <h6>Birdperson</h6>
                   </div>
                   <br/>
                   <div className="searchCard" onClick={() => submitLinkCharacter('wong')}>
-                    <img className='homePic' src={drWong}/>
+                    <img className='homePic' src={drWong} alt='Dr. Wong'/>
                     <h6>Dr. Wong</h6>
                   </div>
                 </div>
               </div>
-              <img src={loop}/>
+              <img src={loop} alt='Loop'/>
               <div className='flexCol'>
                 <div className='homeCol'>
                   <div className="searchCard" onClick={() => submitLinkCharacter('beth smith')}>
-                    <img className='homePic' src={beth}/>
+                    <img className='homePic' src={beth} alt='Beth Sanchez'/>
                     <h6>Beth Smith</h6>
                   </div>
                   <br/>
                   <div className="searchCard" onClick={() => submitLinkCharacter('conroy')}>
-                    <img className='homePic' src={conroy}/>
+                    <img className='homePic' src={conroy} alt='Conroy'/>
                     <h6>Conroy</h6>
                   </div>
                 </div>

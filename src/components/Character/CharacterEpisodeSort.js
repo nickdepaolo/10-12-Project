@@ -7,7 +7,7 @@ const CharacterEpisodeSort = (props) => {
 
     useEffect(() => {
         submitEpisode() 
-    },[props.episode]) 
+    },[props.episode]) //eslint-disable-line react-hooks/exhaustive-deps
 
     const submitEpisode = () => {
         fetch(episodeURL)

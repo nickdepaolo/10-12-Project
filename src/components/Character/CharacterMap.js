@@ -14,7 +14,7 @@ const CharacterMap = (props) => {
     useEffect(() =>{
         setIsTrue(false)
         props.charSelect(false)
-    }, [props.infoContain])
+    }, [props.infoContain]) //eslint-disable-line react-hooks/exhaustive-deps
 
     function setTrue() {
         setIsTrue(true);
@@ -30,29 +30,6 @@ const CharacterMap = (props) => {
     function setSliceState() {
         document.getElementById("spotLight").scrollIntoView({behavior: 'smooth'})
         setTrue()
-    }
-
-    const searchStatus = (e) => {
-        fetch(`https://rickandmortyapi.com/api/character/?&status=${e}`)
-        .then(res => res.json())
-        .then(json =>{
-            props.setInfoContain(json.results);
-            console.log(json.results);
-            document.getElementById("spotLight").scrollIntoView({behavior: 'smooth'});
-            props.nextContain(json.info.next);
-        })  
-    }
-
-    const searchGender = (e) => {
-        fetch(`https://rickandmortyapi.com/api/character/?&gender=${e}`)
-        .then(res => res.json())
-        .then(json =>{
-            props.setInfoContain(json.results);
-            console.log(json.results);
-            document.getElementById("spotLight").scrollIntoView({behavior: 'smooth'});
-            props.nextContain(json.info.next);
-
-        })
     }
     
     return(

@@ -1,21 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useEffect } from "react/cjs/react.development";
 import '../Components.css'
 import Logo from '../../Assets/ricktionaryLogo.png'
 
 const Header = (props) => {
-    const [empty, setEmpty] = useState('')
-    const [wiki, setWiki] = useState('')
-
+  
     function clearStates() {
-        props.locPass !== '' && props.locPass > '' ? props.setLocPass([]) : setEmpty('');
+        props.locPass !== '' && props.locPass && props.setLocPass([]) ;
     }
 
     return(
         <div onClick={clearStates} className='header'>
             <br/>
-            <Link to='/'><img id="logo" src={Logo}/></Link>
+            <Link to='/'><img id="logo" src={Logo} alt='Ricktionary'/></Link>
             <br/>
             <div id="headerButtons">
                 <button className="topButton"><Link to='/LocationSearch' className="topLink">Location Search</Link></button>

@@ -4,14 +4,13 @@ import CharPic from './LocationCharPic'
 const LocationCharacter = (props) => {
 
     const [infoContain, setInfoContain] = useState([])
-    const [charContain, setCharContain] = useState('')
 
     useEffect(() => {
         mainSearch();
         return() =>{
             setInfoContain({})
         }
-    },[props.character])
+    },[props.character]) //eslint-disable-line react-hooks/exhaustive-deps
 
     const mainSearch = () => {
         fetch(props.character)

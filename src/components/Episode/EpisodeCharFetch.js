@@ -6,7 +6,7 @@ const EpisodeCharFetch = (props) => {
 
     useEffect(() => {
         fetchChar()
-    }, [props])
+    }, [props]) //eslint-disable-line react-hooks/exhaustive-deps
 
     function fetchChar() {
         fetch(props.character)

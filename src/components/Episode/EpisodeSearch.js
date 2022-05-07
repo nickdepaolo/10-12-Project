@@ -8,44 +8,35 @@ import mortynight from "../../Assets/mortynight.jpg"
 const EpisodeSearch = (props) => {
     const [userInput, setUserInput] = useState('Pilot')
     const [episodeArray, setEpisodeArray] = useState([])
-    const [searchInput, setSearchInput] = useState('')
-    const [empty, setEmpty] = useState('')
-    const [wiki, setWiki] = useState('')
     const location = useLocation()
     const {linkName} = location.state !== undefined? location.state : ''
 
     useEffect(() => {
         setEpisodeArray(props.epiPass)
-    }, [props.epiTrigger])
+    }, [props.epiTrigger]) //eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
         document.getElementById("epiMain").scrollIntoView({behavior: 'smooth'});
-    },[episodeArray])
+    }, [episodeArray])
 
     useEffect(() => {
-        linkName !== undefined? submitLinkEpisode(linkName) : setEmpty('')
+        linkName !== undefined && submitLinkEpisode(linkName) 
       }, [linkName])
 
     const submitEpisode = () => {
         fetch(`https://rickandmortyapi.com/api/episode/?&name=` + userInput)
         .then(res => res.json())
-        .then(json => {json.results? setEpisodeArray(json.results) : setEmpty('')})
+        .then(json => {json.results && setEpisodeArray(json.results)})
     }
 
     const submitLinkEpisode = (e) => {
         fetch(`https://rickandmortyapi.com/api/episode/?name=` + e)
         .then(res => res.json())
-        .then(json => {json.results? setEpisodeArray(json.results) : setEmpty('')})
-        console.log(e)
-    }
-
-    function setInput() {
-        userInput > '' ? setSearchInput('&name='+userInput) : setSearchInput('');
-        submitEpisode();
+        .then(json => {json.results && setEpisodeArray(json.results)})
     }
 
     function updateStates() {
-        userInput > '' ? setUserInput(document.getElementById('episodeInput').value) : setEmpty([]);
+        userInput && setUserInput(document.getElementById('episodeInput').value);
     }
 
     return(
@@ -60,21 +51,21 @@ const EpisodeSearch = (props) => {
             {episodeArray > '' ? '' :<div className="flexWrapper">
                 <div className="flexCol">
                     <div className="searchCard" onClick={() => submitLinkEpisode('potion')}>
-                        <img className="homePic" src={potion}/>
+                        <img className="homePic" src={potion} alt='Rick Potion #9'/>
                         <h6>Rick Potion #9</h6>
                     </div>
                 </div>
-                 <img  src={loop}/>
+                 <img  src={loop} alt='Loop'/>
                 <div className="flexCol">
                     <div className="searchCard" onClick={() => submitLinkEpisode('mortynight')}>
-                        <img className="homePic" src={mortynight}/>
+                        <img className="homePic" src={mortynight} alt='Mortynight Run'/>
                         <h6>Mortynight Run</h6>
                     </div>
                 </div>
             </div>}
           
 
-            <EpisodeMap charPass={props.charPass} episodeArray={episodeArray} wiki={wiki} selectedEpi={setEpisodeArray}/>
+            <EpisodeMap charPass={props.charPass} episodeArray={episodeArray} selectedEpi={setEpisodeArray}/>
 
         </div>
     )

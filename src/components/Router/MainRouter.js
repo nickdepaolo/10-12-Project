@@ -21,7 +21,7 @@ const MainRouter = (props) => {
     useEffect(() => {
         setPassTrigger(true)
         charArray.splice(0, 1, charPass)
-    },[charPass])
+    },[charPass]) //eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
         setLocTrigger(true);
@@ -30,7 +30,7 @@ const MainRouter = (props) => {
     useEffect(() => {
         setEpiTrigger(true)
         epiArray.splice(0, 1, epiPass)
-    }, [epiPass])
+    }, [epiPass]) //eslint-disable-line react-hooks/exhaustive-deps
 
     return(
         <div>

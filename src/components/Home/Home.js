@@ -64,21 +64,21 @@ const Home = () => {
 
             <Link to={rickPath} >
             <div className="homeCard">
-              <img className="homePic" src={rickPic}/>
+              <img className="homePic" src={rickPic} alt='Rick Sanchez'/>
               <h6>Rick Sanchez</h6>
             </div>
             </Link>
 
             <Link to={antPath}>
             <div className="homeCard">
-              <img className="homePic" src={Ants}/>
+              <img className="homePic" src={Ants} alt='Ants in my Eyes Johnson'/>
               <h6>Ants in my Eyes Johnson</h6>
             </div>
             </Link>
 
             <Link to={ghostPath}>
             <div className="homeCard">
-              <img className="homePic" src={Ghost}/>
+              <img className="homePic" src={Ghost} alt='Ghost in a jar'/>
               <h6>Ghost in a jar</h6>
             </div>
             </Link>
@@ -92,21 +92,21 @@ const Home = () => {
 
             <Link to={vatPath}>
             <div className="homeCard">
-              <img className="homePic" src={Vat} />
+              <img className="homePic" src={Vat} alt='THe Vat of Acid Episode' />
               <h6>The Vat of Acid Episode</h6>
             </div>
             </Link>
 
             <Link to={picklePath}>
             <div className="homeCard">
-              <img className="homePic" src={PickleRick}/>
+              <img className="homePic" src={PickleRick} alt='Pickle Rick'/>
               <h6>Pickle Rick</h6>
             </div>
             </Link>
 
             <Link to={ricklantisPath}>
             <div className="homeCard">
-              <img className="homePic" src={SimpleRick}/>
+              <img className="homePic" src={SimpleRick} alt='The Ricklantis Mixup'/>
               <h6>The Ricklantis Mixup</h6>
             </div>
             </Link>
@@ -120,21 +120,21 @@ const Home = () => {
 
             <Link to={c137Path}>
             <div className="homeCard">
-              <img className="homePic" src={C137}/>
+              <img className="homePic" src={C137} alt='Earth (C-137)'/>
               <h6>Earth (C-137)</h6>
             </div>
             </Link>
 
             <Link to={citadelPath}>
             <div className="homeCard">
-              <img className="homePic" src={Citadel}/>
+              <img className="homePic" src={Citadel} alt='Citadel of Ricks'/>
               <h6>Citadel of Ricks</h6>
             </div>
             </Link>
 
             <Link to={snakePath}>
             <div className="homeCard">
-              <img className="homePic" src={Snake}/>
+              <img className="homePic" src={Snake} alt='Snake Planet'/>
               <h6>Snake Planet</h6>
             </div>
             </Link>
